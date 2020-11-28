@@ -1,0 +1,133 @@
+#layer0Btn,
+#layer1Btn,
+#layer2Btn,
+#layer3Btn {
+  text-align: center;
+  width: 80%;
+  border-radius: 10px;
+  height: 50px;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.popup0-menu {
+  background: rgb(47, 49, 63);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  min-width: 650px;
+  border-radius: 30px;
+  padding-bottom: 20px;
+  color: rgb(6, 6, 6);
+}
+
+.popup123-menu {
+  background: rgb(47, 49, 63);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 450px;
+  border-radius: 30px;
+  padding-bottom: 20px;
+  color: rgb(6, 6, 6);
+}
+
+.boxx {
+  position: relative;
+}
+
+#clos,
+#clos1,
+#clos2,
+#clos3 {
+  padding: 7px;
+
+  margin-left: 5%;
+  text-align: center;
+
+  width: 20%;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(61, 61, 61, 0.365);
+  z-index: 10;
+  margin-top: 15px;
+}
+
+.lineC {
+  cursor: pointer;
+  padding: 7px;
+  color: rgb(1, 5, 9);
+
+  margin: 15px 0px 0px 4%;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  width: 90%;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(120, 120, 120, 0.4);
+  z-index: 10;
+}
+
+.txNum {
+  color: rgb(255, 255, 255);
+  line-height: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  text-align: center;
+  background-color: rgb(47, 49, 63);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  padding-left: 50px;
+  padding-top: 5px;
+}
+
+.txNum:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.allTxNum {
+  float: left;
+  width: 40%;
+  text-align: center !important;
+}
+
+.filterdTxNum {
+  float: left;
+  width: 40%;
+  text-align: center;
+}
+
+.popup1-menu,
+.popup2-menu,
+.popup3-menu {
+  display: none;
+  background: rgb(47, 49, 63);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 400px;
+  border-radius: 30px;
+  padding-bottom: 20px;
+  color: rgb(6, 6, 6);
+}
+
+.txNum123 {
+  color: rgb(255, 255, 255);
+  line-height: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  text-align: center;
+  background-color: rgb(47, 49, 63);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  padding-top: 10px;
+}

@@ -1,0 +1,283 @@
+#inflow,
+#layer2,
+#layer3,
+#layer4 {
+  margin: auto 10px;
+  overflow-y: hidden;
+  border-radius: 10px;
+  color: #777;
+  background: #fff;
+  margin-bottom: 50px;
+  line-height: 22px;
+}
+
+#inflow {
+  max-height: 682px;
+  height: 800px;
+}
+
+#layer2 {
+  max-height: 360px;
+  height: 485px;
+  background: #fff;
+  font-size: 15px;
+}
+
+#layer3 {
+  max-height: 320px;
+  height: 440px;
+  background: #fff;
+  font-size: 14px;
+}
+
+#layer4 {
+  max-height: 281px;
+  height: 401px;
+  background: #fff;
+  font-size: 14px;
+}
+
+.btnTXs {
+  border-style: none;
+  background-color: transparent;
+  color: #777;
+}
+
+.layers {
+  min-height: 322px;
+  margin-bottom: 20px;
+}
+
+.dot {
+  margin-left: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+.dott {
+  width: 500px;
+  height: 300px;
+}
+
+.popup-menu {
+  display: none;
+  background: rgb(28, 29, 36);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: fixed;
+  top: 40%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  min-width: 450px;
+  border-radius: 30px;
+  padding-bottom: 20px;
+}
+
+.amount {
+  background-color: rgb(28, 29, 36);
+  color: rgb(244, 244, 244);
+  padding: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size: 15px;
+}
+
+.info-menu {
+  background-color: rgb(28, 29, 36);
+  color: rgb(255, 255, 255);
+  line-height: 30px;
+  padding-right: 10%;
+}
+
+.info-menu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.left-col {
+  float: left;
+  width: 40%;
+  text-align: right !important;
+}
+
+.right-col {
+  float: left;
+  width: 60%;
+  text-align: center;
+}
+
+.right-col:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.rl-col {
+  float: left;
+  width: 35%;
+  text-align: center;
+  padding-left: 15%;
+}
+
+.rr-col {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+.topp {
+  font-size: 15px;
+  color: rgb(89, 114, 255);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.lBot {
+  text-align: right !important;
+}
+
+.btn-menu {
+  padding: 30px 10px 0px 10px;
+  color: rgb(19, 19, 19);
+  background-color: rgb(28, 29, 36);
+  text-align: center !important;
+}
+
+.btn-menu div {
+  cursor: pointer;
+  padding: 15px 0px;
+  color: rgb(252, 252, 252);
+  margin-left: 15%;
+  text-align: center;
+  background-color: rgb(249, 74, 10);
+  width: 70%;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+#dx {
+  background-color: rgb(66, 86, 238);
+  margin-bottom: 10px;
+}
+
+#canc {
+  background-color: rgb(121, 121, 125);
+  margin-top: 10px;
+}
+
+.show-menu {
+  display: block !important;
+}
+
+#normal {
+  background-color: rgb(55, 55, 2);
+  color: white;
+  padding: 0 4px;
+  margin-right: 2px;
+}
+
+.txs {
+  color: rgb(164, 166, 172);
+  margin: 3px 0px 5px 0px;
+  font-size: 95%;
+}
+
+.allParts {
+  height: 20px;
+
+  text-align: center;
+  margin: 0px 25% 3px 25%;
+}
+
+.allParts:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.part1 {
+  float: left;
+  width: 50%;
+  height: 20px;
+  text-align: left !important;
+}
+
+.part2 {
+  float: left;
+  width: 50%;
+  height: 20px;
+  text-align: right;
+}
+
+.btnTXs {
+  height: 20px;
+  width: 100%;
+}
+
+.btnTXs:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#normal {
+  float: left;
+  width: 5%;
+  height: 20px;
+  text-align: center !important;
+}
+#addNormal {
+  float: left;
+  width: 5%;
+  height: 20px;
+  text-align: center !important;
+  background-color: rgb(66, 86, 238);
+  color: white;
+  padding: 0 4px;
+  margin-right: 2px;
+}
+
+#addFraud {
+  float: left;
+  width: 5%;
+  height: 20px;
+  text-align: center !important;
+  background-color: rgb(249, 74, 10);
+  color: white;
+  padding: 0 4px;
+  margin-right: 2px;
+}
+
+.parts {
+  float: left;
+  width: 80%;
+  height: 20px;
+  text-align: right;
+}
+
+.parts {
+  height: 20px;
+}
+
+.parts:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.part14 {
+  float: left;
+  width: 40%;
+  height: 20px;
+  text-align: left !important;
+}
+
+.part24 {
+  float: left;
+  width: 40%;
+  height: 20px;
+  text-align: right;
+}
