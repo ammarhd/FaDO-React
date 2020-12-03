@@ -36,6 +36,9 @@ function Extra() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+  const handleClose2 = () => {
+    setAnchorEl(null);
     setIsOpen(!isOpen);
   };
 
@@ -55,7 +58,7 @@ function Extra() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>View TX</MenuItem>
+        <MenuItem onClick={handleClose2}>View TX</MenuItem>
       </StyledMenu>
 
       {isOpen && (
@@ -95,7 +98,7 @@ function Extra() {
           <Button
             variant="contained"
             color="secondary"
-            onClick={handleClose}
+            onClick={handleClose2}
             id="closExtra"
           >
             Close

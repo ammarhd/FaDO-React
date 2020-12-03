@@ -28,7 +28,7 @@ import {
 function MainContent() {
   useEffect(() => {
     const interval = setInterval(() => {
-      for (var j = 0; j < 1000; j++) {
+      for (var j = 0; j < 100; j++) {
         generateOutput();
         generateOutput2();
         generateOutput3();

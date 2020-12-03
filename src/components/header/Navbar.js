@@ -2,6 +2,9 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Extra from "./Extra";
+import File from "./File";
+import Setup from "./Setup";
+import Help from "./Help";
 
 function Navbar() {
   return (
@@ -9,22 +12,16 @@ function Navbar() {
       <nav className="navbar">
         <ul>
           <li>
-            <Button aria-controls="simple-menu" aria-haspopup="true">
-              File
-            </Button>
+            <File />
           </li>
           <li>
-            <Button aria-controls="simple-menu" aria-haspopup="true">
-              Setup
-            </Button>
+            <Setup />
           </li>
           <li>
             <Extra />
           </li>
           <li>
-            <Button aria-controls="simple-menu" aria-haspopup="true">
-              Help
-            </Button>
+            <Help />
           </li>
         </ul>
       </nav>

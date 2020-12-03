@@ -92,12 +92,12 @@ const fado = () => {
 
     layer1count++;
 
-    if (tx[2] == 1) {
-      layer3tx = tx;
-      pics3 = pics0;
-      layer3vec = y_vec;
-      layer3count++;
-    }
+    
+      
+      
+    layer3vec = y_vec;
+      
+    
   }
   l0++;
   countNorm++;
