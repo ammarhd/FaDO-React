@@ -1,0 +1,69 @@
+.popupExtra {
+  background: rgb(47, 49, 63);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 400px;
+  border-radius: 30px;
+  padding-bottom: 20px;
+  color: rgb(242, 241, 241);
+}
+
+.txIndication {
+  text-align: center;
+  width: 50%;
+  margin-left: 25%;
+  line-height: 15px;
+}
+
+.colorCode {
+  width: 70%;
+  margin: 0px 0px 0px 25%;
+}
+
+.color1,
+.color2,
+.color3,
+.color4,
+.color5 {
+  width: 70%;
+
+  margin: 0px 0px 15px 0px;
+  text-align: center;
+}
+.color1 {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+.color2 {
+  background-color: rgb(231, 231, 231);
+  color: rgb(16, 16, 16);
+}
+.color3 {
+  background-color: rgb(160, 160, 160);
+  color: rgb(23, 23, 23);
+}
+.color4 {
+  background-color: rgb(91, 91, 91);
+  color: rgb(205, 205, 205);
+}
+.color5 {
+  background-color: rgb(0, 0, 0);
+  color: rgb(252, 252, 252);
+}
+
+#closExtra {
+  padding: 7px;
+
+  margin-left: 40%;
+  text-align: center;
+
+  width: 20%;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(61, 61, 61, 0.365);
+  z-index: 10;
+  margin-top: 10px;
+}

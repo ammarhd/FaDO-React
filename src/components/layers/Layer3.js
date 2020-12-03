@@ -1,12 +1,7 @@
 import React from "react";
 import SetPop3 from "./popups/SetPop3";
-import { generateOutput4 } from "./functions/generateOutputs";
 
 function Layer3(props) {
-  setInterval(() => {
-    generateOutput4();
-  }, 5000);
-
   return (
     <div>
       <div>

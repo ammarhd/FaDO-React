@@ -11,6 +11,11 @@
   line-height: 22px;
 }
 
+#layer3,
+#layer4 {
+  background: rgb(226, 239, 255) !important;
+}
+
 #inflow {
   max-height: 682px;
   height: 800px;
@@ -256,10 +261,6 @@
   width: 80%;
   height: 20px;
   text-align: right;
-}
-
-.parts {
-  height: 20px;
 }
 
 .parts:after {

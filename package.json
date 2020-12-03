@@ -15,6 +15,7 @@
     "react-chartjs-2": "^2.11.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
+    "react-select": "^3.1.1",
     "web-vitals": "^0.2.4",
     "weighted": "^0.3.0"
   },

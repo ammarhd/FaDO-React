@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import Button from "@material-ui/core/Button";
-import { layer2count } from "../functions/FaDO.js";
+import { layer2count } from "../functions/txConfig.js";
+import Pop2Config from "./Pop2Config";
 
 function SetPopup2(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,22 +32,7 @@ function SetPopup2(props) {
       >
         <h2>{props.name}</h2>
       </Button>
-      {isOpen && (
-        <div className="popup123-menu" id="layer1popup">
-          <div className="txNum123">
-            <div>Number of transactions</div>
-            <div id="count2">{count}</div>
-          </div>
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={togglePopup}
-            id="clos"
-          >
-            Close
-          </Button>
-        </div>
-      )}
+      {isOpen && <Pop2Config count={count} closePopup={togglePopup} />}
     </div>
   );
 }

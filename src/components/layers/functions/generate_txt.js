@@ -83,6 +83,6 @@ const generateTx = () => {
 
   let line = [sender, receiver, amount] + "," + senderInfo + "," + receiverInfo;
 
-  return [line, amount, senderInfo[0], receiverInfo[0]];
+  return [line, amount, senderInfo, receiverInfo];
 };
 export { generateTx };

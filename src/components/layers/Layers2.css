@@ -38,6 +38,20 @@
   color: rgb(6, 6, 6);
 }
 
+.popup11-menu {
+  background: rgb(47, 49, 63);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 600px;
+  border-radius: 30px;
+  padding-bottom: 20px;
+  color: rgb(6, 6, 6);
+}
+
 .boxx {
   position: relative;
 }
@@ -130,4 +144,62 @@
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
   z-index: 10;
   padding-top: 10px;
+}
+
+#closs {
+  padding: 7px;
+
+  margin-left: 5%;
+  text-align: center;
+
+  width: 20%;
+  border-radius: 10px;
+
+  margin-top: 15px;
+}
+.senderConfig {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.recieverConfig {
+  width: 80%;
+}
+.configs {
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+.cofigNames {
+  color: white;
+  text-align: right;
+  padding-top: 35px;
+}
+
+.cNames h4 {
+  line-height: 26px;
+}
+.cNameAmount {
+  color: white;
+  text-align: right;
+}
+
+.configAmount {
+  width: 81%;
+  margin: 10px 0px 0px 5%;
+}
+.configAmount2 {
+  width: 100%;
+}
+
+.senderNam {
+  color: white;
+  margin-right: 10%;
+  text-align: center;
+}
+
+.receiverNam {
+  color: white;
+  text-align: center;
+  margin-right: 30%;
 }

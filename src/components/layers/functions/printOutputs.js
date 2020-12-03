@@ -2,15 +2,18 @@ import { fadoN } from "./FaDO.js";
 var normalTX = [];
 var normalVec = [];
 var fraudTX = [];
-const printOutput = (token, pics, containerId) => {
+const printOutput = (token, containerId) => {
   let newTokenDiv = document.createElement("div");
   let nodeToken = document.createTextNode(token);
   newTokenDiv.appendChild(nodeToken);
   let tokenContianer = document.getElementById(containerId);
   tokenContianer.insertBefore(newTokenDiv, tokenContianer.childNodes[0]);
+  if (tokenContianer.childNodes.length > 35) {
+    tokenContianer.removeChild(tokenContianer.childNodes[35]);
+  }
 };
 
-const printOutput4 = (token, pics, token_vec, containerId) => {
+const printOutput4 = (token, token_vec, containerId) => {
   var allInfo = [];
   var partInfo = [];
   var loadInfo = [];
@@ -190,6 +193,9 @@ const printOutput4 = (token, pics, token_vec, containerId) => {
 
   let tokenContianer = document.getElementById(containerId);
   tokenContianer.insertBefore(newTokenDiv, tokenContianer.childNodes[0]);
+  if (tokenContianer.childNodes.length > 15) {
+    tokenContianer.removeChild(tokenContianer.childNodes[15]);
+  }
 };
 
 export { printOutput, printOutput4 };

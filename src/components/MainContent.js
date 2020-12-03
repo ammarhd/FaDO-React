@@ -3,6 +3,7 @@ import { Grid } from "@material-ui/core";
 import "./MainContent.css";
 import "./layers/Layers.css";
 import "./layers/Layers2.css";
+import "./header/Navbar.css";
 
 import Layer0 from "./layers/Layer0";
 import Layer1 from "./layers/Layer1";
@@ -14,6 +15,7 @@ import {
   generateOutput,
   generateOutput2,
   generateOutput3,
+  generateOutput4,
 } from "./layers/functions/generateOutputs";
 
 import {
@@ -26,10 +28,11 @@ import {
 function MainContent() {
   useEffect(() => {
     const interval = setInterval(() => {
-      for (var j = 0; j < 100; j++) {
+      for (var j = 0; j < 1000; j++) {
         generateOutput();
         generateOutput2();
         generateOutput3();
+        generateOutput4();
       }
     }, 1);
     return () => clearInterval(interval);

@@ -7,11 +7,11 @@ const counter0 = () => {
     count1 = txsCount1 - count11;
     count11 = txsCount1;
     if (count1 > 140) {
-      var layer0count = "Processed" + " " + count1 / 10 + " " + "TXs/sec";
+      var layer0count = ["Processed" + " " + count1 / 10 + " " + "TXs/sec"];
     } else if (count1 > 10) {
-      layer0count = "Processed" + " " + count1 * 6 + " " + "TXs/min";
+      layer0count = ["Processed" + " " + count1 * 6 + " " + "TXs/min"];
     } else {
-      layer0count = "Processed" + " " + count1 * 36 + " " + "TXs/hour";
+      layer0count = ["Processed" + " " + count1 * 36 + " " + "TXs/hour"];
     }
     document.getElementById("tx0").innerHTML = layer0count;
   }, 10000);
@@ -24,11 +24,11 @@ const counter1 = () => {
     count2 = txsCount2 - count22;
     count22 = txsCount2;
     if (count2 > 140) {
-      var layer1count = "Processed" + " " + count2 / 20 + " " + "TXs/sec";
+      var layer1count = ["Processed" + " " + count2 / 20 + " " + "TXs/sec"];
     } else if (count2 > 10) {
-      layer1count = "Processed" + " " + count2 * 3 + " " + "TXs/min";
+      layer1count = ["Processed" + " " + count2 * 3 + " " + "TXs/min"];
     } else {
-      layer1count = "Processed" + " " + count2 * 18 + " " + "TXs/hour";
+      layer1count = ["Processed" + " " + count2 * 18 + " " + "TXs/hour"];
     }
     document.getElementById("tx1").innerHTML = layer1count;
   }, 20000);
@@ -41,11 +41,11 @@ const counter2 = () => {
     count3 = txsCount3 - count33;
     count33 = txsCount3;
     if (count3 > 140) {
-      var layer2count = "Processed" + " " + count3 / 20 + " " + "TXs/sec";
+      var layer2count = ["Processed" + " " + count3 / 20 + " " + "TXs/sec"];
     } else if (count3 > 10) {
-      layer2count = "Processed" + " " + count3 * 3 + " " + "TXs/min";
+      layer2count = ["Processed" + " " + count3 * 3 + " " + "TXs/min"];
     } else {
-      layer2count = "Processed" + " " + count3 * 18 + " " + "TXs/hour";
+      layer2count = ["Processed" + " " + count3 * 18 + " " + "TXs/hour"];
     }
     document.getElementById("tx2").innerHTML = layer2count;
   }, 20000);
@@ -58,13 +58,13 @@ const counter3 = () => {
     count4 = txsCount4 - count44;
     count44 = txsCount4;
     if (count4 > 140) {
-      var layer3count = "Processed" + " " + count4 / 20 + " " + "TXs/sec";
+      var layer3count = ["Processed" + " " + count4 / 20 + " " + "TXs/sec"];
     } else if (count4 > 10) {
-      layer3count = "Processed" + " " + count4 * 3 + " " + "TXs/min";
+      layer3count = ["Processed" + " " + count4 * 3 + " " + "TXs/min"];
     } else if (count4 > 0) {
-      layer3count = "Processed" + " " + count4 * 18 + " " + "TXs/hour";
+      layer3count = ["Processed" + " " + count4 * 18 + " " + "TXs/hour"];
     } else {
-      layer3count = "Processed" + " " + 18 + " " + "TXs/3hours";
+      layer3count = ["Processed" + " " + 18 + " " + "TXs/3hours"];
     }
     document.getElementById("tx3").innerHTML = layer3count;
   }, 20000);

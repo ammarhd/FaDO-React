@@ -23,6 +23,10 @@ var pics1 = [];
 var pics2 = [];
 var pics3 = [];
 
+var amount = 0;
+var senderInfo = [];
+var receiverInfo = [];
+
 const fadoN = (normalVec) => {
   var l2norm = require("compute-l2norm");
   var y_vecN = normalVec;
@@ -52,10 +56,24 @@ const fado = () => {
   var tx = allAtr[0];
   y_vec = allAtr[1];
   pics0 = allAtr[2];
+  var amountt = allAtr[3];
+  var senderInfoo = allAtr[4];
+  var receiverInfoo = allAtr[5];
   var vecMinusW = [];
   var v_t = [];
   var gamma = 0;
   var w_new = [];
+
+  layer1tx = [];
+  layer2tx = [];
+  layer3tx = [];
+  pics1 = [];
+  pics2 = [];
+  pics3 = [];
+  layer3vec = [];
+  amount = 0;
+  senderInfo = [];
+  receiverInfo = [];
 
   for (let i = 0; i < 45; i++) {
     vecMinusW.push(y_vec[i] - w[i]);
@@ -65,19 +83,20 @@ const fado = () => {
   if (norm >= 1.65) {
     m_t++;
 
-    layer1tx.push(tx);
-    pics1.push(pics0);
+    layer1tx = tx;
+    pics1 = pics0;
+    
+    amount = amountt;
+    senderInfo = senderInfoo;
+    receiverInfo = receiverInfoo;
+
     layer1count++;
-    if (tx[1] == 1) {
-      layer2tx.push(tx);
-      pics2.push(pics0);
-      layer2count++;
-      if (tx[2] == 1) {
-        layer3tx.push(tx);
-        pics3.push(pics0);
-        layer3vec.push(y_vec);
-        layer3count++;
-      }
+
+    if (tx[2] == 1) {
+      layer3tx = tx;
+      pics3 = pics0;
+      layer3vec = y_vec;
+      layer3count++;
     }
   }
   l0++;
@@ -120,7 +139,7 @@ const fado = () => {
     console.log(l0);
     console.log(m_t / l0);
     */
-  console.log(averageTX);
+  //console.log(layer3tx);
 
   return tx;
 };
@@ -145,4 +164,7 @@ export {
   pics1,
   pics2,
   pics3,
+  amount,
+  senderInfo,
+  receiverInfo,
 };

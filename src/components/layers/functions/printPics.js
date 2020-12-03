@@ -81,6 +81,9 @@ const printPics1 = (token, pics, containerId) => {
 
   let tokenContianer = document.getElementById(containerId);
   tokenContianer.insertBefore(newTokenDiv, tokenContianer.childNodes[0]);
+  if (tokenContianer.childNodes.length > 35) {
+    tokenContianer.removeChild(tokenContianer.childNodes[35]);
+  }
 };
 
 const printPics4 = (token, pics, token_vec, containerId) => {
@@ -302,6 +305,9 @@ const printPics4 = (token, pics, token_vec, containerId) => {
 
   let tokenContianer = document.getElementById(containerId);
   tokenContianer.insertBefore(newTokenDiv, tokenContianer.childNodes[0]);
+  if (tokenContianer.childNodes.length > 15) {
+    tokenContianer.removeChild(tokenContianer.childNodes[15]);
+  }
 };
 
 export { printPics1, printPics4 };

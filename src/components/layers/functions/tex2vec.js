@@ -31,13 +31,14 @@ const tx2vec = () => {
   var vector = Array.from(Array(45), () => 0);
   var pics = [0, 0, 0];
   var j = 20;
+  var amounttt = 0;
 
   for (let i = 0; i < 20; i++) {
-    if (sCountry === allCountries[i]) {
+    if (sCountry[0] === allCountries[i]) {
       vector[i] = 1;
       var flag1 = i;
     }
-    if (rCountry === allCountries[i]) {
+    if (rCountry[0] === allCountries[i]) {
       vector[j] = 1;
       var flag2 = i;
     }
@@ -48,22 +49,27 @@ const tx2vec = () => {
 
   if (amountt < 101) {
     vector[40] = 1;
-    var txColor = "#01FF27";
+    amounttt = 1;
+    var txColor = "#ffffff";
   } else if ((amountt > 100) & (amountt < 1001)) {
     vector[41] = 1;
-    txColor = "#C4FE00";
+    amounttt = 2;
+    txColor = "#e7e7e7";
   } else if ((amountt > 1000) & (amountt < 10001)) {
     vector[42] = 1;
-    txColor = "#FFC100";
+    amounttt = 3;
+    txColor = "#a0a0a0";
   } else if ((amountt > 10000) & (amountt < 100001)) {
     vector[43] = 1;
-    txColor = "#FF5F01";
+    amounttt = 4;
+    txColor = "#5b5b5b";
   } else if (amountt > 100000) {
     vector[44] = 1;
-    txColor = "#FF0101";
+    amounttt = 5;
+    txColor = "#000000";
   }
   pics[2] = txColor;
 
-  return [txsLine, vector, pics];
+  return [txsLine, vector, pics, amounttt, sCountry, rCountry];
 };
 export { tx2vec };

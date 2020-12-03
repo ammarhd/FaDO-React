@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Button from "@material-ui/core/Button";
-import { layer3count } from "../functions/FaDO.js";
+import { layer3count } from "../functions/txConfig2.js";
 
 function SetPopup3(props) {
   const [isOpen, setIsOpen] = useState(false);
