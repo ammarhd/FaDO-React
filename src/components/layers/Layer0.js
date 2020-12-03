@@ -1,7 +1,6 @@
 import React from "react";
 
 import SetPop0 from "./popups/SetPop0";
-import logo from "./layer1.gif";
 
 function Layer0(props) {
   return (
