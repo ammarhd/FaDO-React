@@ -58,7 +58,7 @@ function Extra() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose2}>View TX</MenuItem>
+        <MenuItem onClick={handleClose2}>View transaction</MenuItem>
       </StyledMenu>
 
       {isOpen && (
@@ -67,7 +67,7 @@ function Extra() {
             <Grid item xs={12}>
               <div className="txIndication">
                 <div>
-                  <h4>TX Color Indecation</h4>
+                  <h4>TX Color Indication</h4>
                 </div>
                 <div>
                   <h5>Each color represents TX's amount of money </h5>

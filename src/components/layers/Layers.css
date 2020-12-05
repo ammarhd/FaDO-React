@@ -13,7 +13,7 @@
 
 #layer3,
 #layer4 {
-  background: rgb(226, 239, 255) !important;
+  background: rgb(255, 255, 255) !important;
 }
 
 #inflow {
@@ -60,7 +60,7 @@
 }
 
 .dott {
-  width: 500px;
+  width: 380px;
   height: 300px;
 }
 
@@ -192,7 +192,6 @@
 
 .allParts {
   height: 20px;
-
   text-align: center;
   margin: 0px 25% 3px 25%;
 }
@@ -219,7 +218,9 @@
 
 .btnTXs {
   height: 20px;
-  width: 100%;
+  text-align: center;
+  width: 80%;
+  margin: 0px 0px 3px 10%;
 }
 
 .btnTXs:after {
@@ -230,13 +231,13 @@
 
 #normal {
   float: left;
-  width: 5%;
+
   height: 20px;
   text-align: center !important;
 }
 #addNormal {
   float: left;
-  width: 5%;
+
   height: 20px;
   text-align: center !important;
   background-color: rgb(66, 86, 238);
@@ -247,7 +248,7 @@
 
 #addFraud {
   float: left;
-  width: 5%;
+
   height: 20px;
   text-align: center !important;
   background-color: rgb(249, 74, 10);
@@ -260,7 +261,7 @@
   float: left;
   width: 80%;
   height: 20px;
-  text-align: right;
+  text-align: left;
 }
 
 .parts:after {

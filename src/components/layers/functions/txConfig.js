@@ -1,5 +1,5 @@
 import {
-  layer1tx,
+  layer22tx,
   layer3vec,
   pics0,
   amount,
@@ -7,7 +7,7 @@ import {
   receiverInfo,
 } from "./FaDO.js";
 
-var layer2tx = layer1tx;
+var layer2tx = layer22tx;
 var pic2 = pics0;
 
 var configsArray = [];
@@ -16,21 +16,22 @@ var info = [];
 
 const recieveCall = (configrations) => {
   configsArray = configrations;
-  console.log(configsArray);
 };
 
 const setConfig = () => {
-  layer2tx = layer1tx;
+  layer2tx = layer22tx;
   pic2 = pics0;
   var vecLayer3 = layer3vec;
+  var amountt = amount;
   info = [];
+
   for (let j = 0; j < 6; j++) {
     info.push(senderInfo[j]);
     info.push(receiverInfo[j]);
   }
-  info.push(amount);
+  info.push(amountt);
   if (configsArray.length === 0) {
-    layer2tx = layer1tx;
+    layer2tx = layer22tx;
     pic2 = pics0;
     vecLayer3 = layer3vec;
   } else {

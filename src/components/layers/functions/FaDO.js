@@ -3,7 +3,7 @@ import { tx2vec } from "./tex2vec.js";
 var w = Array.from(Array(45), () => 0.0);
 var l0 = 0;
 var layer1tx = [];
-var layer2tx = [];
+var layer22tx = [];
 var layer3tx = [];
 var layer3vec = [];
 var m_t = 0;
@@ -65,7 +65,7 @@ const fado = () => {
   var w_new = [];
 
   layer1tx = [];
-  layer2tx = [];
+  layer22tx = [];
   layer3tx = [];
   pics1 = [];
   pics2 = [];
@@ -83,21 +83,23 @@ const fado = () => {
   if (norm >= 1.65) {
     m_t++;
 
-    layer1tx = tx;
-    pics1 = pics0;
-    
     amount = amountt;
+    layer1tx = tx;
+
+    if (amount > 4) {
+      layer22tx = layer1tx;
+      pics1 = pics0;
+    } else {
+      layer22tx = [];
+      pics1 = [];
+    }
+
     senderInfo = senderInfoo;
     receiverInfo = receiverInfoo;
 
     layer1count++;
 
-    
-      
-      
     layer3vec = y_vec;
-      
-    
   }
   l0++;
   countNorm++;
@@ -154,7 +156,7 @@ export {
   m_t,
   normArrayToDisplay,
   layer1tx,
-  layer2tx,
+  layer22tx,
   layer3tx,
   layer3vec,
   layer1count,

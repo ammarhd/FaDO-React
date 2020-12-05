@@ -239,7 +239,7 @@ function Pop2Config(props) {
           variant="contained"
           color="primary"
           onClick={applyConfigs}
-          id="closs"
+          id="clossA"
         >
           Apply
         </Button>

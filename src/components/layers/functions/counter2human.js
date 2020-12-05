@@ -44,8 +44,10 @@ const counter2 = () => {
       var layer2count = ["Processed" + " " + count3 / 20 + " " + "TXs/sec"];
     } else if (count3 > 10) {
       layer2count = ["Processed" + " " + count3 * 3 + " " + "TXs/min"];
-    } else {
+    } else if (count3 > 0) {
       layer2count = ["Processed" + " " + count3 * 18 + " " + "TXs/hour"];
+    } else {
+      layer2count = ["Processed" + " " + 18 + " " + "TXs/3hours"];
     }
     document.getElementById("tx2").innerHTML = layer2count;
   }, 20000);

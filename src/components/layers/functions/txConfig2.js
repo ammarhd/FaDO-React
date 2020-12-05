@@ -11,7 +11,6 @@ var info3 = [];
 
 const recieveCall2 = (configrations2) => {
   configsArray2 = configrations2;
-  console.log(configsArray2);
 };
 
 const setConfig2 = () => {
@@ -22,6 +21,11 @@ const setConfig2 = () => {
   info3 = allArray[3];
 
   if (layer3tx.length === 0) {
+    return [layer3tx, pic3, vec3];
+  } else if (info3[10] === "0" || info3[11] === "0") {
+    layer3tx = [];
+    pic3 = [];
+    vec3 = [];
     return [layer3tx, pic3, vec3];
   } else {
     if (configsArray2.length == 0) {

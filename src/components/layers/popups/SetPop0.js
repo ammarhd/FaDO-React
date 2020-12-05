@@ -36,7 +36,7 @@ function SetPopup0(props) {
     <div>
       <Button
         variant="contained"
-        color="primary"
+        color="default"
         component="span"
         id="layer1Btn"
         onClick={togglePopup}
@@ -61,7 +61,7 @@ function SetPopup0(props) {
             <BarChart />
             <Button
               variant="contained"
-              color="secondary"
+              color="default"
               onClick={togglePopup}
               id="clos"
             >

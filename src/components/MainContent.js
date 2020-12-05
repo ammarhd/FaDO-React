@@ -9,7 +9,7 @@ import Layer0 from "./layers/Layer0";
 import Layer1 from "./layers/Layer1";
 import Layer2 from "./layers/Layer2";
 import Layer3 from "./layers/Layer3";
-import image from "./defence.png";
+import image from "./fadoCC.png";
 
 import {
   generateOutput,
@@ -28,13 +28,13 @@ import {
 function MainContent() {
   useEffect(() => {
     const interval = setInterval(() => {
-      for (var j = 0; j < 100; j++) {
+      for (var j = 0; j < 10; j++) {
         generateOutput();
         generateOutput2();
         generateOutput3();
         generateOutput4();
       }
-    }, 1);
+    }, 40);
     return () => clearInterval(interval);
   }, []);
 
