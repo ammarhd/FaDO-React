@@ -1,6 +1,8 @@
 import { setConfig } from "./txConfig.js";
 
 var configsArray2 = [];
+configsArray2[10] = { value: "0" };
+configsArray2[11] = { value: "0" };
 var layer3count = 0;
 
 var allArray = [];
@@ -21,11 +23,6 @@ const setConfig2 = () => {
   info3 = allArray[3];
 
   if (layer3tx.length === 0) {
-    return [layer3tx, pic3, vec3];
-  } else if (info3[10] === "0" || info3[11] === "0") {
-    layer3tx = [];
-    pic3 = [];
-    vec3 = [];
     return [layer3tx, pic3, vec3];
   } else {
     if (configsArray2.length == 0) {

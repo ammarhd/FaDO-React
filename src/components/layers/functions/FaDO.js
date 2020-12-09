@@ -85,14 +85,8 @@ const fado = () => {
 
     amount = amountt;
     layer1tx = tx;
-
-    if (amount > 4) {
-      layer22tx = layer1tx;
-      pics1 = pics0;
-    } else {
-      layer22tx = [];
-      pics1 = [];
-    }
+    pics1 = pics0;
+    layer22tx = layer1tx;
 
     senderInfo = senderInfoo;
     receiverInfo = receiverInfoo;
