@@ -1,5 +1,5 @@
 import React from "react";
-import Paper from "@material-ui/core/Paper";
+
 import SetPop0 from "./popups/SetPop0";
 
 function Layer0(props) {
