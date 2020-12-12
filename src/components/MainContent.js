@@ -30,7 +30,7 @@ import {
   counter3,
 } from "./layers/functions/counter2human";
 
-const PrettoSlider = withStyles({
+const OurSlider = withStyles({
   root: {
     color: "#a4a4a4",
     height: 8,
@@ -146,9 +146,9 @@ function MainContent() {
         <Grid item xs={12} sm={4}>
           <div className="range-slider">
             <Typography id="non-linear-slider" gutterBottom>
-              TXs / Seconds
+              TXs / Second
             </Typography>
-            <PrettoSlider
+            <OurSlider
               value={value}
               min={1}
               step={1}
