@@ -1,12 +1,9 @@
-import React, {
-  Component,
-  memo,
-  useCallback,
-  useState,
-  useEffect,
-  useMemo,
-} from "react";
-import RangeSlider from "./RangeSlider";
+import React, { useState, useEffect } from "react";
+
+import { withStyles } from "@material-ui/core/styles";
+import Slider from "@material-ui/core/Slider";
+import Typography from "@material-ui/core/Typography";
+
 import { Grid } from "@material-ui/core";
 import "./MainContent.css";
 import "./layers/Layers.css";
@@ -33,30 +30,52 @@ import {
   counter3,
 } from "./layers/functions/counter2human";
 
+const PrettoSlider = withStyles({
+  root: {
+    color: "#a4a4a4",
+    height: 8,
+  },
+  thumb: {
+    height: 24,
+    width: 24,
+    backgroundColor: "#fff",
+    border: "2px solid currentColor",
+    marginTop: -8,
+    marginLeft: -12,
+    "&:focus, &:hover, &$active": {
+      boxShadow: "inherit",
+    },
+  },
+  active: {},
+  valueLabel: {
+    left: "calc(-50% + 4px)",
+  },
+  track: {
+    height: 8,
+    borderRadius: 4,
+  },
+  rail: {
+    height: 8,
+    borderRadius: 4,
+  },
+})(Slider);
+
+function valuetext(value) {
+  return `${value}°C`;
+}
+
 function MainContent() {
-  const [parentVal, setParentVal] = useState(1);
+  const [value, setValue] = useState(1);
 
-  const sliderValueChanged = useCallback((val) => {
-    console.log("NEW VALUE", val);
-    setParentVal(val);
-  });
-
-  const sliderProps = useMemo(
-    () => ({
-      min: 1,
-      max: 1000,
-      value: parentVal,
-      step: 2,
-      onChange: (e) => sliderValueChanged(e),
-    }),
-    [parentVal]
-  );
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   useEffect(() => {
-    var sliderToInterval = (1 / parentVal) * 1000;
-    if (parentVal > 900) {
+    var sliderToInterval = (1 / value) * 1000;
+    if (value > 900) {
       const interval = setInterval(() => {
-        for (var j = 0; j < parentVal; j++) {
+        for (var j = 0; j < value; j++) {
           generateOutput();
           generateOutput2();
           generateOutput3();
@@ -65,9 +84,9 @@ function MainContent() {
       }, 1);
       return () => clearInterval(interval);
     }
-    if (parentVal > 750) {
+    if (value > 750) {
       const interval = setInterval(() => {
-        for (var j = 0; j < parentVal; j++) {
+        for (var j = 0; j < value; j++) {
           generateOutput();
           generateOutput2();
           generateOutput3();
@@ -75,7 +94,7 @@ function MainContent() {
         }
       }, 1000);
       return () => clearInterval(interval);
-    } else if (parentVal > 600) {
+    } else if (value > 600) {
       const interval = setInterval(() => {
         for (var j = 0; j < 100; j++) {
           generateOutput();
@@ -85,7 +104,7 @@ function MainContent() {
         }
       }, sliderToInterval * 100);
       return () => clearInterval(interval);
-    } else if (parentVal > 500) {
+    } else if (value > 500) {
       const interval = setInterval(() => {
         for (var j = 0; j < 10; j++) {
           generateOutput();
@@ -95,7 +114,7 @@ function MainContent() {
         }
       }, sliderToInterval);
       return () => clearInterval(interval);
-    } else if (parentVal > 200) {
+    } else if (value > 200) {
       const interval = setInterval(() => {
         for (var j = 0; j < 10; j++) {
           generateOutput();
@@ -114,7 +133,7 @@ function MainContent() {
       }, sliderToInterval);
       return () => clearInterval(interval);
     }
-  }, [parentVal]);
+  }, [value]);
 
   counter0();
   counter1();
@@ -125,8 +144,20 @@ function MainContent() {
     <div>
       <Grid container>
         <Grid item xs={12} sm={4}>
-          <div>
-            <RangeSlider {...sliderProps} classes="additional-css-classes" />
+          <div className="range-slider">
+            <Typography id="non-linear-slider" gutterBottom>
+              TXs / Seconds
+            </Typography>
+            <PrettoSlider
+              value={value}
+              min={1}
+              step={1}
+              max={1000}
+              getAriaValueText={valuetext}
+              onChange={handleChange}
+              valueLabelDisplay="auto"
+              aria-labelledby="non-linear-slider"
+            />
           </div>
           <Layer0 />
         </Grid>
