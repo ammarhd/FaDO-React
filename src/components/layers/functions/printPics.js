@@ -48,34 +48,58 @@ var countries = [
 ];
 
 const printPics1 = (token, pics, containerId) => {
+  var allInfo = [];
+  allInfo = txToArray(token);
+
   let newTokenDiv = document.createElement("div");
 
   let allParts = document.createElement("div");
-  let part1 = document.createElement("div");
-  let part2 = document.createElement("div");
 
-  part1.style.backgroundColor = pics[2];
-  part2.style.backgroundColor = pics[2];
+  let middle = document.createElement("div");
+  let middleAmount = document.createElement("div");
+  let middleType1 = document.createElement("div");
+  let middleType2 = document.createElement("div");
+
+  middleAmount.style.backgroundColor = pics[2];
+
+  if (allInfo[4] === "Natural") {
+    middleType1.style.backgroundColor = "#ffffff";
+  } else {
+    middleType1.style.backgroundColor = "#366EEA";
+  }
+
+  if (allInfo[10] === "Natural") {
+    middleType2.style.backgroundColor = "#ffffff";
+  } else {
+    middleType2.style.backgroundColor = "#366EEA";
+  }
+
+  middleType1.classList.add("middleType1");
+  middleType2.classList.add("middleType2");
+  middleAmount.classList.add("middleAmount");
+
+  middle.appendChild(middleType1);
+  middle.appendChild(middleAmount);
+  middle.appendChild(middleType2);
 
   let pic1 = document.createElement("img");
   pic1.src = countries[pics[0]];
   let pic2 = document.createElement("img");
   pic2.src = countries[pics[1]];
 
-  pic1.setAttribute("width", "20");
-  pic1.setAttribute("height", "20");
-  pic2.setAttribute("width", "20");
-  pic2.setAttribute("height", "20");
+  pic1.classList.add("pic1");
+  pic2.classList.add("pic1");
 
   allParts.classList.add("allParts");
-  part1.classList.add("part1");
-  part2.classList.add("part2");
+  middle.classList.add("middle");
+  //part2.classList.add("part2");
 
-  part1.appendChild(pic1);
-  part2.appendChild(pic2);
+  //part1.appendChild(pic1);
+  //part2.appendChild(pic2);
 
-  allParts.appendChild(part1);
-  allParts.appendChild(part2);
+  allParts.appendChild(pic1);
+  allParts.appendChild(middle);
+  allParts.appendChild(pic2);
 
   newTokenDiv.appendChild(allParts);
 
@@ -88,91 +112,65 @@ const printPics1 = (token, pics, containerId) => {
 
 const printPics4 = (token, pics, token_vec, containerId) => {
   var allInfo = [];
-  var partInfo = [];
-  var loadInfo = [];
-  for (let i = 0; i < token.length; i++) {
-    if (token[i] == ",") {
-      loadInfo = partInfo;
-      partInfo = [];
-      allInfo.push(loadInfo);
-      i++;
-    }
-    partInfo += token[i];
-    if (i == token.length - 1) {
-      allInfo.push(partInfo);
-    }
-  }
-
-  for (let i = 0; i < allInfo.length; i++) {
-    if (i == 5 || i == 11) {
-      if (allInfo[i] == 1) {
-        allInfo[i] = "15 - 24";
-      } else if (allInfo[i] == 2) {
-        allInfo[i] = "25 - 49";
-      } else if (allInfo[i] == 3) {
-        allInfo[i] = "50 - 64";
-      } else if (allInfo[i] == 4) {
-        allInfo[i] = "65 - 79";
-      } else if (allInfo[i] == 5) {
-        allInfo[i] = "80 - Above";
-      } else if (i == 5) {
-        if (allInfo[i] == 0) {
-          allInfo[5] = "-";
-          allInfo[6] = "-";
-          allInfo[7] = "-";
-          allInfo[8] = "-";
-        }
-      } else if (i == 11) {
-        if (allInfo[i] == 0) {
-          allInfo[11] = "-";
-          allInfo[12] = "-";
-          allInfo[13] = "-";
-          allInfo[14] = "-";
-        }
-      }
-    } else if ((allInfo[i] == 0) & (i != 5) & (i != 11)) {
-      allInfo[i] = "No";
-    } else if ((allInfo[i] == 1) & (i != 5) & (i != 11)) {
-      allInfo[i] = "Yes";
-    }
-  }
+  allInfo = txToArray(token);
 
   let newTokenDiv = document.createElement("div");
   let s = "?";
   let btn = document.createElement("button");
   //btn.setAttribute('type', 'button')
-  btn.innerHTML = `<span id="normal">${s}</span>`;
   btn.setAttribute("style", "white-space: nowrap;");
 
   //new addition
 
   let allParts = document.createElement("div");
-  let part1 = document.createElement("div");
-  let part2 = document.createElement("div");
 
-  part1.style.backgroundColor = pics[2];
-  part2.style.backgroundColor = pics[2];
+  let label = document.createElement("div");
+  label.innerHTML = `<span id="normal">${s}</span>`;
+  label.classList.add("labell");
+
+  let middle = document.createElement("div");
+  let middleAmount = document.createElement("div");
+  let middleType1 = document.createElement("div");
+  let middleType2 = document.createElement("div");
+
+  middleAmount.style.backgroundColor = pics[2];
+
+  if (allInfo[4] === "Natural") {
+    middleType1.style.backgroundColor = "#ffffff";
+  } else {
+    middleType1.style.backgroundColor = "#366EEA";
+  }
+
+  if (allInfo[10] === "Natural") {
+    middleType2.style.backgroundColor = "#ffffff";
+  } else {
+    middleType2.style.backgroundColor = "#366EEA";
+  }
+
+  middleType1.classList.add("middleType1");
+  middleType2.classList.add("middleType2");
+  middleAmount.classList.add("middleAmount");
+
+  middle.appendChild(middleType1);
+  middle.appendChild(middleAmount);
+  middle.appendChild(middleType2);
 
   let pic1 = document.createElement("img");
   pic1.src = countries[pics[0]];
   let pic2 = document.createElement("img");
   pic2.src = countries[pics[1]];
 
-  pic1.setAttribute("width", "20");
-  pic1.setAttribute("height", "20");
-  pic2.setAttribute("width", "20");
-  pic2.setAttribute("height", "20");
+  pic1.classList.add("pic1");
+  pic2.classList.add("pic1");
 
   allParts.classList.add("Parts");
 
-  part1.classList.add("part14");
-  part2.classList.add("part24");
+  middle.classList.add("middle");
 
-  part1.appendChild(pic1);
-  part2.appendChild(pic2);
-
-  allParts.appendChild(part1);
-  allParts.appendChild(part2);
+  allParts.appendChild(label);
+  allParts.appendChild(pic1);
+  allParts.appendChild(middle);
+  allParts.appendChild(pic2);
 
   btn.appendChild(allParts);
 
@@ -283,7 +281,7 @@ const printPics4 = (token, pics, token_vec, containerId) => {
       menu.classList.remove("show-menu");
       return;
     } else if (btnValue == "Normal") {
-      btn.innerHTML = `<span id="add${btnValue}">${btnValue[0]}</span>`;
+      label.innerHTML = `<span id="add${btnValue}">${btnValue[0]}</span>`;
 
       btn.appendChild(allParts);
 
@@ -292,7 +290,7 @@ const printPics4 = (token, pics, token_vec, containerId) => {
       fadoN(normalVec);
       menu.classList.remove("show-menu");
     } else if (btnValue == "Fraud") {
-      btn.innerHTML = `<span id="add${btnValue}">${btnValue[0]}</span>`;
+      label.innerHTML = `<span id="add${btnValue}">${btnValue[0]}</span>`;
 
       btn.appendChild(allParts);
 
@@ -308,6 +306,59 @@ const printPics4 = (token, pics, token_vec, containerId) => {
   if (tokenContianer.childNodes.length > 15) {
     tokenContianer.removeChild(tokenContianer.childNodes[15]);
   }
+};
+
+const txToArray = (token) => {
+  var allInfo = [];
+  var partInfo = [];
+  var loadInfo = [];
+  for (let i = 0; i < token.length; i++) {
+    if (token[i] == ",") {
+      loadInfo = partInfo;
+      partInfo = [];
+      allInfo.push(loadInfo);
+      i++;
+    }
+    partInfo += token[i];
+    if (i == token.length - 1) {
+      allInfo.push(partInfo);
+    }
+  }
+
+  for (let i = 0; i < allInfo.length; i++) {
+    if (i == 5 || i == 11) {
+      if (allInfo[i] == 1) {
+        allInfo[i] = "15 - 24";
+      } else if (allInfo[i] == 2) {
+        allInfo[i] = "25 - 49";
+      } else if (allInfo[i] == 3) {
+        allInfo[i] = "50 - 64";
+      } else if (allInfo[i] == 4) {
+        allInfo[i] = "65 - 79";
+      } else if (allInfo[i] == 5) {
+        allInfo[i] = "80 - Above";
+      } else if (i == 5) {
+        if (allInfo[i] == 0) {
+          allInfo[5] = "-";
+          allInfo[6] = "-";
+          allInfo[7] = "-";
+          allInfo[8] = "-";
+        }
+      } else if (i == 11) {
+        if (allInfo[i] == 0) {
+          allInfo[11] = "-";
+          allInfo[12] = "-";
+          allInfo[13] = "-";
+          allInfo[14] = "-";
+        }
+      }
+    } else if ((allInfo[i] == 0) & (i != 5) & (i != 11)) {
+      allInfo[i] = "No";
+    } else if ((allInfo[i] == 1) & (i != 5) & (i != 11)) {
+      allInfo[i] = "Yes";
+    }
+  }
+  return allInfo;
 };
 
 export { printPics1, printPics4 };
