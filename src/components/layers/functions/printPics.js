@@ -65,13 +65,13 @@ const printPics1 = (token, pics, containerId) => {
   if (allInfo[4] === "Natural") {
     middleType1.style.backgroundColor = "#ffffff";
   } else {
-    middleType1.style.backgroundColor = "#366EEA";
+    middleType1.style.backgroundColor = "#47A0F8";
   }
 
   if (allInfo[10] === "Natural") {
     middleType2.style.backgroundColor = "#ffffff";
   } else {
-    middleType2.style.backgroundColor = "#366EEA";
+    middleType2.style.backgroundColor = "#47A0F8";
   }
 
   middleType1.classList.add("middleType1");
@@ -138,13 +138,13 @@ const printPics4 = (token, pics, token_vec, containerId) => {
   if (allInfo[4] === "Natural") {
     middleType1.style.backgroundColor = "#ffffff";
   } else {
-    middleType1.style.backgroundColor = "#366EEA";
+    middleType1.style.backgroundColor = "#47A0F8";
   }
 
   if (allInfo[10] === "Natural") {
     middleType2.style.backgroundColor = "#ffffff";
   } else {
-    middleType2.style.backgroundColor = "#366EEA";
+    middleType2.style.backgroundColor = "#47A0F8";
   }
 
   middleType1.classList.add("middleType1");

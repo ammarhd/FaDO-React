@@ -9,6 +9,7 @@ import "./MainContent.css";
 import "./layers/Layers.css";
 import "./layers/Layers2.css";
 import "./header/Navbar.css";
+import "./header/extra.css";
 
 import Layer0 from "./layers/Layer0";
 import Layer1 from "./layers/Layer1";

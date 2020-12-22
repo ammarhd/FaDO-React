@@ -1,5 +1,5 @@
 .popupExtra {
-  background: rgb(47, 49, 63);
+  background: #dfdfdf;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
   z-index: 10;
   position: fixed;
@@ -7,6 +7,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   min-width: 400px;
+  max-width: 600px;
   border-radius: 30px;
   padding-bottom: 20px;
   color: rgb(242, 241, 241);
@@ -17,42 +18,11 @@
   width: 50%;
   margin-left: 25%;
   line-height: 15px;
+  color: rgb(58, 58, 58);
 }
 
 .colorCode {
-  width: 70%;
-  margin: 0px 0px 0px 25%;
-}
-
-.color1,
-.color2,
-.color3,
-.color4,
-.color5 {
-  width: 70%;
-
-  margin: 0px 0px 15px 0px;
-  text-align: center;
-}
-.color1 {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-}
-.color2 {
-  background-color: rgb(231, 231, 231);
-  color: rgb(16, 16, 16);
-}
-.color3 {
-  background-color: rgb(160, 160, 160);
-  color: rgb(23, 23, 23);
-}
-.color4 {
-  background-color: rgb(91, 91, 91);
-  color: rgb(205, 205, 205);
-}
-.color5 {
-  background-color: rgb(0, 0, 0);
-  color: rgb(252, 252, 252);
+  width: 100%;
 }
 
 #closExtra {
