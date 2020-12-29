@@ -1,8 +1,8 @@
 import { setConfig } from "./txConfig.js";
 
 var configsArray2 = [];
-configsArray2[10] = { value: "0" };
-configsArray2[11] = { value: "0" };
+//configsArray2[10] = { value: "0" };
+//configsArray2[11] = { value: "0" };
 var layer3count = 0;
 
 var allArray = [];

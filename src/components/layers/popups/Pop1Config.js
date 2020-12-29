@@ -26,7 +26,7 @@ var prevConfigs = [
   "",
   "",
   "",
-  { value: "5", label: "$ > 100000" },
+  { value: "3", label: "1000 > $ < 10001" },
 ];
 
 function Pop1Config(props) {

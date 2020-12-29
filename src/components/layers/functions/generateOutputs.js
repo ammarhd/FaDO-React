@@ -16,6 +16,11 @@ var layer3txArray = [];
 var pics3Array = [];
 var layer3vecArray = [];
 
+var ii = 0;
+var f = 0;
+var n = 0;
+var label = "";
+var rand;
 /*
 const generateOutput = () => {
   let newOutput = fado();
@@ -74,6 +79,8 @@ const generateOutput4 = () => {
   var configg3 = configg[2];
   if (configg1.length > 0) {
     printPics4(configg1, configg2, configg3, "outflowLayer4");
+    randomLabels();
+
     txsCount4++;
     /*
     layer3txArray.shift();
@@ -81,6 +88,22 @@ const generateOutput4 = () => {
     layer3vecArray.shift();
     */
   }
+};
+
+const randomLabels = () => {
+  rand = Math.random();
+  if (rand < 0.001) {
+    label = "F";
+    f++;
+  } else {
+    label = "N";
+    n++;
+  }
+  ii++;
+
+  var l1 = ii + " TXs: (" + label + ") " + rand;
+  var l2 = "frauds= " + f + " ( " + (f / ii) * 100 + " %" + " ) ";
+  var l3 = "normals= " + n + " ( " + (n / ii) * 100 + " %" + " ) ";
 };
 
 /*
@@ -115,4 +138,9 @@ export {
   txsCount2,
   txsCount3,
   txsCount4,
+  ii,
+  f,
+  n,
+  label,
+  rand,
 };
