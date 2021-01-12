@@ -11,7 +11,7 @@ var layer2tx = layer22tx;
 var pic2 = pics0;
 
 var configsArray = [];
-configsArray[12] = { value: 3 };
+//configsArray[12] = { value: 3 };
 
 var layer2count = 0;
 var info = [];

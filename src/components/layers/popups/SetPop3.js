@@ -3,7 +3,16 @@ import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import { layer3count } from "../functions/txConfig2.js";
 
-import { ii, f, n, label, rand } from "../functions/generateOutputs";
+import {
+  ii,
+  f,
+  n,
+  label,
+  rand,
+  time,
+  minutes,
+  seconds,
+} from "../functions/generateOutputs";
 
 function SetPopup3(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +20,6 @@ function SetPopup3(props) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      var k = 1;
       for (var j = 0; j < 100; j++) {
         setCount((prevCount) => layer3count);
       }
@@ -35,20 +43,12 @@ function SetPopup3(props) {
         <h2>{props.name}</h2>
       </Button>
       {isOpen && (
-        <div className="popup123-menu" id="layer1popup">
+        <div className="popup33-menu" id="layer1popup">
           <div className="txNum123">
             <div>Number of transactions</div>
             <div id="count3">{count}</div>
-            <div id="count3">
-              {ii} TXs: ( {label} ) {rand}
-            </div>
-            <div id="count3">
-              Frauds= {f} ( {(f / ii) * 100} % )
-            </div>
-            <div id="count3">
-              Normals= {n} ( {(n / ii) * 100} % )
-            </div>
           </div>
+
           <Button
             variant="contained"
             color="secondary"

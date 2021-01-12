@@ -54,6 +54,21 @@
   color: rgb(6, 6, 6);
 }
 
+.popup33-menu {
+  background: rgb(47, 49, 63);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  min-width: 700px;
+  border-radius: 30px;
+  padding-bottom: 20px;
+  color: rgb(6, 6, 6);
+}
+
 .boxx {
   position: relative;
 }

@@ -9,6 +9,8 @@ import { Grid } from "@material-ui/core";
 import image1 from "../layers/functions/flags/AT.png";
 import image2 from "../layers/functions/flags/FR.png";
 
+import KPI from "./KPI.js";
+
 const StyledMenu = withStyles({
   paper: {
     border: "1px solid #d3d4d5",
@@ -32,6 +34,7 @@ const StyledMenu = withStyles({
 function Extra() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -43,6 +46,10 @@ function Extra() {
   const handleClose2 = () => {
     setAnchorEl(null);
     setIsOpen(!isOpen);
+  };
+  const handleClose3 = () => {
+    setAnchorEl(null);
+    setIsOpen2(!isOpen2);
   };
 
   return (
@@ -62,7 +69,9 @@ function Extra() {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose2}>TX Visualization</MenuItem>
+        <MenuItem onClick={handleClose3}>KPI's</MenuItem>
       </StyledMenu>
+      {isOpen2 && <KPI closePopup={handleClose3} />}
 
       {isOpen && (
         <div className="popupExtra">

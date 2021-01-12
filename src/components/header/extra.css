@@ -155,3 +155,100 @@
 .blur {
   opacity: 0.07;
 }
+
+.popup-kpi {
+  background: rgb(47, 49, 63);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  border-radius: 30px;
+  padding-bottom: 20px;
+  color: rgb(242, 239, 239);
+}
+
+.kpi {
+  margin: 5% 5%;
+}
+
+.kpi ul li {
+  margin: auto;
+  display: block;
+  line-height: 15px;
+  text-align: center;
+  padding: 15px 0px 15px 0px;
+  margin: 10px 0px 10px 0px;
+  background-color: rgb(41, 39, 39);
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+.kpi2 p {
+  line-height: 25px;
+  text-align: center;
+}
+
+.kpiButtons {
+  margin-left: 25%;
+}
+
+.float {
+  float: left;
+  width: 50%;
+  margin: 0px 15px;
+  text-align: right;
+}
+
+.float2 {
+  text-align: left;
+}
+
+#closss {
+  padding: 7px;
+
+  margin-left: 5%;
+  text-align: center;
+
+  width: 25%;
+  border-radius: 10px;
+
+  margin-top: 15px;
+  background-color: #464444 !important;
+  color: rgb(250, 250, 250);
+}
+
+#restart {
+  padding: 7px;
+
+  margin-left: 5%;
+  text-align: center;
+
+  width: 25%;
+  border-radius: 10px;
+
+  margin-top: 15px;
+  background-color: #f2f2f2 !important;
+  color: rgb(0, 0, 0);
+}
+
+.lists:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.list1 {
+  float: left;
+  width: 47.5%;
+  text-align: center !important;
+  margin-right: 5%;
+}
+
+.list2 {
+  float: left;
+  width: 47.5%;
+  text-align: center;
+}

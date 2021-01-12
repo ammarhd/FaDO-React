@@ -13,21 +13,23 @@ import {
 } from "./CofigInfo1";
 import { recieveCall } from "../functions/txConfig.js";
 
-var prevConfigs = [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  { value: "3", label: "1000 > $ < 10001" },
-];
+//var prevConfigs = [
+//  "",
+//  "",
+//  "",
+//  "",
+//  "",
+//  "",
+//  "",
+//  "",
+//  "",
+//  "",
+//  "",
+//  "",
+//  { value: "3", label: "1000 > $ < 10001" },
+//];
+
+var prevConfigs = ["", "", "", "", "", "", "", "", "", "", "", "", ""];
 
 function Pop1Config(props) {
   var selectedConfigs = ["", "", "", "", "", "", "", "", "", "", "", "", ""];

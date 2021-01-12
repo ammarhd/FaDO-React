@@ -27,6 +27,62 @@ var amount = 0;
 var senderInfo = [];
 var receiverInfo = [];
 
+// test veriables
+
+var na = 0;
+var nf = 0;
+var tvalue = 0;
+var fvalue = 0;
+var tp = 0;
+var fp = 0;
+var tn = 0;
+var fn = 0;
+var alarm = 0;
+
+const fraudd = (tx) => {
+  var fraud = 0;
+  var weighted = require("weighted");
+  var txx = tx.split(",");
+  if (txx[3] === "IT" || txx[9] === "IT") {
+    fraud = weighted.select([1, 0], [0.01, 0.99]);
+    return fraud;
+  } else {
+    fraud = weighted.select([1, 0], [0.001, 0.999]);
+    return fraud;
+  }
+};
+
+const adminstration = (fraud, alarm, tx, norm, vecMinusW) => {
+  var v_t = [];
+  var w_new = [];
+  var txxx = tx.split(",");
+  if (alarm === 1) {
+    na += 1;
+  }
+  if (fraud === 1) {
+    nf += 1;
+    fvalue += Math.floor(txxx[2]);
+  }
+  if (alarm === 1 && fraud === 1) {
+    tvalue += Math.floor(txxx[2]);
+    tp += 1;
+  } else if (alarm !== 1 && fraud === 1) {
+    fn += 1;
+  } else if (alarm === 1 && fraud !== 1) {
+    fp += 1;
+    var gamma = 1 / Math.sqrt(fp);
+    for (let i = 0; i < 45; i++) {
+      v_t.push(vecMinusW[i] / norm);
+      v_t[i] *= gamma;
+      w_new.push(w[i] + v_t[i]);
+    }
+
+    w = w_new;
+  } else {
+    tn += 1;
+  }
+};
+
 const fadoN = (normalVec) => {
   var l2norm = require("compute-l2norm");
   var y_vecN = normalVec;
@@ -75,12 +131,16 @@ const fado = () => {
   senderInfo = [];
   receiverInfo = [];
 
+  var fraud = fraudd(tx);
+
   for (let i = 0; i < 45; i++) {
     vecMinusW.push(y_vec[i] - w[i]);
     averageTX[i] += y_vec[i];
   }
   norm = l2norm(vecMinusW);
-  if (norm >= 1.65) {
+
+  if (norm >= 1.4) {
+    alarm = 1;
     m_t++;
 
     amount = amountt;
@@ -95,6 +155,8 @@ const fado = () => {
 
     layer3vec = y_vec;
   }
+  adminstration(fraud, alarm, tx, norm, vecMinusW);
+  alarm = 0;
   l0++;
   countNorm++;
 
@@ -163,4 +225,12 @@ export {
   amount,
   senderInfo,
   receiverInfo,
+  na,
+  nf,
+  tvalue,
+  fvalue,
+  tp,
+  fp,
+  tn,
+  fn,
 };

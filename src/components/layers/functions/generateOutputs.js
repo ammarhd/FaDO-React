@@ -3,6 +3,27 @@ import { setConfig } from "./txConfig.js";
 import { setConfig2 } from "./txConfig2.js";
 import { printOutput, printOutput4 } from "./printOutputs.js";
 import { printPics1, printPics4 } from "./printPics.js";
+
+var wholeData = [];
+var raws = [
+  "SenderID",
+  "ReceiverID",
+  "Amount",
+  "SenderCountry",
+  "SenderTypeOfPerson",
+  "SenderAgeGroup",
+  "SenderPoliticallyExposed",
+  "SenderHasChildren",
+  "SenderIsEmployed",
+  "ReceiverCountry",
+  "ReceiverTypeOfPerson",
+  "ReceiverAgeGroup",
+  "ReceiverPoliticallyExposed",
+  "ReceiverHasChildren",
+  "ReceiverIsEmployed",
+];
+wholeData.push(raws);
+
 var txsCount1 = 0;
 var txsCount2 = 0;
 var txsCount3 = 0;
@@ -21,6 +42,18 @@ var f = 0;
 var n = 0;
 var label = "";
 var rand;
+
+var start = new Date().getTime();
+var end = 0;
+var time = 0;
+var minutes = 0;
+var minute2 = 0;
+var seconds = 0;
+var second2 = 0;
+var i = 0;
+
+var data = [];
+
 /*
 const generateOutput = () => {
   let newOutput = fado();
@@ -45,6 +78,22 @@ const generateOutput = () => {
   let newOutput = fado();
   printOutput(newOutput, "inflowLayer1");
   txsCount1++;
+  //raws = [];
+  //raws.push(newOutput);
+  //
+  //wholeData.push(raws);
+  //
+  //if (txsCount1 === 1000000) {
+  //  var arrayContent = [["Séjour 1, é,í,ú,ü,ű"], ["Séjour 2, é,í,ú,ü,ű"]];
+  //  var csvContent = wholeData.join("\n");
+  //  var link = window.document.createElement("a");
+  //  link.setAttribute(
+  //    "href",
+  //    "data:text/csv;charset=utf-8,%EF%BB%BF" + encodeURI(csvContent)
+  //  );
+  //  link.setAttribute("download", "./data.csv");
+  //  link.click();
+  //}
 };
 
 const generateOutput2 = () => {
@@ -79,7 +128,6 @@ const generateOutput4 = () => {
   var configg3 = configg[2];
   if (configg1.length > 0) {
     printPics4(configg1, configg2, configg3, "outflowLayer4");
-    randomLabels();
 
     txsCount4++;
     /*
@@ -104,6 +152,27 @@ const randomLabels = () => {
   var l1 = ii + " TXs: (" + label + ") " + rand;
   var l2 = "frauds= " + f + " ( " + (f / ii) * 100 + " %" + " ) ";
   var l3 = "normals= " + n + " ( " + (n / ii) * 100 + " %" + " ) ";
+  setTimeout(function () {
+    end = new Date().getTime();
+    time = end - start;
+    minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+    seconds = Math.floor((time % (1000 * 60)) / 1000);
+  }, 1000);
+
+  if (second2 === seconds) {
+    var obj = {
+      id: i,
+      F: (f / ii) * 100,
+    };
+
+    i++;
+    data.push(obj);
+
+    second2 = seconds + 15;
+    if (second2 == 60) {
+      second2 = 0;
+    }
+  }
 };
 
 /*
@@ -143,4 +212,7 @@ export {
   n,
   label,
   rand,
+  time,
+  minutes,
+  seconds,
 };
