@@ -162,7 +162,7 @@ function KPI(props) {
           onClick={restart}
           id="restart"
         >
-          Restart
+          Reset
         </Button>
 
         <Button

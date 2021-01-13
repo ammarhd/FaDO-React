@@ -69,7 +69,7 @@ function Extra() {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose2}>TX Visualization</MenuItem>
-        <MenuItem onClick={handleClose3}>KPI's</MenuItem>
+        <MenuItem onClick={handleClose3}>Case Study</MenuItem>
       </StyledMenu>
       {isOpen2 && <KPI closePopup={handleClose3} />}
 
