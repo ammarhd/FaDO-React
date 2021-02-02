@@ -10,9 +10,11 @@ import {
   tn,
   fn,
   l0,
-} from "../layers/functions/FaDO.js";
+} from "../../../mainContent/layers/functions/FaDO.js";
+import "./extra.css";
+import "../Navbar.css";
 
-import { l0c } from "../layers/functions/counter2human";
+import { l0c } from "../../../mainContent/layers/functions/counter2human";
 
 var nAlarm = 0;
 var nFrauds = 0;

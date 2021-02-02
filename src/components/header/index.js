@@ -1,10 +1,10 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Navbar from "./header/Navbar";
-import Logo from "./header/Logo";
+import Navbar from "./navbar";
+import Logo from "./logo";
+import "./Header.css";
 
 import "./Header.css";
-import { Paper } from "@material-ui/core";
 
 function Header() {
   return (

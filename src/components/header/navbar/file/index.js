@@ -28,6 +28,7 @@ const StyledMenu = withStyles({
 
 function File() {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [file, setFile] = useState("");
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -37,6 +38,14 @@ function File() {
     setAnchorEl(null);
   };
 
+  const handleChange = (e) => {
+    const fileReader = new FileReader();
+    fileReader.readAsText(e.target.file, "UTF-8");
+    fileReader.onload = (e) => {
+      setFile(e.target.result);
+    };
+    handleClose();
+  };
   return (
     <div>
       <Button
@@ -53,7 +62,9 @@ function File() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Upload Data</MenuItem>
+        <MenuItem label="Folder" onClick={handleChange}>
+          Upload Data
+        </MenuItem>
         <MenuItem onClick={handleClose}>Close</MenuItem>
       </StyledMenu>
     </div>

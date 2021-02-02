@@ -5,9 +5,11 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { withStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
+import "./extra.css";
+import "../Navbar.css";
 
-import image1 from "../layers/functions/flags/AT.png";
-import image2 from "../layers/functions/flags/FR.png";
+import image1 from "../../../mainContent/layers/functions/flags/AT.png";
+import image2 from "../../../mainContent/layers/functions/flags/FR.png";
 
 import KPI from "./KPI.js";
 

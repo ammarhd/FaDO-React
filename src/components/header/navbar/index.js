@@ -1,10 +1,10 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import Extra from "./Extra";
-import File from "./File";
-import Setup from "./Setup";
-import Help from "./Help";
+import Extra from "./extra";
+import File from "./file";
+import Setup from "./setup";
+import Help from "./help";
 
 function Navbar() {
   return (
