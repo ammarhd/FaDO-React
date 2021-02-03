@@ -1,0 +1,19 @@
+{"tx":{
+    "senderCountry":["SE","DE","UK","US","FR"],
+    "receiverCountry":["SE","DE","UK","US","FR"],
+    "amount":["10","100","1000"],
+    "senderPEP":["yes","no"],
+    "receiverPEP":["yes","no"]
+}, 
+"visualization":{
+    "senderCountry":"flag",
+    "receiverCountry":"flag",
+    "amount":{"10": "#DDDDD", "100": "#AAAAA", "1000": "#ccccc"}
+},
+"txToVec":{
+    
+    "senderCountry":"onehotencoding",
+    "receiverCountry":"onehotencoding",
+    "amount":"onehotencoding"
+}
+}
