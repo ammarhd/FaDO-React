@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
 import { withStyles } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
+import { useSelector, useDispatch } from "react-redux";
+import { setConfig } from "../../../../features/configSlice";
 
 const StyledMenu = withStyles({
   paper: {
@@ -29,6 +29,8 @@ const StyledMenu = withStyles({
 function File() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [file, setFile] = useState("");
+
+  const dispatch = useDispatch();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -62,7 +64,7 @@ function File() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem label="Folder" onClick={handleChange}>
+        <MenuItem label="Folder" onClick={handleClose}>
           Upload Data
         </MenuItem>
         <MenuItem onClick={handleClose}>Close</MenuItem>
