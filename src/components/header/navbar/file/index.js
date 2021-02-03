@@ -6,7 +6,8 @@ import MenuList from "@material-ui/core/MenuList";
 import { withStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
-import { setConfig } from "../../../../features/configSlice";
+import { setConfigFile } from "../../../../features/configSlice";
+
 const StyledMenu = withStyles({
   paper: {
     border: "1px solid #d3d4d5",
@@ -29,7 +30,7 @@ const StyledMenu = withStyles({
 
 function File() {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [files, setFiles] = useState("");
+  const [file, setFile] = useState("");
   const dispatch = useDispatch();
 
   const handleClick = (event) => {
@@ -46,9 +47,12 @@ function File() {
     fileReader.onload = (e) => {
       var target = e.target;
       var data = JSON.parse(target.result);
+      setFile(data);
       console.log(data);
-      setFiles(data);
+      dispatch(setConfigFile(data));
     };
+    document.getElementById("btnsubmit").value = "";
+
     handleClose();
     //let files = e.target.files;
     //let reader = new FileReader;
@@ -71,7 +75,12 @@ function File() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <input type="file" name="file" onChange={(e) => handleChange(e)} />
+        <input
+          id="btnsubmit"
+          type="file"
+          name="file"
+          onChange={(e) => handleChange(e)}
+        />
       </StyledMenu>
     </div>
   );

@@ -1,14 +1,28 @@
 {"tx":{
-    "senderCountry":["SE","DE","UK","US","FR"],
-    "receiverCountry":["SE","DE","UK","US","FR"],
+    "senderID": "id",
+    "receiverID": "id",
     "amount":["10","100","1000"],
-    "senderPEP":["yes","no"],
-    "receiverPEP":["yes","no"]
+    "senderCountry":["SE","DE","UK","US","FR"],
+    "senderTypeOfPerson": ["Legal","Natural"],
+    "senderAgeGroup": ["0","1","2","3","4","5"],
+    "senderPEP": ["0","1"],
+    "senderChildren": ["0","1"],
+    "senderEmployed": ["0","1"],
+    "receiverCountry":["SE","DE","UK","US","FR"],
+    "receiverTypeOfPerson": ["Legal","Natural"],
+    "receiverAgeGroup": ["0","1","2","3","4","5"],
+    "receiverPEP": ["0","1"],
+    "receiverChildren": ["0","1"],
+    "receiverEmployed": ["0","1"]
+   
 }, 
 "visualization":{
-    "senderCountry":"flag",
-    "receiverCountry":"flag",
-    "amount":{"10": "#DDDDD", "100": "#AAAAA", "1000": "#ccccc"}
+    "senderCountry":{"flag": ["mmcdc","wddde"], "width":"20px"},
+    "senderTypeOfPerson":{"color": ["#fffff","#acacad"], "width":"10px"},
+    "amount":{"color": ["#DDDDD","#AAAAA","#ccccc"], "width":"40px"},
+    "receiverTypeOfPerson":{"color": ["#fffff","#acacad"], "width":"10px"},
+    "receiverCountry":{"flag": ["mmcdc","wddde"], "width":"20px"}
+    
 },
 "txToVec":{
     
