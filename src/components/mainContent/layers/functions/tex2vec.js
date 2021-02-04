@@ -1,3 +1,5 @@
+//import { useSelector, useDispatch } from "react-redux";
+
 import { generateTx } from "./generate_txt.js";
 const allCountries = [
   "DE",
@@ -23,6 +25,7 @@ const allCountries = [
 ];
 
 const tx2vec = () => {
+  //const data = useSelector((state) => state.configs);
   var allAtr = generateTx();
   var txsLine = allAtr[0];
   var sCountry = allAtr[2];
