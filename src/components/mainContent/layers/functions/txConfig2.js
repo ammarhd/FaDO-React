@@ -1,4 +1,4 @@
-import { setConfig } from "./txConfig.js";
+//import { setConfig } from "./txConfig.js";
 
 var configsArray2 = [];
 //configsArray2[10] = { value: "0" };

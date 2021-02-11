@@ -9,8 +9,8 @@ import {
   fp,
   tn,
   fn,
-  l0,
-} from "../../../mainContent/layers/functions/FaDO.js";
+} from "../../../mainContent/layers/functions/FaDO/adminstration";
+import { layer0count } from "../../../mainContent/layers/functions/FaDO";
 import "./extra.css";
 import "../Navbar.css";
 
@@ -27,7 +27,7 @@ var falseN = 0;
 var allTxs = 0;
 
 function KPI(props) {
-  const [count1, setCount1] = useState(l0);
+  const [count1, setCount1] = useState(layer0count);
   const [count2, setCount2] = useState(tp);
   const [count3, setCount3] = useState(fp);
   const [count4, setCount4] = useState(tn);
@@ -41,7 +41,7 @@ function KPI(props) {
   useEffect(() => {
     const interval = setInterval(() => {
       for (var j = 0; j < 100; j++) {
-        setCount1((prevCount) => l0 - allTxs);
+        setCount1((prevCount) => layer0count - allTxs);
         setCount2((prevCount) => tp - trueP);
         setCount3((prevCount) => fp - falseP);
         setCount4((prevCount) => tn - trueN);
@@ -65,7 +65,7 @@ function KPI(props) {
     falseP = fp;
     trueN = tn;
     falseN = fn;
-    allTxs = l0;
+    allTxs = layer0count;
   }
 
   function recall() {

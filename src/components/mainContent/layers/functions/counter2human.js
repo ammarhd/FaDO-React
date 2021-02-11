@@ -1,39 +1,38 @@
-import { txsCount1, txsCount2, txsCount3, txsCount4 } from "./generateOutputs";
+import { txsCount0 } from "./outputs";
 
 var l0c;
-const counter0 = () => {
+const counter0 = (txsCount0) => {
   var count1 = 0;
-  var count11 = txsCount1 / 10;
-  setInterval(() => {
-    count1 = txsCount1 - count11;
-    count11 = txsCount1;
-    if (count1 > 140) {
-      var num = count1 / 10;
-      var num2 = num.toFixed(2);
-      var layer0count = ["Processed" + " " + num2 + " " + "TXs/sec"];
-      l0c = [num2 + " " + "TXs/sec"];
-    } else if (count1 > 10) {
-      num = count1 * 6;
-      num2 = num.toFixed(2);
-      layer0count = ["Processed" + " " + num2 + " " + "TXs/min"];
-      l0c = [num2 + " " + "TXs/min"];
-    } else {
-      num = count1 * 36;
-      num2 = num.toFixed(2);
-      layer0count = ["Processed" + " " + num2 + " " + "TXs/hour"];
-      l0c = [num2 + " " + "TXs/hour"];
-    }
+  var count11 = txsCount0 / 10;
 
-    document.getElementById("tx0").innerHTML = layer0count;
-  }, 10000);
+  count1 = txsCount0 - count11;
+  count11 = txsCount0;
+  if (count1 > 140) {
+    var num = count1 / 10;
+    var num2 = num.toFixed(2);
+    var layer0count = ["Processed" + " " + num2 + " " + "TXs/sec"];
+    l0c = [num2 + " " + "TXs/sec"];
+  } else if (count1 > 10) {
+    num = count1 * 6;
+    num2 = num.toFixed(2);
+    layer0count = ["Processed" + " " + num2 + " " + "TXs/min"];
+    l0c = [num2 + " " + "TXs/min"];
+  } else {
+    num = count1 * 36;
+    num2 = num.toFixed(2);
+    layer0count = ["Processed" + " " + num2 + " " + "TXs/hour"];
+    l0c = [num2 + " " + "TXs/hour"];
+  }
+
+  document.getElementById("tx0").innerHTML = layer0count;
 };
 
-const counter1 = () => {
+const counter1 = (txsCount1) => {
   var count2 = 0;
-  var count22 = txsCount2 / 20;
+  var count22 = txsCount1 / 20;
   setInterval(() => {
-    count2 = txsCount2 - count22;
-    count22 = txsCount2;
+    count2 = txsCount1 - count22;
+    count22 = txsCount1;
     if (count2 > 140) {
       var num = count2 / 20;
       var num2 = num.toFixed(2);
@@ -51,12 +50,12 @@ const counter1 = () => {
   }, 20000);
 };
 
-const counter2 = () => {
+const counter2 = (txsCount2) => {
   var count3 = 0;
-  var count33 = txsCount3 / 20;
+  var count33 = txsCount2 / 20;
   setInterval(() => {
-    count3 = txsCount3 - count33;
-    count33 = txsCount3;
+    count3 = txsCount2 - count33;
+    count33 = txsCount2;
     if (count3 > 140) {
       var num = count3 / 20;
       var num2 = num.toFixed(2);
@@ -76,12 +75,12 @@ const counter2 = () => {
   }, 20000);
 };
 
-const counter3 = () => {
+const counter3 = (txsCount3) => {
   var count4 = 0;
-  var count44 = txsCount4 / 20;
+  var count44 = txsCount3 / 20;
   setInterval(() => {
-    count4 = txsCount4 - count44;
-    count44 = txsCount4;
+    count4 = txsCount3 - count44;
+    count44 = txsCount3;
     if (count4 > 140) {
       var num = count4 / 20;
       var num2 = num.toFixed(2);
@@ -103,10 +102,10 @@ const counter3 = () => {
 
 const cEfficiency = () => {
   var count1 = 0;
-  var count11 = txsCount1 / 10;
+  var count11 = txsCount0 / 10;
   setInterval(() => {
-    count1 = txsCount1 - count11;
-    count11 = txsCount1;
+    count1 = txsCount0 - count11;
+    count11 = txsCount0;
     if (count1 > 140) {
       var num = count1 / 10;
       var num2 = num.toFixed(2);

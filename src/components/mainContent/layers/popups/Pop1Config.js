@@ -11,7 +11,7 @@ import {
   employment,
   amount,
 } from "./CofigInfo1";
-import { recieveCall } from "../functions/txConfig.js";
+//import { recieveCall } from "../functions/txConfig.js";
 
 //var prevConfigs = [
 //  "",
@@ -66,11 +66,11 @@ function Pop1Config(props) {
   const [amountt, setAmount] = useState(prevConfigs[12]);
   selectedConfigs[12] = amountt;
 
-  function applyConfigs() {
-    prevConfigs = selectedConfigs;
-    recieveCall(prevConfigs);
-    props.closePopup();
-  }
+  //function applyConfigs() {
+  //  prevConfigs = selectedConfigs;
+  //  recieveCall(prevConfigs);
+  //  props.closePopup();
+  //}
 
   return (
     <div className="popup11-menu" id="layer1popup">
@@ -251,12 +251,7 @@ function Pop1Config(props) {
         </Grid>
       </div>
       <div className="configsButtons">
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={applyConfigs}
-          id="clossA"
-        >
+        <Button variant="contained" color="primary" id="clossA">
           Apply
         </Button>
 

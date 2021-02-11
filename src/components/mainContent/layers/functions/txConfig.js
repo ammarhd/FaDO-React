@@ -1,20 +1,20 @@
-import {
-  layer22tx,
-  layer3vec,
-  pics0,
-  amount,
-  senderInfo,
-  receiverInfo,
-} from "./FaDO.js";
+//import {
+//  layer22tx,
+//  layer3vec,
+//  pics0,
+//  amount,
+//  senderInfo,
+//  receiverInfo,
+//} from "./FaDO";
 
-var layer2tx = layer22tx;
-var pic2 = pics0;
-
-var configsArray = [];
-//configsArray[12] = { value: 3 };
-
-var layer2count = 0;
-var info = [];
+//var layer2tx = layer22tx;
+//var pic2 = pics0;
+//
+//var configsArray = [];
+////configsArray[12] = { value: 3 };
+//
+//var layer2count = 0;
+//var info = [];
 
 const recieveCall = (configrations) => {
   configsArray = configrations;
@@ -52,4 +52,4 @@ const setConfig = () => {
   return [layer2tx, pic2, vecLayer3, info];
 };
 
-export { setConfig, recieveCall, layer2count };
+//export { setConfig, recieveCall, layer2count };

@@ -1,27 +1,16 @@
 import React, { useState, useEffect } from "react";
 
 import Button from "@material-ui/core/Button";
-import { layer3count } from "../functions/txConfig2.js";
-
-import {
-  ii,
-  f,
-  n,
-  label,
-  rand,
-  time,
-  minutes,
-  seconds,
-} from "../functions/generateOutputs";
+import { layer1count } from "../functions/FaDO";
 
 function SetPopup3(props) {
   const [isOpen, setIsOpen] = useState(false);
-  const [count, setCount] = useState(layer3count);
+  const [count, setCount] = useState(layer1count);
 
   useEffect(() => {
     const interval = setInterval(() => {
       for (var j = 0; j < 100; j++) {
-        setCount((prevCount) => layer3count);
+        setCount((prevCount) => layer1count);
       }
     }, 10);
     return () => clearInterval(interval);

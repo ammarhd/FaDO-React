@@ -5,13 +5,13 @@ import LineChart from "../charts/LineChart";
 
 import Button from "@material-ui/core/Button";
 
-import { l0, m_t } from "../functions/FaDO.js";
+import { layer0count, numFlagTx } from "../functions/FaDO";
 
 function SetPopup0(props) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [count1, setCount1] = useState(l0);
-  const [count2, setCount2] = useState(m_t);
+  const [count1, setCount1] = useState(layer0count);
+  const [count2, setCount2] = useState(numFlagTx);
 
   //function countAll() {
   //  setCount1((prevCount) => 0 + l0);
@@ -21,8 +21,8 @@ function SetPopup0(props) {
   useEffect(() => {
     const interval = setInterval(() => {
       for (var j = 0; j < 100; j++) {
-        setCount1((prevCount) => 0 + l0);
-        setCount2((prevCount) => 0 + m_t);
+        setCount1((prevCount) => 0 + layer0count);
+        setCount2((prevCount) => 0 + numFlagTx);
       }
     }, 1);
     return () => clearInterval(interval);

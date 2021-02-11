@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Button from "@material-ui/core/Button";
-import { layer1count } from "../functions/FaDO.js";
+import { layer1count } from "../functions/FaDO";
 import { Grid } from "@material-ui/core";
 import Pop1Config from "./Pop1Config";
 

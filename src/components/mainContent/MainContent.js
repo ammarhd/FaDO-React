@@ -18,18 +18,13 @@ import Layer3 from "./layers/Layer3";
 import image from "./fadoCC.png";
 
 import {
-  generateOutput,
-  generateOutput2,
-  generateOutput3,
-  generateOutput4,
-} from "./layers/functions/generateOutputs";
-
-import {
   counter0,
   counter1,
   counter2,
   counter3,
 } from "./layers/functions/counter2human";
+
+import main from "./layers/functions/main";
 
 const OurSlider = withStyles({
   root: {
@@ -77,10 +72,11 @@ function MainContent() {
     if (value > 900) {
       const interval = setInterval(() => {
         for (var j = 0; j < value; j++) {
-          generateOutput();
-          generateOutput2();
-          generateOutput3();
-          generateOutput4();
+          main();
+          //generateOutput();
+          //generateOutput2();
+          //generateOutput3();
+          //generateOutput4();
         }
       }, 1);
       return () => clearInterval(interval);
@@ -88,58 +84,43 @@ function MainContent() {
     if (value > 750) {
       const interval = setInterval(() => {
         for (var j = 0; j < value; j++) {
-          generateOutput();
-          generateOutput2();
-          generateOutput3();
-          generateOutput4();
+          main();
         }
       }, 1000);
       return () => clearInterval(interval);
     } else if (value > 600) {
       const interval = setInterval(() => {
         for (var j = 0; j < 100; j++) {
-          generateOutput();
-          generateOutput2();
-          generateOutput3();
-          generateOutput4();
+          main();
         }
       }, sliderToInterval * 100);
       return () => clearInterval(interval);
     } else if (value > 500) {
       const interval = setInterval(() => {
         for (var j = 0; j < 10; j++) {
-          generateOutput();
-          generateOutput2();
-          generateOutput3();
-          generateOutput4();
+          main();
         }
       }, sliderToInterval);
       return () => clearInterval(interval);
     } else if (value > 200) {
       const interval = setInterval(() => {
         for (var j = 0; j < 10; j++) {
-          generateOutput();
-          generateOutput2();
-          generateOutput3();
-          generateOutput4();
+          main();
         }
       }, sliderToInterval * 10);
       return () => clearInterval(interval);
     } else {
       const interval = setInterval(() => {
-        generateOutput();
-        generateOutput2();
-        generateOutput3();
-        generateOutput4();
+        main();
       }, sliderToInterval);
       return () => clearInterval(interval);
     }
   }, [value]);
 
-  counter0();
-  counter1();
-  counter2();
-  counter3();
+  //counter0();
+  //counter1();
+  //counter2();
+  //counter3();
 
   return (
     <div>

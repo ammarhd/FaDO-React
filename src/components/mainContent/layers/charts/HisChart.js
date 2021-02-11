@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
-import { normArrayToDisplay } from "../functions/FaDO.js";
+import { normArrayToDisplay } from "../functions/FaDO/arrayOfNorm";
 
 export default function HisChart() {
   const [norm, setNorm] = useState(normArrayToDisplay);

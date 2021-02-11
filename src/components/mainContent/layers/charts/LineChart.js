@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import { w } from "../functions/FaDO.js";
+import { w } from "../functions/FaDO";
 
 function LineChart() {
   const [W, setW] = useState(w);

@@ -193,8 +193,13 @@
 .allParts {
   height: 20px;
   text-align: center;
-  margin: 0px 0px 3px 10%;
+  margin: 10px 0px 3px 10%;
   width: 80%;
+}
+
+.divs {
+  display: inline-block;
+  height: 20px;
 }
 
 .middle {
