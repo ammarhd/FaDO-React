@@ -112,7 +112,7 @@ function MainContent() {
     } else {
       const interval = setInterval(() => {
         main();
-      }, sliderToInterval * 100);
+      }, sliderToInterval);
       return () => clearInterval(interval);
     }
   }, [value]);
