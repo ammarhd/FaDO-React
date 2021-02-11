@@ -80,14 +80,57 @@
         "receiverTypeOfPerson",
         "receiverCountry"],
     "type": ["pics", "colors", "colors", "colors", "pics"],
-    "width": ["20%", "10%", "40%", "10%", "20%"],
+    "width": ["15%", "10%", "50%", "10%", "15%"],
     "encoding": ["fixed","fixed","dynamic","fixed","fixed"],
     "representation": {
-        "senderCountry": ["https://www.countryflags.io/de/shiny/64.png","https://www.countryflags.io/be/shiny/64.png","https://www.countryflags.io/at/shiny/64.png","https://www.countryflags.io/fr/shiny/64.png","https://www.countryflags.io/ee/shiny/64.png","https://www.countryflags.io/es/shiny/64.png","https://www.countryflags.io/it/shiny/64.png","https://www.countryflags.io/lt/shiny/64.png","https://www.countryflags.io/nl/shiny/64.png","https://www.countryflags.io/cz/shiny/64.png","https://www.countryflags.io/bg/shiny/64.png","https://www.countryflags.io/gr/shiny/64.png","https://www.countryflags.io/hr/shiny/64.png","https://www.countryflags.io/cy/shiny/64.png","https://www.countryflags.io/dk/shiny/64.png","https://www.countryflags.io/ie/shiny/64.png","https://www.countryflags.io/hu/shiny/64.png","https://www.countryflags.io/lv/shiny/64.png","https://www.countryflags.io/lu/shiny/64.png","https://www.countryflags.io/mt/shiny/64.png"],
+        "senderCountry": [
+            "http://www.geonames.org/flags/x/de.gif",
+            "http://www.geonames.org/flags/x/be.gif",
+            "http://www.geonames.org/flags/x/at.gif",
+            "http://www.geonames.org/flags/x/fr.gif",
+            "http://www.geonames.org/flags/x/ee.gif",
+            "http://www.geonames.org/flags/x/es.gif",
+            "http://www.geonames.org/flags/x/it.gif",
+            "http://www.geonames.org/flags/x/lt.gif",
+            "http://www.geonames.org/flags/x/nl.gif",
+            "http://www.geonames.org/flags/x/cz.gif",
+            "http://www.geonames.org/flags/x/bg.gif",
+            "http://www.geonames.org/flags/x/gr.gif",
+            "http://www.geonames.org/flags/x/hr.gif",
+            "http://www.geonames.org/flags/x/cy.gif",
+            "http://www.geonames.org/flags/x/dk.gif",
+            "http://www.geonames.org/flags/x/ie.gif",
+            "http://www.geonames.org/flags/x/hu.gif",
+            "http://www.geonames.org/flags/x/lv.gif",
+            "http://www.geonames.org/flags/x/lu.gif",
+            "http://www.geonames.org/flags/x/mt.gif"
+        ],
+
         "senderTypeOfPerson": ["#ffffff","#47A0F8"],
         "amount": ["#000000","#5b5b5b","#a0a0a0","#e7e7e7","#ffffff"],
         "receiverTypeOfPerson": ["#ffffff","#47A0F8"],
-        "receiverCountry": ["https://www.countryflags.io/de/shiny/64.png","https://www.countryflags.io/be/shiny/64.png","https://www.countryflags.io/at/shiny/64.png","https://www.countryflags.io/fr/shiny/64.png","https://www.countryflags.io/ee/shiny/64.png","https://www.countryflags.io/es/shiny/64.png","https://www.countryflags.io/it/shiny/64.png","https://www.countryflags.io/lt/shiny/64.png","https://www.countryflags.io/nl/shiny/64.png","https://www.countryflags.io/cz/shiny/64.png","https://www.countryflags.io/bg/shiny/64.png","https://www.countryflags.io/gr/shiny/64.png","https://www.countryflags.io/hr/shiny/64.png","https://www.countryflags.io/cy/shiny/64.png","https://www.countryflags.io/dk/shiny/64.png","https://www.countryflags.io/ie/shiny/64.png","https://www.countryflags.io/hu/shiny/64.png","https://www.countryflags.io/lv/shiny/64.png","https://www.countryflags.io/lu/shiny/64.png","https://www.countryflags.io/mt/shiny/64.png"]
+        "receiverCountry": [
+            "http://www.geonames.org/flags/x/de.gif",
+            "http://www.geonames.org/flags/x/be.gif",
+            "http://www.geonames.org/flags/x/at.gif",
+            "http://www.geonames.org/flags/x/fr.gif",
+            "http://www.geonames.org/flags/x/ee.gif",
+            "http://www.geonames.org/flags/x/es.gif",
+            "http://www.geonames.org/flags/x/it.gif",
+            "http://www.geonames.org/flags/x/lt.gif",
+            "http://www.geonames.org/flags/x/nl.gif",
+            "http://www.geonames.org/flags/x/cz.gif",
+            "http://www.geonames.org/flags/x/bg.gif",
+            "http://www.geonames.org/flags/x/gr.gif",
+            "http://www.geonames.org/flags/x/hr.gif",
+            "http://www.geonames.org/flags/x/cy.gif",
+            "http://www.geonames.org/flags/x/dk.gif",
+            "http://www.geonames.org/flags/x/ie.gif",
+            "http://www.geonames.org/flags/x/hu.gif",
+            "http://www.geonames.org/flags/x/lv.gif",
+            "http://www.geonames.org/flags/x/lu.gif",
+            "http://www.geonames.org/flags/x/mt.gif"
+        ]
 
     }
 

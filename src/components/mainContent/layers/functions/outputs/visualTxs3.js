@@ -1,4 +1,5 @@
 import store from "../../../../../store";
+import "./output.css";
 
 const printPics2 = (token, containerId) => {
   const state = store.getState();
@@ -14,8 +15,22 @@ const printPics2 = (token, containerId) => {
 
   var tx = token.split(",");
 
+  /////////////////// create btn
+
   let newTokenDiv = document.createElement("div");
+  let s = "?";
+  let btn = document.createElement("button");
+  btn.setAttribute("style", "white-space: nowrap;");
+
   let allParts = document.createElement("div");
+
+  let label = document.createElement("div");
+  label.innerHTML = `<span id="normal">${s}</span>`;
+  label.classList.add("labell");
+
+  ////////////////
+
+  allParts.appendChild(label);
 
   var divs = [];
   for (var i = 0; i < features.length; i++) {
@@ -65,8 +80,93 @@ const printPics2 = (token, containerId) => {
 
     allParts.appendChild(divs[i]);
   }
-  allParts.classList.add("allParts");
-  newTokenDiv.appendChild(allParts);
+  allParts.classList.add("allParts2");
+  btn.appendChild(allParts);
+  btn.classList.add("btnTXs");
+  newTokenDiv.appendChild(btn);
+
+  /////// menu
+
+  let menu = document.createElement("div");
+  let menuFeatures = document.createElement("div");
+  let menuFeatures1 = document.createElement("div");
+  let menuFeatures2 = document.createElement("div");
+  let singleFeatures = [];
+  for (var k = 0; k < txFeatures.length; k++) {
+    singleFeatures[k] = document.createElement("div");
+    singleFeatures[k].classList.add("single-features");
+    singleFeatures[k].innerHTML = `<div>${txFeatures[k]} : ${tx[k]}</div>`;
+    menuFeatures1.appendChild(singleFeatures[k]);
+
+    if (k < txFeatures.length - 1) {
+      singleFeatures[k + 1] = document.createElement("div");
+      singleFeatures[k + 1].classList.add("single-features");
+      singleFeatures[k + 1].innerHTML = `<div>${txFeatures[k + 1]} : ${
+        tx[k + 1]
+      }</div>`;
+      menuFeatures2.appendChild(singleFeatures[k + 1]);
+
+      k++;
+    }
+  }
+  menuFeatures.appendChild(menuFeatures1);
+  menuFeatures.appendChild(menuFeatures2);
+
+  let menuBtns = document.createElement("div");
+  menuBtns.innerHTML = "<div id='dx'>Normal</div>";
+  menuBtns.innerHTML += "<div>Fraud</div>";
+  menuBtns.innerHTML += "<div id='canc'>Cancel</div>";
+
+  menuBtns.classList.add("btn-menu");
+  menuFeatures1.classList.add("menu-features1");
+  menuFeatures2.classList.add("menu-features2");
+  menuFeatures.classList.add("menu-features");
+  menu.classList.add("popup-menu");
+  menu.appendChild(menuFeatures);
+  menu.appendChild(menuBtns);
+  newTokenDiv.appendChild(menu);
+
+  //////////
+
+  /////// EventListner
+
+  btn.addEventListener("click", (e) => {
+    let menus = document.getElementsByClassName("show-menu");
+    if (menus.length > 0) {
+      for (var i = 0; i < menus.length; i++) {
+        menus[i].classList.remove("show-menu");
+      }
+    }
+
+    menu.classList.toggle("show-menu");
+    //console.log(e.target)
+  });
+
+  menuBtns.addEventListener("click", (e) => {
+    let btnValue = e.target.innerHTML;
+    if (btnValue == "Cancel") {
+      menu.classList.remove("show-menu");
+      return;
+    } else if (btnValue == "Normal") {
+      label.innerHTML = `<span id="add${btnValue}">${btnValue[0]}</span>`;
+
+      btn.appendChild(allParts);
+
+      //normalTX = token;
+      //normalVec = token_vec;
+      //fadoN(normalVec);
+      menu.classList.remove("show-menu");
+    } else if (btnValue == "Fraud") {
+      label.innerHTML = `<span id="add${btnValue}">${btnValue[0]}</span>`;
+
+      btn.appendChild(allParts);
+
+      //fraudTX = token;
+      menu.classList.remove("show-menu");
+    }
+  });
+
+  //////////////
 
   let tokenContianer = document.getElementById(containerId);
   tokenContianer.insertBefore(newTokenDiv, tokenContianer.childNodes[0]);

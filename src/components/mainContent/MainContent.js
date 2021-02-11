@@ -112,15 +112,15 @@ function MainContent() {
     } else {
       const interval = setInterval(() => {
         main();
-      }, sliderToInterval);
+      }, sliderToInterval * 100);
       return () => clearInterval(interval);
     }
   }, [value]);
 
-  //counter0();
-  //counter1();
-  //counter2();
-  //counter3();
+  counter0();
+  counter1();
+  counter2();
+  counter3();
 
   return (
     <div>

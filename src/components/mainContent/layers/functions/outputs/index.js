@@ -12,28 +12,28 @@ const generateOutput0 = (transaction) => {
   let tx = transaction;
   printOutput(tx, "inflowLayer1");
   txsCount0++;
-  counter0(txsCount0);
+  //counter0(txsCount0);
 };
 
 const generateOutput1 = (transaction) => {
   let tx = transaction;
   printOutput(tx, "outflowLayer2");
   txsCount1++;
-  counter1(txsCount1);
+  //counter1(txsCount1);
 };
 
 const generateOutput2 = (transaction) => {
   let tx = transaction;
   printPics1(tx, "outflowLayer3");
   txsCount2++;
-  counter2(txsCount2);
+  //counter2(txsCount2);
 };
 
 const generateOutput3 = (transaction) => {
   let tx = transaction;
   printPics2(tx, "outflowLayer4");
   txsCount3++;
-  counter3(txsCount3);
+  //counter3(txsCount3);
 };
 
 export {
@@ -42,4 +42,7 @@ export {
   generateOutput2,
   generateOutput3,
   txsCount0,
+  txsCount1,
+  txsCount2,
+  txsCount3,
 };
