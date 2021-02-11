@@ -1,7 +1,9 @@
 import store from "../../../../../store";
 import "./output.css";
 
-const printPics2 = (token, containerId) => {
+import { fadoN } from "../FaDO";
+
+const printPics2 = (token, vector, containerId) => {
   const state = store.getState();
 
   var txFeatures = state.configSlice.configs.tx.features;
@@ -153,8 +155,8 @@ const printPics2 = (token, containerId) => {
       btn.appendChild(allParts);
 
       //normalTX = token;
-      //normalVec = token_vec;
-      //fadoN(normalVec);
+      var normalVec = vector;
+      fadoN(normalVec);
       menu.classList.remove("show-menu");
     } else if (btnValue == "Fraud") {
       label.innerHTML = `<span id="add${btnValue}">${btnValue[0]}</span>`;

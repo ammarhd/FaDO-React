@@ -29,9 +29,10 @@ const generateOutput2 = (transaction) => {
   //counter2(txsCount2);
 };
 
-const generateOutput3 = (transaction) => {
+const generateOutput3 = (transaction, vec) => {
   let tx = transaction;
-  printPics2(tx, "outflowLayer4");
+  let vector = vec;
+  printPics2(tx, vector, "outflowLayer4");
   txsCount3++;
   //counter3(txsCount3);
 };

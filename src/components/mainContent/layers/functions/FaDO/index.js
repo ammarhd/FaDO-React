@@ -81,7 +81,7 @@ const fado = (transaction, vector) => {
 
     generateOutput1(layer1tx);
     generateOutput2(layer1tx);
-    generateOutput3(layer1tx);
+    generateOutput3(layer1tx, vec);
 
     //layer2tx = layer1tx;
     //layer3vec = vec;
@@ -95,4 +95,4 @@ const fado = (transaction, vector) => {
   return tx;
 };
 
-export { fado, layer0count, numFlagTx, layer1count, averageTX, w };
+export { fado, fadoN, layer0count, numFlagTx, layer1count, averageTX, w };
