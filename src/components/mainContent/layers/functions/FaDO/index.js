@@ -86,7 +86,7 @@ const fado = (transaction, vector) => {
     //layer2tx = layer1tx;
     //layer3vec = vec;
   }
-  w = adminstration(fraud, alarm, tx, norm, vecMinusW, w);
+  adminstration(fraud, alarm, tx, norm, vecMinusW, w);
   alarm = 0;
   countNorm++;
 

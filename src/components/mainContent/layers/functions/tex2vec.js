@@ -3,7 +3,9 @@ import store from "../../../../store";
 const tx2vec = (transaction) => {
   const state = store.getState();
   var txsLine = transaction;
-  var tx = txsLine.split(",");
+  //var tx = txsLine.split(",");
+  var tx = txsLine;
+  console.log(tx);
 
   var toVec = state.configSlice.configs.txToVec.features;
   var txFeaturesOptions = state.configSlice.configs.tx.options;

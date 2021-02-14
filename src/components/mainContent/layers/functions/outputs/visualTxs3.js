@@ -15,7 +15,8 @@ const printPics2 = (token, vector, containerId) => {
   var width = state.configSlice.configs.visualization.width;
   var representation = state.configSlice.configs.visualization.representation;
 
-  var tx = token.split(",");
+  //var tx = token.split(",");
+  var tx = token;
 
   /////////////////// create btn
 

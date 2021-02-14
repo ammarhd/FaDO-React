@@ -12,7 +12,8 @@ const printPics1 = (token, containerId) => {
   var width = state.configSlice.configs.visualization.width;
   var representation = state.configSlice.configs.visualization.representation;
 
-  var tx = token.split(",");
+  //var tx = token.split(",");
+  var tx = token;
 
   let newTokenDiv = document.createElement("div");
   let allParts = document.createElement("div");

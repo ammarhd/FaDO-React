@@ -12,7 +12,9 @@ var fn = 0;
 const adminstration = (fraud, alarm, transaction, norm, vecMinusW, w) => {
   var v_t = [];
   var w_new = [];
-  var tx = transaction.split(",");
+  //var tx = transaction.split(",");
+  var tx = transaction;
+
   if (alarm === 1) {
     na += 1;
   }
@@ -38,7 +40,6 @@ const adminstration = (fraud, alarm, transaction, norm, vecMinusW, w) => {
   } else {
     tn += 1;
   }
-  return w;
 };
 
 export { adminstration, na, nf, tvalue, fvalue, tp, fp, tn, fn };

@@ -1,7 +1,9 @@
 const fraudd = (transaction) => {
   var fraud = 0;
   var weighted = require("weighted");
-  var tx = transaction.split(",");
+  //var tx = transaction.split(",");
+  var tx = transaction;
+
   if (tx[3] === "IT" || tx[9] === "IT") {
     fraud = weighted.select([1, 0], [0.01, 0.99]);
     return fraud;
