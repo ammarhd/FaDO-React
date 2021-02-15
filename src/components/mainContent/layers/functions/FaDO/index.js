@@ -8,8 +8,10 @@ import {
   generateOutput3,
 } from "../outputs";
 
-var w = Array.from(Array(45), () => 0.0);
-var averageTX = Array.from(Array(45), () => 0.0);
+var w = [];
+var sumTX = [];
+var averageTX = [];
+
 var norm = 0;
 var alarm = 0;
 
@@ -34,13 +36,13 @@ const fadoN = (normalVec) => {
   var gamma = 0;
   var w_new = [];
 
-  for (let i = 0; i < 45; i++) {
+  for (let i = 0; i < y_vecN.length; i++) {
     vecMinusW.push(y_vecN[i] - w[i]);
   }
   norm = l2norm(vecMinusW);
   //gamma = 1 / Math.sqrt(m_t);
   gamma = 0.1;
-  for (let i = 0; i < 45; i++) {
+  for (let i = 0; i < y_vecN.length; i++) {
     v_t.push(vecMinusW[i] / norm);
     v_t[i] *= gamma;
     w_new.push(w[i] + v_t[i]);
@@ -56,6 +58,12 @@ const fado = (transaction, vector) => {
   var vec = vector;
   var vecMinusW = [];
 
+  if (layer0count === 0) {
+    w = Array.from(Array(vec.length), () => 0.0);
+    sumTX = Array.from(Array(vec.length), () => 0.0);
+    averageTX = Array.from(Array(vec.length), () => 0.0);
+  }
+
   layer1tx = [];
   layer22tx = [];
   layer3tx = [];
@@ -63,16 +71,19 @@ const fado = (transaction, vector) => {
 
   var fraud = fraudd(tx);
 
-  for (let i = 0; i < 45; i++) {
+  for (let i = 0; i < vec.length; i++) {
     vecMinusW.push(vec[i] - w[i]);
-    averageTX[i] += vec[i];
+    sumTX[i] += vec[i];
+    averageTX[i] = sumTX[i] / layer0count;
   }
+  //console.log(vec);
+  console.log(averageTX);
   norm = l2norm(vecMinusW);
 
   layer0count++;
   generateOutput0(tx);
 
-  if (norm >= 1.4) {
+  if (norm >= 1) {
     alarm = 1;
     numFlagTx++;
     layer1count++;

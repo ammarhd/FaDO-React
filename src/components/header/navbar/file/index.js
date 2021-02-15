@@ -50,7 +50,7 @@ function File() {
       var target = e.target;
       var data = JSON.parse(target.result);
       setFile(data);
-      console.log(data);
+
       dispatch(setConfigFile(data));
     };
     document.getElementById("btnsubmit").value = "";
@@ -68,7 +68,7 @@ function File() {
       var target = e.target;
       var data = JSON.parse(target.result);
       setFile2(data);
-      console.log(data);
+
       dispatch(setTxsFile(data));
     };
     document.getElementById("btnsubmit2").value = "";

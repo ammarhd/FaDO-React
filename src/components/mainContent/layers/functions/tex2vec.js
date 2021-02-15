@@ -5,7 +5,6 @@ const tx2vec = (transaction) => {
   var txsLine = transaction;
   //var tx = txsLine.split(",");
   var tx = txsLine;
-  console.log(tx);
 
   var toVec = state.configSlice.configs.txToVec.features;
   var txFeaturesOptions = state.configSlice.configs.tx.options;

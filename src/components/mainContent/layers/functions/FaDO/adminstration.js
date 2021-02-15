@@ -30,7 +30,7 @@ const adminstration = (fraud, alarm, transaction, norm, vecMinusW, w) => {
   } else if (alarm === 1 && fraud !== 1) {
     fp += 1;
     var gamma = 1 / Math.sqrt(fp);
-    for (let i = 0; i < 45; i++) {
+    for (let i = 0; i < w.length; i++) {
       v_t.push(vecMinusW[i] / norm);
       v_t[i] *= gamma;
       w_new.push(w[i] + v_t[i]);

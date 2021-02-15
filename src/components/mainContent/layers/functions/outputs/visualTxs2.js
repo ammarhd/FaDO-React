@@ -46,18 +46,14 @@ const printPics1 = (token, containerId) => {
 
       for (let j = 0; j < length; j++) {
         if (floor > allFeaturesRep[j]) {
-          console.log(floor + "  " + allFeaturesRep[j]);
           if (type[i] == "pics") {
-            console.log(type[i]);
             var image = document.createElement("img");
             image.setAttribute("src", picOrColor);
             image.setAttribute("height", "20px");
             image.setAttribute("width", "100%");
             divs[i].appendChild(image);
           } else {
-            console.log(type[i]);
             divs[i].style.backgroundColor = repArray[j];
-            console.log(repArray[j]);
           }
           break;
         }
