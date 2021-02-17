@@ -12,6 +12,7 @@ var w = [];
 var sumTX = [];
 var averageTX = [];
 
+var threshold = 1;
 var norm = 0;
 var alarm = 0;
 
@@ -21,12 +22,37 @@ var layer3tx = [];
 var layer3vec = [];
 var numFlagTx = 0;
 
-var countNorm = 0;
-
 var layer0count = 0;
 var layer1count = 0;
 var layer2count = 0;
 var layer3count = 0;
+
+/// x_axisfor the hist chartjs
+var x_axis = [0, 0.76, 0.79, 0.82, 0.85, 0.88, 0.91, 0.94, 0.97, 1, 1.03, 3];
+
+const setThreshold = (num) => {
+  threshold = num;
+
+  x_axis = [
+    0,
+    threshold - 0.24,
+    threshold - 0.21,
+    threshold - 0.18,
+    threshold - 0.15,
+    threshold - 0.12,
+    threshold - 0.09,
+    threshold - 0.06,
+    threshold - 0.03,
+    threshold,
+    threshold + 0.03,
+    threshold + 2,
+  ];
+
+  for (let i = 0; i < 11; i++) {
+    var num = x_axis[i];
+    x_axis[i] = num.toFixed(2);
+  }
+};
 
 const fadoN = (normalVec) => {
   var l2norm = require("compute-l2norm");
@@ -76,17 +102,19 @@ const fado = (transaction, vector) => {
     sumTX[i] += vec[i];
     averageTX[i] = sumTX[i] / layer0count;
   }
-  //console.log(vec);
-  console.log(averageTX);
+  //console.log(averageTX);
+
   norm = l2norm(vecMinusW);
 
   layer0count++;
   generateOutput0(tx);
 
-  if (norm >= 1) {
+  if (norm >= threshold) {
     alarm = 1;
     numFlagTx++;
     layer1count++;
+
+    //console.log(norm);
 
     layer1tx = tx;
 
@@ -99,11 +127,21 @@ const fado = (transaction, vector) => {
   }
   adminstration(fraud, alarm, tx, norm, vecMinusW, w);
   alarm = 0;
-  countNorm++;
 
-  countNorm = arrayOfNorm(norm, countNorm);
+  arrayOfNorm(norm, x_axis);
 
   return tx;
 };
 
-export { fado, fadoN, layer0count, numFlagTx, layer1count, averageTX, w };
+export {
+  fado,
+  fadoN,
+  layer0count,
+  numFlagTx,
+  layer1count,
+  averageTX,
+  w,
+  setThreshold,
+  threshold,
+  x_axis,
+};

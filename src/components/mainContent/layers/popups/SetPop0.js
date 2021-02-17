@@ -48,25 +48,20 @@ function SetPopup0(props) {
           <div className="boxx">
             <div className="txNum">
               <div className="allTxNum">
-                <div>Number of transactions</div>
-                <div id="allTx0">{count1}</div>
+                <div>Number of transactions &nbsp; {count1}</div>
               </div>
               <div className="fiterdTxNum">
-                <div>Number of flagged transactions</div>
-                <div id="flagged0">{count2}</div>
+                <div>Number of flagged transactions &nbsp; {count2}</div>
+              </div>
+              <div>
+                <button onClick={togglePopup} id="clos0">
+                  X
+                </button>
               </div>
             </div>
             <HisChart />
             <LineChart />
             <BarChart />
-            <Button
-              variant="contained"
-              color="default"
-              onClick={togglePopup}
-              id="clos"
-            >
-              Close
-            </Button>
           </div>
         </div>
       )}

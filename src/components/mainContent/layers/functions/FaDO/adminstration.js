@@ -1,5 +1,6 @@
-// test veriables
+import store from "../../../../../store";
 
+// test veriables
 var na = 0;
 var nf = 0;
 var tvalue = 0;
@@ -9,6 +10,21 @@ var fp = 0;
 var tn = 0;
 var fn = 0;
 
+var checkLabel = false;
+var checkAmount = false;
+
+const state = store.getState();
+var txFeatures = state.configSlice.configs.tx.features;
+var lowCaseFeatures = txFeatures.map((feature) => feature.toLowerCase());
+if (lowCaseFeatures.includes("amount")) {
+  var indexAmount = lowCaseFeatures.indexOf("amount");
+  checkAmount = true;
+}
+
+if (lowCaseFeatures.includes("label")) {
+  var indexLabel = lowCaseFeatures.indexOf("label");
+  checkLabel = true;
+}
 const adminstration = (fraud, alarm, transaction, norm, vecMinusW, w) => {
   var v_t = [];
   var w_new = [];
@@ -18,27 +34,39 @@ const adminstration = (fraud, alarm, transaction, norm, vecMinusW, w) => {
   if (alarm === 1) {
     na += 1;
   }
-  if (fraud === 1) {
-    nf += 1;
-    fvalue += Math.floor(tx[2]);
-  }
-  if (alarm === 1 && fraud === 1) {
-    tvalue += Math.floor(tx[2]);
-    tp += 1;
-  } else if (alarm !== 1 && fraud === 1) {
-    fn += 1;
-  } else if (alarm === 1 && fraud !== 1) {
-    fp += 1;
-    var gamma = 1 / Math.sqrt(fp);
-    for (let i = 0; i < w.length; i++) {
-      v_t.push(vecMinusW[i] / norm);
-      v_t[i] *= gamma;
-      w_new.push(w[i] + v_t[i]);
-    }
 
-    w = w_new;
-  } else {
-    tn += 1;
+  if (checkLabel) {
+    var label = parseInt(tx[indexLabel]);
+    if (label === 1) {
+      if (checkAmount) {
+        fvalue += Math.floor(tx[indexAmount]);
+      } else {
+        fvalue = "Not Available";
+      }
+      nf += 1;
+    }
+    if (alarm === 1 && label === 1) {
+      if (checkAmount) {
+        tvalue += Math.floor(tx[indexAmount]);
+      } else {
+        tvalue = "Not Available";
+      }
+      tp += 1;
+    } else if (alarm !== 1 && label === 1) {
+      fn += 1;
+    } else if (alarm === 1 && label !== 1) {
+      fp += 1;
+      var gamma = 1 / Math.sqrt(fp);
+      for (let i = 0; i < w.length; i++) {
+        v_t.push(vecMinusW[i] / norm);
+        v_t[i] *= gamma;
+        w_new.push(w[i] + v_t[i]);
+      }
+
+      w = w_new;
+    } else {
+      tn += 1;
+    }
   }
 };
 

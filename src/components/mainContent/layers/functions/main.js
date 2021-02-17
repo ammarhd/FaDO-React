@@ -23,7 +23,8 @@ export default main;
 const getTx = () => {
   const state = store.getState();
   var txx = state.txsSlice.txs;
-  if (i === 99) {
+
+  if (i === txx.length - 1) {
     i = 0;
   }
   return txx[i];

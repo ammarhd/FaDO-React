@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
-import { averageTX, layer0count } from "../functions/FaDO";
+import { averageTX } from "../functions/FaDO";
 
 function BarChart() {
-  const [txs, setTxs] = useState(layer0count);
   const [txArray, setTxArray] = useState(averageTX);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      //console.log(txArray);
       for (var j = 0; j < 100; j++) {
-        setTxs((prevCount) => layer0count);
         setTxArray((prev) => averageTX);
       }
     }, 1);

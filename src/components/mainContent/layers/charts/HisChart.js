@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { normArrayToDisplay } from "../functions/FaDO/arrayOfNorm";
+import { setThreshold, x_axis } from "../functions/FaDO";
+import { useForm } from "react-hook-form";
 
 export default function HisChart() {
+  const { register, handleSubmit } = useForm();
+
   const [norm, setNorm] = useState(normArrayToDisplay);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -14,7 +18,20 @@ export default function HisChart() {
   }, []);
 
   const state = {
-    labels: [0, 1.57, 1.58, 1.59, 1.6, 1.61, 1.62, 1.63, 1.64, 1.65, 1.66, 3],
+    labels: [
+      x_axis[0],
+      x_axis[1],
+      x_axis[2],
+      x_axis[3],
+      x_axis[4],
+      x_axis[5],
+      x_axis[6],
+      x_axis[7],
+      x_axis[8],
+      x_axis[9],
+      x_axis[10],
+      x_axis[11],
+    ],
     datasets: [
       {
         label: "Norm of the last 1000 TXs",
@@ -35,38 +52,39 @@ export default function HisChart() {
         pointBackgroundColor: "rgb(132, 180, 252)",
         borderWidth: 0,
         pointBorderColor: "rgb(132, 180, 252)",
-        barPercentage: 1.22,
+        barPercentage: 1.3,
 
         // Data for the x-axis of the chart
-        data: [
-          norm[0],
-
-          norm[1],
-
-          norm[2],
-
-          norm[3],
-
-          norm[4],
-
-          norm[5],
-
-          norm[6],
-
-          norm[7],
-
-          norm[8],
-
-          norm[9],
-
-          norm[10],
-        ],
+        data: norm,
       },
     ],
   };
 
+  const onSubmit = (data, e) => {
+    var num = parseFloat(data.Threshold);
+    if (Number.isFinite(num)) {
+      setThreshold(num);
+    }
+    e.target.reset();
+  };
+
   return (
     <div className="lineC">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Threshold Value"
+            name="Threshold"
+            ref={register({ required: true })}
+          />
+          <button type="submit" id="close" className="btn btn-primary">
+            ADD
+          </button>
+        </div>
+      </form>
+
       <Bar
         data={state}
         height={100}
@@ -90,19 +108,19 @@ export default function HisChart() {
                 display: false,
 
                 ticks: {
-                  max: 1.66,
+                  max: 1.9,
                 },
               },
               {
                 display: true,
                 ticks: {
-                  autoSkip: false,
+                  autoSkip: true,
                   max: 3,
                 },
                 gridLines: {
                   display: true,
                   color: [
-                    "wite",
+                    "gray",
                     "white",
                     "white",
                     "white",
