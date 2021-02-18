@@ -11,7 +11,7 @@ const arrayOfNorm = (norm, x_axis) => {
       break;
     }
   }
-  console.log(normArray);
+  //console.log(normArray);
 
   //if (norm <= 0.57) {
   //  normArray[0] += 1;

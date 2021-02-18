@@ -1,0 +1,26 @@
+.dynamicV {
+  display: flex;
+  justify-content: space-evenly;
+  color: white;
+}
+
+.threshold,
+.gamma {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 0px 0px 0px 15px;
+  background-color: rgb(33, 31, 31);
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.val {
+  width: 20px;
+}
+
+#thres {
+  color: white;
+}

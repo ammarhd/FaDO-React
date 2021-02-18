@@ -16,16 +16,18 @@ var checkAmount = false;
 const state = store.getState();
 var txFeatures = state.configSlice.configs.tx.features;
 var lowCaseFeatures = txFeatures.map((feature) => feature.toLowerCase());
-if (lowCaseFeatures.includes("amount")) {
-  var indexAmount = lowCaseFeatures.indexOf("amount");
-  checkAmount = true;
-}
 
-if (lowCaseFeatures.includes("label")) {
-  var indexLabel = lowCaseFeatures.indexOf("label");
-  checkLabel = true;
-}
 const adminstration = (fraud, alarm, transaction, norm, vecMinusW, w) => {
+  if (lowCaseFeatures.includes("amount")) {
+    var indexAmount = lowCaseFeatures.indexOf("amount");
+    checkAmount = true;
+  }
+
+  if (lowCaseFeatures.includes("label")) {
+    var indexLabel = lowCaseFeatures.indexOf("label");
+    checkLabel = true;
+  }
+
   var v_t = [];
   var w_new = [];
   //var tx = transaction.split(",");

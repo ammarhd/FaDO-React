@@ -53,7 +53,7 @@ function File() {
 
       dispatch(setConfigFile(data));
     };
-    document.getElementById("btnsubmit").value = "";
+    //document.getElementById("btnsubmit").value = "";
 
     handleClose();
     //let files = e.target.files;
@@ -71,7 +71,7 @@ function File() {
 
       dispatch(setTxsFile(data));
     };
-    document.getElementById("btnsubmit2").value = "";
+    //document.getElementById("btnsubmit2").value = "";
 
     handleClose();
     //let files = e.target.files;
@@ -95,6 +95,7 @@ function File() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
+        Configration File :
         <input
           id="btnsubmit"
           type="file"
@@ -102,6 +103,7 @@ function File() {
           onChange={(e) => handleChange(e)}
         />
         <br />
+        Dataset :
         <input
           id="btnsubmit2"
           type="file"

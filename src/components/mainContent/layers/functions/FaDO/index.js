@@ -7,12 +7,17 @@ import {
   generateOutput2,
   generateOutput3,
 } from "../outputs";
+import store from "../../../../../store";
+
+var gamma = 0.1;
+var gamma_final = 0.1;
 
 var w = [];
 var sumTX = [];
 var averageTX = [];
 
 var threshold = 1;
+var threshold_final = 1;
 var norm = 0;
 var alarm = 0;
 
@@ -29,37 +34,34 @@ var layer3count = 0;
 
 /// x_axisfor the hist chartjs
 var x_axis = [0, 0.76, 0.79, 0.82, 0.85, 0.88, 0.91, 0.94, 0.97, 1, 1.03, 3];
+var x_axis2 = [0, 0.76, 0.79, 0.82, 0.85, 0.88, 0.91, 0.94, 0.97, 1, 1.03, 3];
 
 const setThreshold = (num) => {
-  threshold = num;
+  var change = num;
+  threshold += change;
+  threshold_final = threshold.toFixed(1);
 
-  x_axis = [
-    0,
-    threshold - 0.24,
-    threshold - 0.21,
-    threshold - 0.18,
-    threshold - 0.15,
-    threshold - 0.12,
-    threshold - 0.09,
-    threshold - 0.06,
-    threshold - 0.03,
-    threshold,
-    threshold + 0.03,
-    threshold + 2,
-  ];
-
-  for (let i = 0; i < 11; i++) {
-    var num = x_axis[i];
-    x_axis[i] = num.toFixed(2);
+  for (let i = 1; i < 12; i++) {
+    x_axis[i] += change;
+    var num2 = x_axis[i];
+    x_axis2[i] = num2.toFixed(2);
   }
+  //console.log(x_axis2);
 };
+
+////// gamma
+const setGammaValue = (num) => {
+  gamma += num;
+  gamma_final = gamma.toFixed(1);
+};
+
+//////////
 
 const fadoN = (normalVec) => {
   var l2norm = require("compute-l2norm");
   var y_vecN = normalVec;
   var vecMinusW = [];
   var v_t = [];
-  var gamma = 0;
   var w_new = [];
 
   for (let i = 0; i < y_vecN.length; i++) {
@@ -67,7 +69,7 @@ const fadoN = (normalVec) => {
   }
   norm = l2norm(vecMinusW);
   //gamma = 1 / Math.sqrt(m_t);
-  gamma = 0.1;
+
   for (let i = 0; i < y_vecN.length; i++) {
     v_t.push(vecMinusW[i] / norm);
     v_t[i] *= gamma;
@@ -85,10 +87,15 @@ const fado = (transaction, vector) => {
   var vecMinusW = [];
 
   if (layer0count === 0) {
-    w = Array.from(Array(vec.length), () => 0.0);
+    const state = store.getState();
+    var theModel = state.configSlice.configs.model;
+    console.log(theModel);
+    w = theModel;
     sumTX = Array.from(Array(vec.length), () => 0.0);
     averageTX = Array.from(Array(vec.length), () => 0.0);
   }
+
+  console.log(w);
 
   layer1tx = [];
   layer22tx = [];
@@ -128,7 +135,7 @@ const fado = (transaction, vector) => {
   adminstration(fraud, alarm, tx, norm, vecMinusW, w);
   alarm = 0;
 
-  arrayOfNorm(norm, x_axis);
+  arrayOfNorm(norm, x_axis2);
 
   return tx;
 };
@@ -142,6 +149,8 @@ export {
   averageTX,
   w,
   setThreshold,
-  threshold,
-  x_axis,
+  threshold_final,
+  x_axis2,
+  setGammaValue,
+  gamma_final,
 };

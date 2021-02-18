@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { normArrayToDisplay } from "../functions/FaDO/arrayOfNorm";
-import { setThreshold, x_axis } from "../functions/FaDO";
+import { x_axis2 } from "../functions/FaDO";
 import { useForm } from "react-hook-form";
 
 export default function HisChart() {
@@ -19,18 +19,18 @@ export default function HisChart() {
 
   const state = {
     labels: [
-      x_axis[0],
-      x_axis[1],
-      x_axis[2],
-      x_axis[3],
-      x_axis[4],
-      x_axis[5],
-      x_axis[6],
-      x_axis[7],
-      x_axis[8],
-      x_axis[9],
-      x_axis[10],
-      x_axis[11],
+      x_axis2[0],
+      x_axis2[1],
+      x_axis2[2],
+      x_axis2[3],
+      x_axis2[4],
+      x_axis2[5],
+      x_axis2[6],
+      x_axis2[7],
+      x_axis2[8],
+      x_axis2[9],
+      x_axis2[10],
+      x_axis2[11],
     ],
     datasets: [
       {
@@ -60,31 +60,31 @@ export default function HisChart() {
     ],
   };
 
-  const onSubmit = (data, e) => {
-    var num = parseFloat(data.Threshold);
-    if (Number.isFinite(num)) {
-      setThreshold(num);
-    }
-    e.target.reset();
-  };
+  //const onSubmit = (data, e) => {
+  //  var num = parseFloat(data.Threshold);
+  //  if (Number.isFinite(num)) {
+  //    setThreshold(num);
+  //  }
+  //  e.target.reset();
+  //};
+
+  // <form onSubmit={handleSubmit(onSubmit)}>
+  //   <div className="form-group">
+  //     <input
+  //       type="text"
+  //       className="form-control"
+  //       placeholder="Threshold Value"
+  //       name="Threshold"
+  //       ref={register({ required: true })}
+  //     />
+  //     <button type="submit" id="close" className="btn btn-primary">
+  //       ADD
+  //     </button>
+  //   </div>
+  // </form>;
 
   return (
     <div className="lineC">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Threshold Value"
-            name="Threshold"
-            ref={register({ required: true })}
-          />
-          <button type="submit" id="close" className="btn btn-primary">
-            ADD
-          </button>
-        </div>
-      </form>
-
       <Bar
         data={state}
         height={100}
