@@ -12,20 +12,27 @@ var fn = 0;
 
 var checkLabel = false;
 var checkAmount = false;
+var indexAmount;
+var indexLabel;
 
-const state = store.getState();
-var txFeatures = state.configSlice.configs.tx.features;
-var lowCaseFeatures = txFeatures.map((feature) => feature.toLowerCase());
+var counter = 0;
 
 const adminstration = (fraud, alarm, transaction, norm, vecMinusW, w) => {
-  if (lowCaseFeatures.includes("amount")) {
-    var indexAmount = lowCaseFeatures.indexOf("amount");
-    checkAmount = true;
-  }
+  counter++;
 
-  if (lowCaseFeatures.includes("label")) {
-    var indexLabel = lowCaseFeatures.indexOf("label");
-    checkLabel = true;
+  if (counter == 1) {
+    const state = store.getState();
+    var txFeatures = state.configSlice.configs.tx.features;
+    var lowCaseFeatures = txFeatures.map((feature) => feature.toLowerCase());
+    if (lowCaseFeatures.includes("amount")) {
+      indexAmount = lowCaseFeatures.indexOf("amount");
+      checkAmount = true;
+    }
+
+    if (lowCaseFeatures.includes("label")) {
+      indexLabel = lowCaseFeatures.indexOf("label");
+      checkLabel = true;
+    }
   }
 
   var v_t = [];
