@@ -20,7 +20,7 @@
   top: 50%;
   left: 30%;
   transform: translate(-50%, -50%);
-  min-width: 650px;
+  min-width: 670px;
   border-radius: 30px;
   padding-bottom: 20px;
   color: rgb(6, 6, 6);
@@ -104,8 +104,9 @@
 }
 
 .txNum {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   color: rgb(255, 255, 255);
   line-height: 30px;
   border-top-left-radius: 20px;
@@ -114,18 +115,24 @@
   background-color: rgb(47, 49, 63);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
   z-index: 10;
-  padding-left: 40px;
+  padding-left: 0px;
   padding-top: 5px;
 }
 
 .allTxNum {
   width: 40%;
-  text-align: center !important;
+  display: flex;
+  justify-content: space-between;
 }
 
-.filterdTxNum {
-  width: 40%;
-  text-align: center;
+.fiterdTxNum {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.vall {
+  width: 20%;
 }
 
 .popup1-menu,
@@ -157,7 +164,12 @@
   padding-top: 10px;
 }
 
-#closs {
+.configsButtons {
+  display: flex;
+  justify-content: center;
+}
+
+#closss {
   padding: 7px;
 
   margin-left: 5%;

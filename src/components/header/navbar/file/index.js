@@ -9,6 +9,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setConfigFile } from "../../../../features/configSlice";
 import { setTxsFile } from "../../../../features/txsSlice";
 
+import { makeStyles } from "@material-ui/core/styles";
+
 const StyledMenu = withStyles({
   paper: {
     border: "1px solid #d3d4d5",
@@ -29,7 +31,20 @@ const StyledMenu = withStyles({
   />
 ));
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& > *": {
+      margin: theme.spacing(1),
+    },
+  },
+  input: {
+    display: "none",
+  },
+}));
+
 function File() {
+  const classes = useStyles();
+
   const [anchorEl, setAnchorEl] = useState(null);
   const [file, setFile] = useState("");
   const [file2, setFile2] = useState();
@@ -95,21 +110,39 @@ function File() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        Configration File :
-        <input
-          id="btnsubmit"
-          type="file"
-          name="file"
-          onChange={(e) => handleChange(e)}
-        />
-        <br />
-        Dataset :
-        <input
-          id="btnsubmit2"
-          type="file"
-          name="file"
-          onChange={(e) => handleChange2(e)}
-        />
+        <MenuItem>Save as</MenuItem>
+        <MenuItem>Export</MenuItem>
+        <MenuItem>Import</MenuItem>
+        <MenuItem>Connect</MenuItem>
+        <div className={classes.root}>
+          <input
+            accept="file/*"
+            className={classes.input}
+            id="contained-button-file"
+            multiple
+            type="file"
+            onChange={(e) => handleChange(e)}
+          />
+          <label htmlFor="contained-button-file">
+            <Button color="primary" component="span" id="black">
+              Configration file
+            </Button>
+          </label>
+          <br />
+          <input
+            accept="file/*"
+            className={classes.input}
+            id="contained-button-file2"
+            multiple
+            type="file"
+            onChange={(e) => handleChange2(e)}
+          />
+          <label htmlFor="contained-button-file2">
+            <Button color="primary" component="span" id="black">
+              Dataset file
+            </Button>
+          </label>
+        </div>
       </StyledMenu>
     </div>
   );

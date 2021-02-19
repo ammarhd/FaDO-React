@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from "react";
 
 import Button from "@material-ui/core/Button";
-import { layer1count } from "../functions/FaDO";
-import { Grid } from "@material-ui/core";
-import Pop1Config from "./Pop1Config";
+
+import Pop1 from "./Pop1";
 
 function SetPopup1(props) {
   const [isOpen, setIsOpen] = useState(false);
-  const [count, setCount] = useState(layer1count);
+  const [theId, setTheId] = useState();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      for (var j = 0; j < 100; j++) {
-        setCount((prevCount) => layer1count);
-      }
-    }, 10);
-    return () => clearInterval(interval);
-  }, []);
+  const togglePopup = (id) => {
+    if ((id = "11")) {
+      setTheId("11");
+      setIsOpen(true);
+    }
+  };
 
-  const togglePopup = () => {
+  const togglePopup2 = () => {
     setIsOpen(!isOpen);
   };
 
@@ -29,11 +26,13 @@ function SetPopup1(props) {
         color="primary"
         component="span"
         id="layer1Btn"
-        onClick={togglePopup}
+        onClick={() => {
+          togglePopup("11");
+        }}
       >
         <h2>{props.name}</h2>
       </Button>
-      {isOpen && <Pop1Config count={count} closePopup={togglePopup} />}
+      {isOpen && theId == "11" && <Pop1 closePopup={togglePopup2} />}
     </div>
   );
 }

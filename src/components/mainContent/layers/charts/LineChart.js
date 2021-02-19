@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import { w } from "../functions/FaDO";
 
 function LineChart() {
-  const [W, setW] = useState(w);
+  const [W, setW] = useState([]);
   useEffect(() => {
     const interval = setInterval(() => {
       for (var j = 0; j < 100; j++) {

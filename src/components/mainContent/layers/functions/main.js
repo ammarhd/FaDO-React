@@ -1,4 +1,4 @@
-import { generateTx } from "./generate_txt.js";
+//import { generateTx } from "./generate_txt.js";
 import { tx2vec } from "./tex2vec.js";
 import { fado } from "./FaDO";
 import store from "../../../../store";

@@ -88,9 +88,13 @@ const fado = (transaction, vector) => {
 
   if (layer0count === 0) {
     const state = store.getState();
-    var theModel = state.configSlice.configs.model;
-    console.log(theModel);
-    w = theModel;
+    var check_model = state.configSlice.configs;
+
+    if (check_model.hasOwnProperty("inititial_value")) {
+      w = state.configSlice.configs.inititial_value;
+    } else {
+      w = Array.from(Array(vec.length), () => 0.0);
+    }
     sumTX = Array.from(Array(vec.length), () => 0.0);
     averageTX = Array.from(Array(vec.length), () => 0.0);
   }

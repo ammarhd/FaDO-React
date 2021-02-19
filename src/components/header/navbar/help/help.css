@@ -1,0 +1,157 @@
+.nTX {
+  width: 215px;
+  height: 35px;
+  margin: auto;
+  padding: 10px 0px;
+  text-align: center;
+  border-bottom: 2px solid rgb(147, 145, 145);
+  margin-bottom: 10px;
+}
+.nLabel {
+  float: left;
+  height: 30px;
+  width: 30px;
+  background-color: black;
+  margin-right: 5px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 30px;
+}
+.nScountry {
+  float: left;
+  height: 30px;
+  width: 30px;
+}
+.nSlegal {
+  float: left;
+  height: 30px;
+  width: 15px;
+  background-color: rgb(255, 255, 255);
+}
+
+.nSlegal1 {
+  float: left;
+
+  width: 15px;
+}
+.nSlegal2 {
+  height: 30px;
+  width: 15px;
+  background-color: rgb(247, 247, 247);
+}
+.nSlegal3 {
+  height: 30px;
+  width: 15px;
+  background-color: #47a0f8;
+}
+.nColor {
+  float: left;
+  height: 30px;
+  width: 90px;
+  background-color: black;
+}
+.nRlegal {
+  float: left;
+  height: 30px;
+  width: 15px;
+  background-color: #47a0f8;
+}
+
+.nRlegal1 {
+  float: left;
+
+  width: 15px;
+}
+.nRcountry {
+  float: left;
+  height: 30px;
+  width: 30px;
+}
+
+.d {
+  width: 30px;
+  height: 30px;
+}
+
+.ex1 {
+  margin: 10px 0px;
+  padding: 0px 0px 15px 0px;
+  border-bottom: 2px solid rgb(208, 208, 208);
+}
+
+.ex1::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.ex11 {
+  float: left;
+  width: 37.5%;
+  font-size: 20px;
+  text-align: left;
+  margin-left: 5%;
+  color: rgb(53, 53, 53);
+}
+.ex12 {
+  float: left;
+  width: 57.5%;
+  margin-top: 10px;
+  text-align: center !important;
+}
+
+.ex1111 {
+  font-size: 17px;
+  line-height: 25px;
+}
+
+.nLabelN {
+  float: left;
+  height: 30px;
+  width: 30px;
+  background-color: #0e4ae2;
+  margin: 0px 5px 5px 0px;
+
+  text-align: center;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.nLabelF {
+  float: left;
+  height: 30px;
+  width: 30px;
+  background-color: rgb(220, 39, 39);
+  margin-right: 5px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.nColorr {
+  float: left;
+
+  width: 150px;
+}
+.nColor1 {
+  height: 30px;
+  width: 150px;
+  background-color: black;
+
+  text-align: center;
+  font-size: 13px;
+  line-height: 30px;
+}
+.nColor2 {
+  height: 30px;
+  width: 150px;
+
+  margin: 5px 0px 0px 0px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 30px;
+}
+
+.blur {
+  opacity: 0.07;
+}

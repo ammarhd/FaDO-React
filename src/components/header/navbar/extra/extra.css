@@ -1,161 +1,3 @@
-.nTX {
-  width: 215px;
-  height: 35px;
-  margin: auto;
-  padding: 10px 0px;
-  text-align: center;
-  border-bottom: 2px solid rgb(147, 145, 145);
-  margin-bottom: 10px;
-}
-.nLabel {
-  float: left;
-  height: 30px;
-  width: 30px;
-  background-color: black;
-  margin-right: 5px;
-  text-align: center;
-  font-size: 18px;
-  line-height: 30px;
-}
-.nScountry {
-  float: left;
-  height: 30px;
-  width: 30px;
-}
-.nSlegal {
-  float: left;
-  height: 30px;
-  width: 15px;
-  background-color: rgb(255, 255, 255);
-}
-
-.nSlegal1 {
-  float: left;
-
-  width: 15px;
-}
-.nSlegal2 {
-  height: 30px;
-  width: 15px;
-  background-color: rgb(247, 247, 247);
-}
-.nSlegal3 {
-  height: 30px;
-  width: 15px;
-  background-color: #47a0f8;
-}
-.nColor {
-  float: left;
-  height: 30px;
-  width: 90px;
-  background-color: black;
-}
-.nRlegal {
-  float: left;
-  height: 30px;
-  width: 15px;
-  background-color: #47a0f8;
-}
-
-.nRlegal1 {
-  float: left;
-
-  width: 15px;
-}
-.nRcountry {
-  float: left;
-  height: 30px;
-  width: 30px;
-}
-
-.d {
-  width: 30px;
-  height: 30px;
-}
-
-.ex1 {
-  margin: 10px 0px;
-  padding: 0px 0px 15px 0px;
-  border-bottom: 2px solid rgb(208, 208, 208);
-}
-
-.ex1::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.ex11 {
-  float: left;
-  width: 37.5%;
-  font-size: 20px;
-  text-align: left;
-  margin-left: 5%;
-  color: rgb(53, 53, 53);
-}
-.ex12 {
-  float: left;
-  width: 57.5%;
-  margin-top: 10px;
-  text-align: center !important;
-}
-
-.ex1111 {
-  font-size: 17px;
-  line-height: 25px;
-}
-
-.nLabelN {
-  float: left;
-  height: 30px;
-  width: 30px;
-  background-color: #0e4ae2;
-  margin: 0px 5px 5px 0px;
-
-  text-align: center;
-  font-size: 18px;
-  line-height: 30px;
-}
-
-.nLabelF {
-  float: left;
-  height: 30px;
-  width: 30px;
-  background-color: rgb(220, 39, 39);
-  margin-right: 5px;
-  text-align: center;
-  font-size: 18px;
-  line-height: 30px;
-}
-
-.nColorr {
-  float: left;
-
-  width: 150px;
-}
-.nColor1 {
-  height: 30px;
-  width: 150px;
-  background-color: black;
-
-  text-align: center;
-  font-size: 13px;
-  line-height: 30px;
-}
-.nColor2 {
-  height: 30px;
-  width: 150px;
-
-  margin: 5px 0px 0px 0px;
-  text-align: center;
-  font-size: 13px;
-  line-height: 30px;
-}
-
-.blur {
-  opacity: 0.07;
-}
-
 .popup-kpi {
   background: rgb(47, 49, 63);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
@@ -174,38 +16,8 @@
   margin: 5% 5%;
 }
 
-.kpi ul li {
-  margin: auto;
-  width: 100%;
-  display: block;
-  line-height: 15px;
-  text-align: center;
-  padding: 15px 0px 15px 0px;
-  margin: 10px 0px 10px 0px;
-  background-color: rgb(41, 39, 39);
-  border-radius: 10px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-  z-index: 10;
-}
-
-.kpi2 p {
-  line-height: 25px;
-  text-align: center;
-}
-
 .kpiButtons {
   margin-left: 25%;
-}
-
-.float {
-  float: left;
-  width: 50%;
-  margin: 0px 15px;
-  text-align: right;
-}
-
-.float2 {
-  text-align: left;
 }
 
 #closss {
@@ -236,21 +48,33 @@
   color: rgb(0, 0, 0);
 }
 
-.lists:after {
-  content: "";
-  display: table;
-  clear: both;
+.lists {
+  display: flex;
+  justify-content: space-between;
 }
 
-.list1 {
-  float: left;
-  width: 47.5%;
-  text-align: center !important;
-  margin-right: 5%;
+.list {
+  display: flex;
+  width: 45%;
+  flex-direction: column;
 }
 
-.list2 {
-  float: left;
-  width: 47.5%;
-  text-align: center;
+.list_item {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: rgb(41, 39, 39);
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  padding: 10px 20px;
+  margin: 7px 0px;
+}
+
+.float {
+  margin-right: 10px;
+}
+
+.float2 {
+  width: 40%;
 }
