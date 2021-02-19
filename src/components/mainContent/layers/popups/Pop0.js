@@ -47,11 +47,11 @@ function Pop0(props) {
 
   ////// gamma functions
   const gammaMinus = () => {
-    setGammaValue(-0.1);
+    setGammaValue(1 / 2);
     setGamma((prevCount) => gamma_final);
   };
   const gammaAdd = () => {
-    setGammaValue(0.1);
+    setGammaValue(2);
     setGamma((prevCount) => gamma_final);
   };
 
@@ -89,7 +89,7 @@ function Pop0(props) {
             <IconButton id="thres" onClick={gammaMinus}>
               <RemoveIcon />
             </IconButton>
-            <div className="val">{Gamma}</div>
+            <div className="valG">{Gamma}</div>
 
             <IconButton id="thres" onClick={gammaAdd}>
               <AddIcon />

@@ -51,8 +51,8 @@ const setThreshold = (num) => {
 
 ////// gamma
 const setGammaValue = (num) => {
-  gamma += num;
-  gamma_final = gamma.toFixed(1);
+  gamma *= num;
+  gamma_final = gamma.toFixed(3);
 };
 
 //////////

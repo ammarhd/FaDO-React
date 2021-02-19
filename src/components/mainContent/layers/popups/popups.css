@@ -6,6 +6,7 @@
 
 .threshold,
 .gamma {
+  width: 40%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,6 +20,10 @@
 
 .val {
   width: 20px;
+}
+
+.valG {
+  width: 30px;
 }
 
 #thres {
