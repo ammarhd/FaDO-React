@@ -1,4 +1,4 @@
-import store from "../../../../../store";
+import store from "../../../../../redux/store";
 
 // test veriables
 var na = 0;
@@ -15,28 +15,42 @@ var checkAmount = false;
 var indexAmount;
 var indexLabel;
 
-var counter = 0;
-
-const adminstration = (fraud, alarm, transaction, norm, vecMinusW, w) => {
-  counter++;
-
-  if (counter == 1) {
-    const state = store.getState();
-    var txFeatures = state.configSlice.configs.tx.features;
-    var lowCaseFeatures = txFeatures.map((feature) => feature.toLowerCase());
-    if (lowCaseFeatures.includes("amount")) {
-      indexAmount = lowCaseFeatures.indexOf("amount");
-      checkAmount = true;
-    }
-
-    if (lowCaseFeatures.includes("label")) {
-      indexLabel = lowCaseFeatures.indexOf("label");
-      checkLabel = true;
-    }
+export const checkConfigration = () => {
+  const state = store.getState();
+  var txFeatures = state.configs.configs.tx.features;
+  var lowCaseFeatures = txFeatures.map((feature) => feature.toLowerCase());
+  if (lowCaseFeatures.includes("amount")) {
+    indexAmount = lowCaseFeatures.indexOf("amount");
+    checkAmount = true;
+  } else {
+    checkAmount = false;
   }
 
-  var v_t = [];
-  var w_new = [];
+  if (lowCaseFeatures.includes("label")) {
+    indexLabel = lowCaseFeatures.indexOf("label");
+    checkLabel = true;
+  } else {
+    checkLabel = false;
+  }
+
+  //check if there is kpi
+  var config = state.configs.configs;
+  //var config = config.map((item) => item.toLowerCase());
+  if (config.hasOwnProperty("kpi")) {
+    na = config.kpi.na;
+    nf = config.kpi.nf;
+    tvalue = config.kpi.tvalue;
+    fvalue = config.kpi.fvalue;
+    tp = config.kpi.tp;
+    fp = config.kpi.fp;
+    tn = config.kpi.tn;
+    fn = config.kpi.fn;
+  }
+
+  console.log("bu");
+};
+
+export const adminstration = (alarm, transaction) => {
   //var tx = transaction.split(",");
   var tx = transaction;
 
@@ -65,18 +79,19 @@ const adminstration = (fraud, alarm, transaction, norm, vecMinusW, w) => {
       fn += 1;
     } else if (alarm === 1 && label !== 1) {
       fp += 1;
-      var gamma = 1 / Math.sqrt(fp);
-      for (let i = 0; i < w.length; i++) {
-        v_t.push(vecMinusW[i] / norm);
-        v_t[i] *= gamma;
-        w_new.push(w[i] + v_t[i]);
-      }
-
-      w = w_new;
     } else {
       tn += 1;
     }
   }
 };
 
-export { adminstration, na, nf, tvalue, fvalue, tp, fp, tn, fn };
+export { na, nf, tvalue, fvalue, tp, fp, tn, fn };
+
+//var gamma = 1 / Math.sqrt(fp);
+//for (let i = 0; i < w.length; i++) {
+//  v_t.push(vecMinusW[i] / norm);
+//  v_t[i] *= gamma;
+//  w_new.push(w[i] + v_t[i]);
+//}
+//
+//w = w_new;

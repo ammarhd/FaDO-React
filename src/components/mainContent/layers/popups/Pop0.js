@@ -11,8 +11,10 @@ import {
   layer0count,
   numFlagTx,
   setThreshold,
+  setThreshold_input,
   threshold_final,
   setGammaValue,
+  setGammaValue_input,
   gamma_final,
 } from "../functions/FaDO";
 
@@ -35,25 +37,39 @@ function Pop0(props) {
   ///// threshold functions
 
   const thresholdMinus = () => {
-    console.log(-1);
-    setThreshold(-0.3);
+    setThreshold(thresH / 2);
     setThresH((prevCount) => threshold_final);
+    document.getElementById("thrNum").value = threshold_final;
   };
   const thresholdAdd = () => {
-    console.log(1);
-    setThreshold(0.3);
+    setThreshold(thresH * 2);
+    setThresH((prevCount) => threshold_final);
+    document.getElementById("thrNum").value = threshold_final;
+  };
+  const thresholdChange = (e) => {
+    setThreshold_input(e.target.value);
     setThresH((prevCount) => threshold_final);
   };
 
   ////// gamma functions
   const gammaMinus = () => {
-    setGammaValue(1 / 2);
+    setGammaValue(Gamma / 2);
     setGamma((prevCount) => gamma_final);
+    document.getElementById("gNum").value = gamma_final;
+
+    console.log(Gamma);
   };
   const gammaAdd = () => {
-    setGammaValue(2);
+    setGammaValue(Gamma * 2);
+    setGamma((prevCount) => gamma_final);
+    document.getElementById("gNum").value = gamma_final;
+  };
+
+  const gammaChange = (e) => {
+    setGammaValue_input(e.target.value);
     setGamma((prevCount) => gamma_final);
   };
+  /////////
 
   return (
     <div className="popup0-menu">
@@ -79,21 +95,44 @@ function Pop0(props) {
             <IconButton id="thres" onClick={thresholdMinus}>
               <RemoveIcon />
             </IconButton>
-            <div className="val">{thresH}</div>
+            <div className="valG">
+              <input
+                type="number"
+                placeholder={thresH}
+                step="any"
+                min="0"
+                id="thrNum"
+                onChange={thresholdChange}
+              />
+            </div>
             <IconButton id="thres" onClick={thresholdAdd}>
               <AddIcon />
             </IconButton>
           </div>
           <div className="gamma">
             <div>Gamma value</div>
-            <IconButton id="thres" onClick={gammaMinus}>
-              <RemoveIcon />
-            </IconButton>
-            <div className="valG">{Gamma}</div>
+            <div>
+              <IconButton id="thres" onClick={gammaMinus}>
+                <RemoveIcon />
+              </IconButton>
+            </div>
 
-            <IconButton id="thres" onClick={gammaAdd}>
-              <AddIcon />
-            </IconButton>
+            <div className="valG">
+              <input
+                type="number"
+                placeholder={Gamma}
+                step="any"
+                min="0"
+                id="gNum"
+                onChange={gammaChange}
+              />
+            </div>
+
+            <div>
+              <IconButton id="thres" onClick={gammaAdd}>
+                <AddIcon />
+              </IconButton>
+            </div>
           </div>
         </div>
         <HisChart />

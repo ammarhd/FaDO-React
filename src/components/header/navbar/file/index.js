@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
 import { withStyles } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
-import { useSelector, useDispatch } from "react-redux";
-import { setConfigFile } from "../../../../features/configSlice";
-import { setTxsFile } from "../../../../features/txsSlice";
-
 import { makeStyles } from "@material-ui/core/styles";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setConfigFile,
+  configsSelector,
+} from "../../../../redux/slices/configSlice";
+import { setTxsFile, txsSelector } from "../../../../redux/slices/txsSlice";
+
+import { export_config } from "../../../mainContent/layers/functions/exportConfig";
+import { wholeCheck } from "../../../mainContent/layers/functions/main";
 
 const StyledMenu = withStyles({
   paper: {
@@ -48,7 +51,15 @@ function File() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [file, setFile] = useState("");
   const [file2, setFile2] = useState();
+
+  const [state, setState] = React.useState({
+    checkConfig: false,
+    checkTx: false,
+  });
+
   const dispatch = useDispatch();
+  //const { txs } = useSelector(txsSelector);
+  //const { configs } = useSelector(configsSelector);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -68,7 +79,11 @@ function File() {
 
       dispatch(setConfigFile(data));
     };
-    //document.getElementById("btnsubmit").value = "";
+    document.getElementById("contained-button-file").value = "";
+
+    setState((prevState) => ({ ...prevState, checkConfig: true }));
+
+    //wholeCheck();
 
     handleClose();
     //let files = e.target.files;
@@ -86,12 +101,29 @@ function File() {
 
       dispatch(setTxsFile(data));
     };
-    //document.getElementById("btnsubmit2").value = "";
+    document.getElementById("contained-button-file2").value = "";
+
+    setState((prevState) => ({ ...prevState, checkTx: true }));
+
+    //wholeCheck();
 
     handleClose();
     //let files = e.target.files;
     //let reader = new FileReader;
     //
+  };
+
+  useEffect(() => {
+    if (state.checkTx && state.checkConfig) {
+      setTimeout(function () {
+        wholeCheck();
+      }, 1000);
+    }
+  }, [state]);
+
+  const exportConfig = () => {
+    export_config();
+    handleClose();
   };
 
   return (
@@ -111,9 +143,7 @@ function File() {
         onClose={handleClose}
       >
         <MenuItem>Save as</MenuItem>
-        <MenuItem>Export</MenuItem>
-        <MenuItem>Import</MenuItem>
-        <MenuItem>Connect</MenuItem>
+        <MenuItem onClick={exportConfig}>Export</MenuItem>
         <div className={classes.root}>
           <input
             accept="file/*"
@@ -125,7 +155,7 @@ function File() {
           />
           <label htmlFor="contained-button-file">
             <Button color="primary" component="span" id="black">
-              Configration file
+              Open
             </Button>
           </label>
           <br />
@@ -139,10 +169,12 @@ function File() {
           />
           <label htmlFor="contained-button-file2">
             <Button color="primary" component="span" id="black">
-              Dataset file
+              Import
             </Button>
           </label>
         </div>
+
+        <MenuItem>Connect</MenuItem>
       </StyledMenu>
     </div>
   );

@@ -62,7 +62,7 @@ function Extra() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose3}>Case Study</MenuItem>
+        <MenuItem onClick={handleClose3}>Key performance indicators</MenuItem>
         <MenuItem>Dashboard</MenuItem>
       </StyledMenu>
       {isOpen2 && <KPI closePopup={handleClose3} />}

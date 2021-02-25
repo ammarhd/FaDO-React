@@ -110,7 +110,6 @@ function Setup() {
         >
           L3
         </MenuItem>
-        <MenuItem onClick={handleClose}>Close</MenuItem>
       </StyledMenu>
       {isOpen && theId == "00" && <Pop0 closePopup={togglePopup2} />}
       {isOpen && theId == "11" && <Pop1 closePopup={togglePopup2} />}

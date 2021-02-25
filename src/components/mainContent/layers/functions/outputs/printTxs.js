@@ -1,6 +1,9 @@
 const printOutput = (token, containerId) => {
   let newTokenDiv = document.createElement("div");
-  let nodeToken = document.createTextNode(token);
+  var tx = token.join();
+  //console.log(tx);
+  let nodeToken = document.createTextNode(tx);
+  newTokenDiv.classList.add("one_line");
   newTokenDiv.appendChild(nodeToken);
   let tokenContianer = document.getElementById(containerId);
   tokenContianer.insertBefore(newTokenDiv, tokenContianer.childNodes[0]);

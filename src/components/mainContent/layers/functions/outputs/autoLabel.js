@@ -1,6 +1,9 @@
 import store from "../../../../../redux/store";
+import "./output.css";
 
-const printPics1 = (token, containerId) => {
+import { fadoN } from "../FaDO";
+
+export const print_with_autoLabel = (token, vector, containerId) => {
   const state = store.getState();
 
   var txFeatures = state.configs.configs.tx.features;
@@ -65,11 +68,14 @@ const printPics1 = (token, containerId) => {
   allParts.classList.add("allParts");
   newTokenDiv.appendChild(allParts);
 
+  var indexx = txFeatures.indexOf("label");
+  if (tx[indexx] == 0) {
+    fadoN(vector);
+  }
+
   let tokenContianer = document.getElementById(containerId);
   tokenContianer.insertBefore(newTokenDiv, tokenContianer.childNodes[0]);
   if (tokenContianer.childNodes.length > 35) {
     tokenContianer.removeChild(tokenContianer.childNodes[35]);
   }
 };
-
-export default printPics1;

@@ -1,4 +1,4 @@
-import store from "../../../../store";
+import store from "../../../../redux/store";
 
 const tx2vec = (transaction) => {
   const state = store.getState();
@@ -6,10 +6,10 @@ const tx2vec = (transaction) => {
   //var tx = txsLine.split(",");
   var tx = txsLine;
 
-  var toVec = state.configSlice.configs.txToVec.features;
-  var txFeaturesOptions = state.configSlice.configs.tx.options;
-  var txFeatures = state.configSlice.configs.tx.features;
-  var encoding = state.configSlice.configs.txToVec.encoding;
+  var toVec = state.configs.configs.txToVec.features;
+  var txFeaturesOptions = state.configs.configs.tx.options;
+  var txFeatures = state.configs.configs.tx.features;
+  var encoding = state.configs.configs.txToVec.encoding;
   var vec = [];
 
   for (let i = 0; i < toVec.length; i++) {
