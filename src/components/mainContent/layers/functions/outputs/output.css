@@ -1,0 +1,70 @@
+.allParts {
+  height: 5%;
+  text-align: center;
+  margin: 5px auto;
+  width: 60%;
+}
+
+.allParts2 {
+  text-align: center;
+  margin: 4px auto;
+  width: 80%;
+}
+
+.btnTXs {
+  display: inline-block;
+  height: 5%;
+  width: 90%;
+  margin: 0px auto;
+  text-decoration: none;
+  border-style: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btnTXs:focus {
+  outline: none;
+}
+
+.btnTXs:hover {
+  color: red;
+  background-color: rgb(218, 218, 218);
+}
+
+.labell {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.divs {
+  display: inline-block;
+  height: 20px;
+}
+
+.menu-features {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.menu-features2 {
+  text-align: right;
+  color: white;
+}
+
+.menu-features1 {
+  text-align: right;
+  color: white;
+}
+
+.single-features {
+  display: block;
+  line-height: 15px;
+  text-align: center;
+  padding: 15px 10px 15px 10px;
+  margin: 10px 5px 10px 5px;
+  background-color: rgb(41, 39, 39);
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
