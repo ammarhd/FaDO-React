@@ -42,12 +42,6 @@
   font-size: 14px;
 }
 
-.btnTXs {
-  border-style: none;
-  background-color: transparent;
-  color: #777;
-}
-
 .layers {
   min-height: 322px;
   margin-bottom: 20px;
@@ -70,13 +64,13 @@
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
   z-index: 10;
   position: fixed;
-  top: 40%;
-  left: 80%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 30%;
-  min-width: 450px;
+  min-width: 500px;
   border-radius: 30px;
-  padding-bottom: 20px;
+  padding: 20px 0px;
 }
 
 .amount {
@@ -190,13 +184,6 @@
   font-size: 95%;
 }
 
-.allParts {
-  height: 20px;
-  text-align: center;
-  margin: 0px 0px 3px 10%;
-  width: 80%;
-}
-
 .middle {
   display: inline-block;
   width: 50%;
@@ -225,19 +212,6 @@
   width: 100%;
   height: 20px;
   text-align: left;
-}
-
-.labell {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  text-align: center !important;
-}
-
-.btnTXs {
-  height: 20px;
-  width: 90%;
-  margin: 0px 0px 3px 0px;
 }
 
 #normal {

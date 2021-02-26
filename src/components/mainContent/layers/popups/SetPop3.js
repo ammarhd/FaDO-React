@@ -1,64 +1,61 @@
 import React, { useState, useEffect } from "react";
-
+import "./popups.css";
 import Button from "@material-ui/core/Button";
-import { layer3count } from "../functions/txConfig2.js";
-
-import {
-  ii,
-  f,
-  n,
-  label,
-  rand,
-  time,
-  minutes,
-  seconds,
-} from "../functions/generateOutputs";
+import Pop3 from "./Pop3";
+import { label_type } from "../functions/outputs/visualTxs3";
 
 function SetPopup3(props) {
   const [isOpen, setIsOpen] = useState(false);
-  const [count, setCount] = useState(layer3count);
+  const [theId, setTheId] = useState();
+  const [lButton, setLButton] = useState("default");
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      for (var j = 0; j < 100; j++) {
-        setCount((prevCount) => layer3count);
-      }
-    }, 10);
-    return () => clearInterval(interval);
-  }, []);
+  const togglePopup = (id) => {
+    if ((id = "33")) {
+      setTheId("33");
+      setIsOpen(true);
+    }
+  };
 
-  const togglePopup = () => {
+  const togglePopup2 = () => {
     setIsOpen(!isOpen);
   };
 
-  return (
-    <div>
-      <Button
-        variant="contained"
-        color="primary"
-        component="span"
-        id="layer1Btn"
-        onClick={togglePopup}
-      >
-        <h2>{props.name}</h2>
-      </Button>
-      {isOpen && (
-        <div className="popup33-menu" id="layer1popup">
-          <div className="txNum123">
-            <div>Number of transactions</div>
-            <div id="count3">{count}</div>
-          </div>
+  const autoLabel = () => {
+    if (lButton == "primary") {
+      setLButton((prevColor) => "default");
+      label_type(0);
+    } else {
+      setLButton((prevColor) => "primary");
+      label_type(1);
+    }
+  };
 
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={togglePopup}
-            id="clos"
-          >
-            Close
-          </Button>
-        </div>
-      )}
+  return (
+    <div className="pop3_all">
+      <div className="pop3_buttons">
+        <Button
+          variant="contained"
+          color="primary"
+          component="span"
+          id="layer3Btn"
+          onClick={() => {
+            togglePopup("33");
+          }}
+        >
+          <h2>{props.name}</h2>
+        </Button>
+        {isOpen && theId == "33" && <Pop3 closePopup={togglePopup2} />}
+
+        <Button
+          variant="contained"
+          color={lButton}
+          onClick={autoLabel}
+          component="span"
+          id="layer3Btn2"
+        >
+          <h2>L</h2>
+        </Button>
+      </div>
     </div>
   );
 }
