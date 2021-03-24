@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { layer1count } from "../functions/FaDO";
+import { layer3count } from "../functions/FaDO";
 import Button from "@material-ui/core/Button";
 
 function Pop3(props) {
-  const [count, setCount] = useState(layer1count);
+  const [count, setCount] = useState(layer3count);
 
   useEffect(() => {
     const interval = setInterval(() => {
       for (var j = 0; j < 100; j++) {
-        setCount((prevCount) => layer1count);
+        setCount((prevCount) => layer3count);
       }
     }, 10);
     return () => clearInterval(interval);

@@ -12,8 +12,22 @@ import {
 import { setTxsFile, txsSelector } from "../../../../redux/slices/txsSlice";
 
 import { export_config } from "../../../mainContent/layers/functions/exportConfig";
-import { wholeCheck } from "../../../mainContent/layers/functions/main";
+import {
+  stream,
+  wholeCheck,
+  wholeCheck_backend,
+  run_backend,
+  lengthT,
+} from "../../../mainContent/layers/functions/main";
 
+import { l1_txs_to_backend } from "../../../mainContent/layers/functions/backend";
+import { update_l3txs_array } from "../../../mainContent/layers/functions/FaDO";
+
+import ConnectPop from "./ConnectPop";
+import { w3cwebsocket as W3WebSocket } from "websocket";
+import axios from "axios";
+//import socketIOClient from "socket.io-client";
+import io from "socket.io-client";
 const StyledMenu = withStyles({
   paper: {
     border: "1px solid #d3d4d5",
@@ -45,14 +59,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//const ENDPOINT = "http://localhost:4001";
 function File() {
+  const [FetchStatus, setFetchStatus] = useState(false);
+  const [fetchError, setFetchError] = useState(false);
+  //const [data, setData] = useState({ txss: [], isFetching: false });
+  //const [socketUrl, setSocketUrl] = useState("ws://localhost:8098");
+  const [response, setResponse] = useState("");
+
+  const { status } = useSelector(txsSelector);
+
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const [file, setFile] = useState("");
   const [file2, setFile2] = useState();
+  const [server, setServer] = useState("");
 
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     checkConfig: false,
     checkTx: false,
   });
@@ -66,6 +91,15 @@ function File() {
   };
 
   const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleClose_connect = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleClose_connect2 = () => {
+    setIsOpen(!isOpen);
     setAnchorEl(null);
   };
 
@@ -91,40 +125,70 @@ function File() {
     //
   };
 
-  const handleChange2 = (e) => {
-    const fileReader = new FileReader();
-    fileReader.readAsText(e.target.files[0], "UTF-8");
-    fileReader.onload = (e) => {
-      var target = e.target;
-      var data = JSON.parse(target.result);
-      setFile2(data);
-
-      dispatch(setTxsFile(data));
-    };
-    document.getElementById("contained-button-file2").value = "";
-
-    setState((prevState) => ({ ...prevState, checkTx: true }));
-
-    //wholeCheck();
-
-    handleClose();
-    //let files = e.target.files;
-    //let reader = new FileReader;
-    //
-  };
-
   useEffect(() => {
-    if (state.checkTx && state.checkConfig) {
+    if (status && state.checkConfig) {
       setTimeout(function () {
         wholeCheck();
       }, 1000);
     }
-  }, [state]);
+  }, [state, status]);
 
   const exportConfig = () => {
     export_config();
     handleClose();
   };
+
+  ///////////socket
+  var once = false;
+  var txs_to_backend;
+  useEffect(() => {
+    if (FetchStatus && state.checkConfig) {
+      var socket = io(server, {
+        transports: ["websocket", "polling", "flashsocket"],
+      });
+      socket.on("connect_error", () => {
+        console.log("error");
+        setFetchStatus(false);
+        setFetchError(true);
+        console.log(fetchError);
+        setServer("");
+        socket.close();
+      });
+      socket.on("connect", () => {
+        setInterval(() => {
+          txs_to_backend = l1_txs_to_backend();
+          if (txs_to_backend.length > 0) {
+            socket.emit("l1_txs", txs_to_backend);
+          }
+          if (lengthT < 5000) {
+            socket.emit("messege");
+            console.log("emitiing");
+          }
+        }, 1000);
+
+        socket.on("FromAPI", (data) => {
+          if (!once) {
+            wholeCheck_backend(data[0]);
+            //run_backend();
+            once = true;
+          }
+          setResponse(data);
+          console.log(lengthT);
+        });
+
+        socket.on("l3_txs", (l3Txs) => {
+          update_l3txs_array(l3Txs);
+        });
+      });
+    }
+  }, [FetchStatus, state]);
+
+  useEffect(() => {
+    stream(response);
+    //console.log(response);
+  }, [response]);
+
+  //// fetch data f
 
   return (
     <div>
@@ -159,22 +223,18 @@ function File() {
             </Button>
           </label>
           <br />
-          <input
-            accept="file/*"
-            className={classes.input}
-            id="contained-button-file2"
-            multiple
-            type="file"
-            onChange={(e) => handleChange2(e)}
-          />
-          <label htmlFor="contained-button-file2">
-            <Button color="primary" component="span" id="black">
-              Import
-            </Button>
-          </label>
         </div>
 
-        <MenuItem>Connect</MenuItem>
+        <MenuItem onClick={handleClose_connect}>Import</MenuItem>
+        {isOpen && (
+          <ConnectPop
+            closePopup={handleClose_connect2}
+            setFetchStatus={setFetchStatus}
+            setState={setState}
+            setServer={setServer}
+            fetchError={fetchError}
+          />
+        )}
       </StyledMenu>
     </div>
   );

@@ -47,7 +47,7 @@ export const checkConfigration = () => {
     fn = config.kpi.fn;
   }
 
-  console.log("bu");
+  //console.log("bu");
 };
 
 export const adminstration = (alarm, transaction) => {

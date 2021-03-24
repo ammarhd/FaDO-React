@@ -49,6 +49,11 @@ function Help() {
     setIsOpen(!isOpen);
   };
 
+  const toFado = () => {
+    window.open("https://fado.life", "_blank");
+    setAnchorEl(null);
+  };
+
   return (
     <div>
       <Button
@@ -67,7 +72,7 @@ function Help() {
       >
         <MenuItem onClick={handleClose2}>TX Visualization</MenuItem>
         <MenuItem onClick={handleClose}>Tutorial</MenuItem>
-        <MenuItem onClick={handleClose}>FADO</MenuItem>
+        <MenuItem onClick={toFado}>FADO</MenuItem>
       </StyledMenu>
       {isOpen && (
         <div className="popupExtra">

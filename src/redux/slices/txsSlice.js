@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
   txs: [],
+  status: false,
 };
 
 const txsSlice = createSlice({
@@ -10,6 +11,7 @@ const txsSlice = createSlice({
   reducers: {
     setTxsFile: (state, { payload }) => {
       state.txs = payload;
+      state.status = true;
     },
   },
 });

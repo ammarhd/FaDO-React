@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+import { useSelector } from "react-redux";
+import { txsSelector } from "../../redux/slices/txsSlice";
+
 import { withStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
 import Typography from "@material-ui/core/Typography";
@@ -24,7 +27,7 @@ import {
   counter3,
 } from "./layers/functions/counter2human";
 
-import main from "./layers/functions/main";
+import { main } from "./layers/functions/main";
 
 const OurSlider = withStyles({
   root: {
@@ -63,20 +66,19 @@ function valuetext(value) {
 function MainContent() {
   const [value, setValue] = useState(1);
 
+  const { status } = useSelector(txsSelector);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   useEffect(() => {
     var sliderToInterval = (1 / value) * 1000;
+
     if (value > 900) {
       const interval = setInterval(() => {
         for (var j = 0; j < value; j++) {
           main();
-          //generateOutput();
-          //generateOutput2();
-          //generateOutput3();
-          //generateOutput4();
         }
       }, 1);
       return () => clearInterval(interval);
@@ -141,6 +143,7 @@ function MainContent() {
               aria-labelledby="non-linear-slider"
             />
           </div>
+
           <Layer0 />
         </Grid>
         <Grid item xs={12} sm={8}>

@@ -7,6 +7,8 @@ import {
   generateOutput2,
   generateOutput3,
 } from "../outputs";
+import { l1_txs } from "../backend";
+import { tx2vec } from "../tex2vec";
 import store from "../../../../../redux/store";
 
 var gamma = 1;
@@ -104,7 +106,7 @@ export const check_inititial_value = (vec_length) => {
   }
 };
 
-//////////
+////////// update the module when labeling txs manually
 
 export const fadoN = (normalVec) => {
   var l2norm = require("compute-l2norm");
@@ -129,6 +131,7 @@ export const fadoN = (normalVec) => {
   w = w_new;
 };
 
+/// fado algorithm
 export const fado = (transaction, vector) => {
   var l2norm = require("compute-l2norm");
 
@@ -138,7 +141,6 @@ export const fado = (transaction, vector) => {
 
   layer1tx = [];
   layer22tx = [];
-  layer3tx = [];
   layer3vec = [];
 
   var fraud = fraudd(tx);
@@ -164,9 +166,16 @@ export const fado = (transaction, vector) => {
 
     layer1tx = tx;
 
+    //to send txs to the backend
+    l1_txs(tx);
+
     generateOutput1(layer1tx);
     generateOutput2(layer1tx);
-    generateOutput3(layer1tx, vec);
+
+    if (layer3tx.length > 0) {
+      layer3count++;
+      l3_output_to_screen();
+    }
 
     //layer2tx = layer1tx;
     //layer3vec = vec;
@@ -179,8 +188,20 @@ export const fado = (transaction, vector) => {
   return tx;
 };
 
+export const update_l3txs_array = (l3_txs) => {
+  layer3tx = [...layer3tx, ...l3_txs];
+  console.log(layer3tx);
+};
+
+const l3_output_to_screen = () => {
+  var single_trx = layer3tx.shift();
+  var l3tx_vec = tx2vec(single_trx);
+  generateOutput3(single_trx, l3tx_vec);
+};
+
 export {
   layer0count,
+  layer3count,
   numFlagTx,
   layer1count,
   sumTX,

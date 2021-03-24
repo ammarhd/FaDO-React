@@ -43,3 +43,82 @@
 #black {
   color: black;
 }
+
+.popup-import {
+  background: rgb(47, 49, 63);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 400px;
+  max-width: 600px;
+  border-radius: 30px;
+  padding-bottom: 20px;
+  color: rgb(242, 241, 241);
+}
+
+.localFile {
+  color: white !important;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  margin: 10px auto;
+}
+.server-input {
+  width: 100%;
+}
+
+.server {
+  color: white !important;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.mainFrame {
+  margin: 20px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.options {
+  width: 90%;
+}
+
+.main {
+  background-color: rgb(47, 49, 63) !important;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.summary {
+  background-color: rgb(47, 49, 63) !important;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.details {
+  background-color: rgb(223, 223, 225) !important;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.serverSet {
+  color: white !important;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+
+  margin: 0px auto;
+}
+
+#button-color {
+  background: rgb(128, 130, 142);
+}
