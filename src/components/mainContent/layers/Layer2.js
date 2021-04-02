@@ -1,7 +1,7 @@
 import React from "react";
 import SetPop2 from "./popups/SetPop2";
 
-function Layer2(props) {
+function Layer2() {
   return (
     <div>
       <div>

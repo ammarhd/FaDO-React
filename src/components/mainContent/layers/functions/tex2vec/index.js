@@ -1,4 +1,4 @@
-import store from "../../../../redux/store";
+import store from "../../../../../redux/store";
 
 const tx2vec = (transaction) => {
   const state = store.getState();
@@ -36,12 +36,7 @@ const tx2vec = (transaction) => {
     }
 
     vec = vec.concat(vecs);
-
-    //console.log(txFeaturesOptions[toVec[i]]);
   }
-
-  //console.log(toVec.length);
-  //console.log(txFeatures);
 
   return vec;
 };

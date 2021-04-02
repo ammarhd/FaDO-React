@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Button from "@material-ui/core/Button";
-import { layer1count } from "../functions/FaDO";
+import { layer2count } from "../functions/FaDO";
+
+import IconButton from "@material-ui/core/IconButton";
+import CancelIcon from "@material-ui/icons/Cancel";
 
 function Pop2(props) {
-  const [count, setCount] = useState(layer1count);
+  const [count, setCount] = useState(layer2count);
 
   useEffect(() => {
     const interval = setInterval(() => {
       for (var j = 0; j < 100; j++) {
-        setCount((prevCount) => layer1count);
+        setCount((prevCount) => layer2count);
       }
     }, 10);
     return () => clearInterval(interval);
@@ -16,20 +18,17 @@ function Pop2(props) {
   return (
     <div className="popup11-menu" id="layer1popup">
       <div className="configsFrame">
-        <div className="txNum123">
+        <div className="txNum23">
           <div>Number of transactions</div>
-          <div id="count1">{count}</div>
+          <div id="count1" className="count23">
+            {count}
+          </div>
         </div>
       </div>
       <div className="configsButtons">
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={props.closePopup}
-          id="closss"
-        >
-          Close
-        </Button>
+        <IconButton aria-label="delete" onClick={props.closePopup} id="closss">
+          <CancelIcon fontSize="large" />
+        </IconButton>
       </div>
     </div>
   );

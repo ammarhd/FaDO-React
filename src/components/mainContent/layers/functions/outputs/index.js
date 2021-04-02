@@ -1,5 +1,5 @@
 import printOutput from "./printTxs.js";
-import printPics1 from "./visualTxs2.js";
+import { printPics1 } from "./visualTxs2.js";
 import printPics2 from "./visualTxs3.js";
 import store from "../../../../../redux/store";
 

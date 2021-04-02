@@ -50,17 +50,3 @@ export const export_config = async () => {
 
   console.log(newObj);
 };
-
-//if (ii === 40) {
-//  var array = [];
-//  array.push(newObj);
-//  var arrayContent = [["Séjour 1, é,í,ú,ü,ű"], ["Séjour 2, é,í,ú,ü,ű"]];
-//  var csvContent = newObj;
-//  var link = window.document.createElement("a");
-//  link.setAttribute(
-//    "href",
-//    "data:text/json;charset=utf-8,%EF%BB%BF" + encodeURI(csvContent)
-//  );
-//  link.setAttribute("download", "./data.json");
-//  link.click();
-//}

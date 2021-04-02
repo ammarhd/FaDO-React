@@ -1,13 +1,15 @@
 import store from "../../../../../redux/store";
-import { tx_visual } from "./tx_visual";
 
 // to visualize one txs in help/tx visualization
-var once = true;
-var tx_to_visualize = document.createElement("div");
+
+var all_features_to_visualize = document.createElement("div");
+var feature_names = [];
+var single_feature = [];
+var increment = 0;
 
 var i;
 
-const printPics1 = (token, containerId) => {
+export const tx_visual = (transaction) => {
   const state = store.getState();
 
   var txFeatures = state.configs.configs.tx.features;
@@ -20,23 +22,27 @@ const printPics1 = (token, containerId) => {
   var representation = state.configs.configs.visualization.representation;
 
   //var tx = token.split(",");
-  var tx = token;
+  var tx = transaction;
 
   let newTokenDiv = document.createElement("div");
-  let allParts = document.createElement("div");
 
-  var divs = [];
+  //for tx visualization in help
+  let tx_visual_allParts = document.createElement("div");
+
+  var divs_visual = [];
+  var divs_visual2 = [];
 
   for (i = 0; i < features.length; i++) {
-    divs[i] = document.createElement("div");
+    divs_visual[i] = document.createElement("div");
     var index = txFeatures.indexOf(features[i]);
     var allFeaturesRep = txFeaturesOptions[features[i]];
     var representationIndex = allFeaturesRep.indexOf(tx[index]);
 
     var repArray = representation[features[i]];
     var picOrColor = repArray[representationIndex];
-    divs[i].style.width = width[i];
-    divs[i].classList.add("divs");
+    divs_visual[i].style.width = "20px";
+    divs_visual[i].style.height = "20px";
+    divs_visual[i].classList.add("divs_visual");
 
     if (encoding[i] === "fixed") {
       if (type[i] == "pics") {
@@ -44,9 +50,9 @@ const printPics1 = (token, containerId) => {
         image.setAttribute("src", picOrColor);
         image.setAttribute("height", "100%");
         image.setAttribute("width", "100%");
-        divs[i].appendChild(image);
+        divs_visual[i].appendChild(image);
       } else {
-        divs[i].style.backgroundColor = picOrColor;
+        divs_visual[i].style.backgroundColor = picOrColor;
       }
     } else {
       var floor = Math.floor(tx[index]);
@@ -59,9 +65,9 @@ const printPics1 = (token, containerId) => {
             image.setAttribute("src", picOrColor);
             image.setAttribute("height", "20px");
             image.setAttribute("width", "100%");
-            divs[i].appendChild(image);
+            divs_visual[i].appendChild(image);
           } else {
-            divs[i].style.backgroundColor = repArray[j];
+            divs_visual[i].style.backgroundColor = repArray[j];
           }
 
           break;
@@ -69,25 +75,38 @@ const printPics1 = (token, containerId) => {
       }
     }
 
-    allParts.appendChild(divs[i]);
+    // add feature div to array
+
+    divs_visual2[i] = document.createElement("div");
+    divs_visual2[i].classList.add("divs_visual2");
+    divs_visual2[i].appendChild(divs_visual[i]);
+
+    feature_names[increment] = document.createElement("div");
+    feature_names[increment].classList.add("feature_name");
+    feature_names[increment].innerHTML = `<div>${increment + 1}. ${
+      features[i]
+    }</div>`;
+    ////////
+    single_feature[increment] = document.createElement("div");
+    single_feature[increment].classList.add("one_feature");
+    single_feature[increment].appendChild(feature_names[increment]);
+
+    single_feature[increment].appendChild(divs_visual2[i]);
+
+    tx_visual_allParts.appendChild(single_feature[increment]);
+    console.log(increment);
+    increment++;
   }
 
-  allParts.classList.add("allParts");
-  newTokenDiv.appendChild(allParts);
-
-  let tokenContianer = document.getElementById(containerId);
-  tokenContianer.insertBefore(newTokenDiv, tokenContianer.childNodes[0]);
+  if (features.length > 18) {
+    tx_visual_allParts.classList.add("all_features_visual2");
+  } else {
+    tx_visual_allParts.classList.add("all_features_visual");
+  }
 
   // to visualize one txs in help/tx visualization
-  if (once) {
-    once = false;
-    tx_to_visualize = allParts;
-    tx_visual(tx);
-  }
 
-  if (tokenContianer.childNodes.length > 35) {
-    tokenContianer.removeChild(tokenContianer.childNodes[35]);
-  }
+  all_features_to_visualize = tx_visual_allParts;
 };
 
-export { printPics1, tx_to_visualize };
+export { all_features_to_visualize };

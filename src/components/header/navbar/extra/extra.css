@@ -8,7 +8,7 @@
   transform: translate(-50%, -50%);
   width: 900px;
   border-radius: 30px;
-  padding-bottom: 20px;
+  padding: 20px;
   color: rgb(242, 239, 239);
 }
 
@@ -17,35 +17,26 @@
 }
 
 .kpiButtons {
-  margin-left: 25%;
+  display: flex;
+  justify-content: center;
 }
 
-#closss {
-  padding: 7px;
-
-  margin-left: 5%;
-  text-align: center;
-
-  width: 25%;
-  border-radius: 10px;
-
-  margin-top: 15px;
-  background-color: #464444 !important;
-  color: rgb(250, 250, 250);
-}
-
-#restart {
-  padding: 7px;
-
-  margin-left: 5%;
-  text-align: center;
-
-  width: 25%;
-  border-radius: 10px;
-
+#kpi_restart {
+  width: 15%;
+  border-radius: 7px;
+  margin-right: 10px;
   margin-top: 15px;
   background-color: #f2f2f2 !important;
   color: rgb(0, 0, 0);
+}
+
+#kpi_close {
+  width: 15%;
+  border-radius: 7px;
+  margin-right: 10px;
+  margin-top: 15px;
+  background-color: rgb(41, 39, 39) !important;
+  color: rgb(213, 213, 213);
 }
 
 .lists {
@@ -56,6 +47,7 @@
 .list {
   display: flex;
   width: 45%;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -69,12 +61,4 @@
   z-index: 10;
   padding: 10px 20px;
   margin: 7px 0px;
-}
-
-.float {
-  margin-right: 10px;
-}
-
-.float2 {
-  width: 40%;
 }

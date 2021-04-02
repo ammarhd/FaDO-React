@@ -87,29 +87,16 @@ export const print_with_manualLabel = (token, vector, containerId) => {
   /////// menu
 
   let menu = document.createElement("div");
-  let menuFeatures = document.createElement("div");
-  let menuFeatures1 = document.createElement("div");
-  let menuFeatures2 = document.createElement("div");
+  let menu_features = document.createElement("div");
+  let all_Features = document.createElement("div");
+
   let singleFeatures = [];
   for (var k = 0; k < txFeatures.length; k++) {
     singleFeatures[k] = document.createElement("div");
     singleFeatures[k].classList.add("single-features");
     singleFeatures[k].innerHTML = `<div>${txFeatures[k]} : ${tx[k]}</div>`;
-    menuFeatures1.appendChild(singleFeatures[k]);
-
-    if (k < txFeatures.length - 1) {
-      singleFeatures[k + 1] = document.createElement("div");
-      singleFeatures[k + 1].classList.add("single-features");
-      singleFeatures[k + 1].innerHTML = `<div>${txFeatures[k + 1]} : ${
-        tx[k + 1]
-      }</div>`;
-      menuFeatures2.appendChild(singleFeatures[k + 1]);
-
-      k++;
-    }
+    all_Features.appendChild(singleFeatures[k]);
   }
-  menuFeatures.appendChild(menuFeatures1);
-  menuFeatures.appendChild(menuFeatures2);
 
   let menuBtns = document.createElement("div");
   menuBtns.innerHTML = "<div id='dx'>Normal</div>";
@@ -117,11 +104,18 @@ export const print_with_manualLabel = (token, vector, containerId) => {
   menuBtns.innerHTML += "<div id='canc'>Cancel</div>";
 
   menuBtns.classList.add("btn-menu");
-  menuFeatures1.classList.add("menu-features1");
-  menuFeatures2.classList.add("menu-features2");
-  menuFeatures.classList.add("menu-features");
+
+  if (txFeatures.length > 18) {
+    all_Features.classList.add("all-features2");
+  } else {
+    all_Features.classList.add("all-features");
+  }
+
+  menu_features.appendChild(all_Features);
+  menu_features.classList.add("menu_features");
+
   menu.classList.add("popup-menu");
-  menu.appendChild(menuFeatures);
+  menu.appendChild(menu_features);
   menu.appendChild(menuBtns);
   newTokenDiv.appendChild(menu);
 

@@ -45,9 +45,16 @@ export const checkConfigration = () => {
     fp = config.kpi.fp;
     tn = config.kpi.tn;
     fn = config.kpi.fn;
+  } else {
+    na = 0;
+    nf = 0;
+    tvalue = 0;
+    fvalue = 0;
+    tp = 0;
+    fp = 0;
+    tn = 0;
+    fn = 0;
   }
-
-  //console.log("bu");
 };
 
 export const adminstration = (alarm, transaction) => {
@@ -86,12 +93,3 @@ export const adminstration = (alarm, transaction) => {
 };
 
 export { na, nf, tvalue, fvalue, tp, fp, tn, fn };
-
-//var gamma = 1 / Math.sqrt(fp);
-//for (let i = 0; i < w.length; i++) {
-//  v_t.push(vecMinusW[i] / norm);
-//  v_t[i] *= gamma;
-//  w_new.push(w[i] + v_t[i]);
-//}
-//
-//w = w_new;

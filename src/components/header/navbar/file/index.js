@@ -5,18 +5,14 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  setConfigFile,
-  configsSelector,
-} from "../../../../redux/slices/configSlice";
-import { setTxsFile, txsSelector } from "../../../../redux/slices/txsSlice";
+import { setConfigFile } from "../../../../redux/slices/configSlice";
+import { txsSelector } from "../../../../redux/slices/txsSlice";
 
 import { export_config } from "../../../mainContent/layers/functions/exportConfig";
 import {
   stream,
   wholeCheck,
   wholeCheck_backend,
-  run_backend,
   lengthT,
 } from "../../../mainContent/layers/functions/main";
 
@@ -24,10 +20,11 @@ import { l1_txs_to_backend } from "../../../mainContent/layers/functions/backend
 import { update_l3txs_array } from "../../../mainContent/layers/functions/FaDO";
 
 import ConnectPop from "./ConnectPop";
-import { w3cwebsocket as W3WebSocket } from "websocket";
-import axios from "axios";
+import Record_txs from "./Record_txs";
+
 //import socketIOClient from "socket.io-client";
 import io from "socket.io-client";
+
 const StyledMenu = withStyles({
   paper: {
     border: "1px solid #d3d4d5",
@@ -59,12 +56,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-//const ENDPOINT = "http://localhost:4001";
 function File() {
   const [FetchStatus, setFetchStatus] = useState(false);
   const [fetchError, setFetchError] = useState(false);
-  //const [data, setData] = useState({ txss: [], isFetching: false });
-  //const [socketUrl, setSocketUrl] = useState("ws://localhost:8098");
+
   const [response, setResponse] = useState("");
 
   const { status } = useSelector(txsSelector);
@@ -74,8 +69,8 @@ function File() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [file, setFile] = useState("");
-  const [file2, setFile2] = useState();
   const [server, setServer] = useState("");
+  const [theId, setTheId] = useState("");
 
   const [state, setState] = useState({
     checkConfig: false,
@@ -83,8 +78,6 @@ function File() {
   });
 
   const dispatch = useDispatch();
-  //const { txs } = useSelector(txsSelector);
-  //const { configs } = useSelector(configsSelector);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -94,8 +87,14 @@ function File() {
     setAnchorEl(null);
   };
 
-  const handleClose_connect = () => {
-    setIsOpen(!isOpen);
+  const toggle_popups = (popup_id) => {
+    if (popup_id === "import") {
+      setTheId((prev) => "import");
+      setIsOpen(true);
+    } else if (popup_id == "export") {
+      setTheId((prev) => "export");
+      setIsOpen(true);
+    }
   };
 
   const handleClose_connect2 = () => {
@@ -117,12 +116,7 @@ function File() {
 
     setState((prevState) => ({ ...prevState, checkConfig: true }));
 
-    //wholeCheck();
-
     handleClose();
-    //let files = e.target.files;
-    //let reader = new FileReader;
-    //
   };
 
   useEffect(() => {
@@ -150,10 +144,14 @@ function File() {
         console.log("error");
         setFetchStatus(false);
         setFetchError(true);
-        console.log(fetchError);
         setServer("");
         socket.close();
       });
+
+      socket.on("disconnect", () => {
+        alert("Server disconnects");
+      });
+
       socket.on("connect", () => {
         setInterval(() => {
           txs_to_backend = l1_txs_to_backend();
@@ -169,7 +167,6 @@ function File() {
         socket.on("FromAPI", (data) => {
           if (!once) {
             wholeCheck_backend(data[0]);
-            //run_backend();
             once = true;
           }
           setResponse(data);
@@ -185,10 +182,7 @@ function File() {
 
   useEffect(() => {
     stream(response);
-    //console.log(response);
   }, [response]);
-
-  //// fetch data f
 
   return (
     <div>
@@ -206,8 +200,7 @@ function File() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem>Save as</MenuItem>
-        <MenuItem onClick={exportConfig}>Export</MenuItem>
+        <MenuItem onClick={exportConfig}>Export Configuration..</MenuItem>
         <div className={classes.root}>
           <input
             accept="file/*"
@@ -218,15 +211,33 @@ function File() {
             onChange={(e) => handleChange(e)}
           />
           <label htmlFor="contained-button-file">
-            <Button color="primary" component="span" id="black">
-              Open
+            <Button
+              color="primary"
+              component="span"
+              id="black"
+              style={{ textTransform: "none" }}
+            >
+              Open Configuration File..
             </Button>
           </label>
           <br />
         </div>
 
-        <MenuItem onClick={handleClose_connect}>Import</MenuItem>
-        {isOpen && (
+        <MenuItem
+          onClick={() => {
+            toggle_popups("import");
+          }}
+        >
+          Import TX Stream..
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            toggle_popups("export");
+          }}
+        >
+          Record TX Stream..
+        </MenuItem>
+        {isOpen && theId == "import" && (
           <ConnectPop
             closePopup={handleClose_connect2}
             setFetchStatus={setFetchStatus}
@@ -235,14 +246,12 @@ function File() {
             fetchError={fetchError}
           />
         )}
+        {isOpen && theId == "export" && (
+          <Record_txs closePopup={handleClose_connect2} />
+        )}
       </StyledMenu>
     </div>
   );
 }
 
 export default File;
-
-//<MenuItem label="Folder" onClick={handleChange}>
-//          Upload Data
-//        </MenuItem>
-//        <MenuItem onClick={handleClose}>Close</MenuItem>

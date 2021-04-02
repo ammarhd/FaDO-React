@@ -2,7 +2,7 @@ import React from "react";
 
 import SetPop0 from "./popups/SetPop0";
 
-function Layer0(props) {
+function Layer0() {
   return (
     <div>
       <div>

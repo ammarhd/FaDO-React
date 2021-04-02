@@ -27,30 +27,30 @@ var falseN = 0;
 var allTxs = 0;
 
 function KPI(props) {
-  const [count1, setCount1] = useState(layer0count);
-  const [count2, setCount2] = useState(tp);
-  const [count3, setCount3] = useState(fp);
-  const [count4, setCount4] = useState(tn);
-  const [count5, setCount5] = useState(fn);
-  const [count6, setCount6] = useState(na);
-  const [count7, setCount7] = useState(tvalue);
-  const [count8, setCount8] = useState(fvalue);
-  const [count9, setCount9] = useState(nf);
-  const [count10, setCount10] = useState(l0c);
+  const [NumOfTxs, setNumOfTxs] = useState(layer0count);
+  const [TrueP, setTrueP] = useState(tp);
+  const [FalseP, setFalseP] = useState(fp);
+  const [TrueN, setTrueN] = useState(tn);
+  const [FalseN, setFalseN] = useState(fn);
+  const [NumOfAlarms, setNumOfAlarms] = useState(na);
+  const [TrueV, setTrueV] = useState(tvalue);
+  const [FalseV, setFalseV] = useState(fvalue);
+  const [NumOfFrauds, setNumOfFrauds] = useState(nf);
+  const [cEfficiency, setcEfficiency] = useState(l0c);
 
   useEffect(() => {
     const interval = setInterval(() => {
       for (var j = 0; j < 100; j++) {
-        setCount1((prevCount) => layer0count - allTxs);
-        setCount2((prevCount) => tp - trueP);
-        setCount3((prevCount) => fp - falseP);
-        setCount4((prevCount) => tn - trueN);
-        setCount5((prevCount) => fn - falseN);
-        setCount6((prevCount) => na - nAlarm);
-        setCount7((prevCount) => tvalue - trueValue);
-        setCount8((prevCount) => fvalue - falseValue);
-        setCount9((prevCount) => nf - nFrauds);
-        setCount10((prevCount) => l0c);
+        setNumOfTxs((prevCount) => layer0count - allTxs);
+        setTrueP((prevCount) => tp - trueP);
+        setFalseP((prevCount) => fp - falseP);
+        setTrueN((prevCount) => tn - trueN);
+        setFalseN((prevCount) => fn - falseN);
+        setNumOfAlarms((prevCount) => na - nAlarm);
+        setTrueV((prevCount) => tvalue - trueValue);
+        setFalseV((prevCount) => fvalue - falseValue);
+        setNumOfFrauds((prevCount) => nf - nFrauds);
+        setcEfficiency((prevCount) => l0c);
       }
     }, 1);
     return () => clearInterval(interval);
@@ -69,15 +69,15 @@ function KPI(props) {
   }
 
   function recall() {
-    var num = (count2 / (count2 + count5)) * 100;
+    var num = (TrueP / (TrueP + FalseN)) * 100;
     return num.toFixed(2);
   }
   function precision() {
-    var num = (count2 / (count2 + count3)) * 100;
+    var num = (TrueP / (TrueP + FalseP)) * 100;
     return num.toFixed(2);
   }
   function label() {
-    var num = (count6 / count1) * 100;
+    var num = (NumOfAlarms / NumOfTxs) * 100;
     return num.toFixed(2);
   }
 
@@ -95,58 +95,80 @@ function KPI(props) {
           <div className="list">
             <div className="list_item">
               <div className="float">Computational Efficiency</div>
-              <div className="float2"> {count10}</div>
+              <div className="float2"> {cEfficiency}</div>
             </div>
-            <div className="list_item">
-              <div className="float">Label Efficiency</div>
-              <div className="float2"> {label()} %</div>
-            </div>
+
+            {NumOfAlarms > 0 ? (
+              <div className="list_item">
+                <div className="float">Label Efficiency</div>
+                <div className="float2"> {label()} %</div>
+              </div>
+            ) : (
+              <div className="list_item">
+                <div className="float">Label Efficiency</div>
+                <div className="float2"> </div>
+              </div>
+            )}
 
             <div className="list_item">
               <div className="float">Detect a total value</div>
-              <div className="float2"> {count7} $</div>
+              <div className="float2"> {TrueV} $</div>
             </div>
             <div className="list_item">
               <div className="float">Total fraud value</div>
-              <div className="float2"> {count8} $</div>
+              <div className="float2"> {FalseV} $</div>
             </div>
-            <div className="list_item">
-              <div className="float">Recall</div>
-              <div className="float2"> {recall()} %</div>
-            </div>
-            <div className="list_item">
-              <div className="float">Precision</div>
-              <div className="float2"> {precision()} %</div>
-            </div>
+            {TrueP > 0 ? (
+              <div className="list_item">
+                <div className="float">Recall</div>
+                <div className="float2">{recall()} % </div>
+              </div>
+            ) : (
+              <div className="list_item">
+                <div className="float">Recall</div>
+                <div className="float2"> </div>
+              </div>
+            )}
+            {TrueP > 0 ? (
+              <div className="list_item">
+                <div className="float">Precision</div>
+                <div className="float2"> {precision()} %</div>
+              </div>
+            ) : (
+              <div className="list_item">
+                <div className="float">Precision</div>
+                <div className="float2"> </div>
+              </div>
+            )}
           </div>
           <div className="list">
             <div className="list_item">
               <div className="float">Processed Transactions</div>
-              <div className="float2"> {count1}</div>
+              <div className="float2"> {NumOfTxs}</div>
             </div>
             <div className="list_item">
               <div className="float">Number Of Alarms</div>
-              <div className="float2"> {count6}</div>
+              <div className="float2"> {NumOfAlarms}</div>
             </div>
             <div className="list_item">
               <div className="float">Number Of Frauds</div>
-              <div className="float2"> {count9}</div>
+              <div className="float2"> {NumOfFrauds}</div>
             </div>
             <div className="list_item">
               <div className="float">True Positives</div>
-              <div className="float2"> {count2}</div>
+              <div className="float2"> {TrueP}</div>
             </div>
             <div className="list_item">
               <div className="float">False Positives</div>
-              <div className="float2"> {count3}</div>
+              <div className="float2"> {FalseP}</div>
             </div>
             <div className="list_item">
               <div className="float">True Negatives</div>
-              <div className="float2"> {count4}</div>
+              <div className="float2"> {TrueN}</div>
             </div>
             <div className="list_item">
               <div className="float">False Negatives</div>
-              <div className="float2"> {count5}</div>
+              <div className="float2"> {FalseN}</div>
             </div>
           </div>
         </div>
@@ -155,18 +177,18 @@ function KPI(props) {
       <div className="kpiButtons">
         <Button
           variant="contained"
-          color="primary"
+          color="default"
           onClick={restart}
-          id="restart"
+          id="kpi_restart"
         >
           Reset
         </Button>
 
         <Button
           variant="contained"
-          color="secondary"
+          color="default"
           onClick={props.closePopup}
-          id="closss"
+          id="kpi_close"
         >
           Close
         </Button>

@@ -11,8 +11,6 @@ import { Grid } from "@material-ui/core";
 import "./MainContent.css";
 import "./layers/Layers.css";
 import "./layers/Layers2.css";
-//import "./header/Navbar.css";
-//import "./header/extra.css";
 
 import Layer0 from "./layers/Layer0";
 import Layer1 from "./layers/Layer1";
@@ -125,7 +123,7 @@ function MainContent() {
   counter3();
 
   return (
-    <div>
+    <div className="all_body">
       <Grid container>
         <Grid item xs={12} sm={4}>
           <div className="range-slider">

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { layer3count } from "../functions/FaDO";
-import Button from "@material-ui/core/Button";
+
+import IconButton from "@material-ui/core/IconButton";
+import CancelIcon from "@material-ui/icons/Cancel";
 
 function Pop3(props) {
   const [count, setCount] = useState(layer3count);
@@ -15,22 +17,19 @@ function Pop3(props) {
   }, []);
 
   return (
-    <div className="popup33-menu" id="layer1popup">
+    <div className="popup11-menu" id="layer1popup">
       <div className="configsFrame">
-        <div className="txNum123">
+        <div className="txNum23">
           <div>Number of transactions</div>
-          <div id="count1">{count}</div>
+          <div id="count1" className="count23">
+            {count}
+          </div>
         </div>
       </div>
       <div className="configsButtons">
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={props.closePopup}
-          id="closss"
-        >
-          Close
-        </Button>
+        <IconButton aria-label="delete" onClick={props.closePopup} id="closss">
+          <CancelIcon fontSize="large" />
+        </IconButton>
       </div>
     </div>
   );

@@ -2,11 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { normArrayToDisplay } from "../functions/FaDO/arrayOfNorm";
 import { x_axis2 } from "../functions/FaDO";
-import { useForm } from "react-hook-form";
 
 export default function HisChart() {
-  const { register, handleSubmit } = useForm();
-
   const [norm, setNorm] = useState(normArrayToDisplay);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -59,29 +56,6 @@ export default function HisChart() {
       },
     ],
   };
-
-  //const onSubmit = (data, e) => {
-  //  var num = parseFloat(data.Threshold);
-  //  if (Number.isFinite(num)) {
-  //    setThreshold(num);
-  //  }
-  //  e.target.reset();
-  //};
-
-  // <form onSubmit={handleSubmit(onSubmit)}>
-  //   <div className="form-group">
-  //     <input
-  //       type="text"
-  //       className="form-control"
-  //       placeholder="Threshold Value"
-  //       name="Threshold"
-  //       ref={register({ required: true })}
-  //     />
-  //     <button type="submit" id="close" className="btn btn-primary">
-  //       ADD
-  //     </button>
-  //   </div>
-  // </form>;
 
   return (
     <div className="lineC">

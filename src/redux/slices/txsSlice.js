@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const initialState = {
   txs: [],
   status: false,
+  expertSys_status: false,
+  expertSys_url: "",
 };
 
 const txsSlice = createSlice({
@@ -13,10 +15,14 @@ const txsSlice = createSlice({
       state.txs = payload;
       state.status = true;
     },
+    setExpertSys: (state, { payload }) => {
+      state.expertSys_status = true;
+      state.expertSys_url = payload;
+    },
   },
 });
 
 export default txsSlice.reducer;
-export const { setTxsFile } = txsSlice.actions;
+export const { setTxsFile, setExpertSys } = txsSlice.actions;
 
 export const txsSelector = (state) => state.txs;

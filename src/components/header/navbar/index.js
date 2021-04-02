@@ -1,6 +1,5 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
 import Extra from "./extra";
 import File from "./file";
 import Setup from "./setup";

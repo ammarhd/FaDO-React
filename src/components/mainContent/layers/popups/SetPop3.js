@@ -2,9 +2,17 @@ import React, { useState, useEffect } from "react";
 import "./popups.css";
 import Button from "@material-ui/core/Button";
 import Pop3 from "./Pop3";
-import { label_type } from "../functions/outputs/visualTxs3";
+
+import { useSelector, useDispatch } from "react-redux";
+import {
+  refreshSelector,
+  setRefreshStatus,
+} from "../../../../redux/slices/refreshSlice";
 
 function SetPopup3(props) {
+  const dispatch = useDispatch();
+  const { refreshStatus } = useSelector(refreshSelector);
+
   const [isOpen, setIsOpen] = useState(false);
   const [theId, setTheId] = useState();
   const [lButton, setLButton] = useState("default");
@@ -21,14 +29,16 @@ function SetPopup3(props) {
   };
 
   const autoLabel = () => {
-    if (lButton == "primary") {
-      setLButton((prevColor) => "default");
-      label_type(0);
-    } else {
-      setLButton((prevColor) => "primary");
-      label_type(1);
-    }
+    dispatch(setRefreshStatus());
   };
+
+  useEffect(() => {
+    if (refreshStatus) {
+      setLButton((prevColor) => "primary");
+    } else {
+      setLButton((prevColor) => "default");
+    }
+  }, [refreshStatus]);
 
   return (
     <div className="pop3_all">

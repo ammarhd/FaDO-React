@@ -1,4 +1,4 @@
-import { txsCount0, txsCount1, txsCount2, txsCount3 } from "./outputs";
+import { txsCount0, txsCount1, txsCount2, txsCount3 } from "../outputs";
 
 var l0c;
 const counter0 = () => {
@@ -107,30 +107,6 @@ const counter3 = () => {
       document.getElementById("tx3").innerHTML = layer3count;
     }
   }, 20000);
-};
-
-const cEfficiency = () => {
-  var count1 = 0;
-  var count11 = txsCount0 / 10;
-  setInterval(() => {
-    count1 = txsCount0 - count11;
-    count11 = txsCount0;
-    if (count1 > 140) {
-      var num = count1 / 10;
-      var num2 = num.toFixed(2);
-      var layer0count = ["Processed" + " " + num2 + " " + "TXs/sec"];
-    } else if (count1 > 10) {
-      num = count1 * 6;
-      num2 = num.toFixed(2);
-      layer0count = ["Processed" + " " + num2 + " " + "TXs/min"];
-    } else {
-      num = count1 * 36;
-      num2 = num.toFixed(2);
-      layer0count = ["Processed" + " " + num2 + " " + "TXs/hour"];
-    }
-    l0c = layer0count;
-    document.getElementById("tx0").innerHTML = layer0count;
-  }, 10000);
 };
 
 export { counter0, counter1, counter2, counter3, l0c };

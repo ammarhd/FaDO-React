@@ -41,42 +41,24 @@
 }
 
 #black {
-  color: black;
-}
-
-.popup-import {
-  background: rgb(47, 49, 63);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-  z-index: 10;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 400px;
-  max-width: 600px;
-  border-radius: 30px;
-  padding-bottom: 20px;
-  color: rgb(242, 241, 241);
+  color: rgb(16, 15, 15);
+  font-size: 16px;
 }
 
 .localFile {
-  color: white !important;
+  color: rgb(242, 242, 242) !important;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 
   margin: 10px auto;
 }
-.server-input {
-  width: 100%;
-}
 
 .server {
-  color: white !important;
+  color: rgb(223, 223, 225) !important;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  margin: 10px 0px;
 }
 
 .mainFrame {
@@ -110,15 +92,14 @@
 }
 
 .serverSet {
-  color: white !important;
+  color: rgb(223, 223, 225) !important;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  margin: 0px auto;
 }
 
 #button-color {
-  background: rgb(128, 130, 142);
+  background: rgb(47, 49, 63);
+  color: rgb(223, 223, 225) !important;
 }

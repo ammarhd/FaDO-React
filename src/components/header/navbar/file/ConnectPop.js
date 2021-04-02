@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
-import { setTxsFile, txsSelector } from "../../../../redux/slices/txsSlice";
-import { useSelector, useDispatch } from "react-redux";
+import "./file.css";
+import { setTxsFile } from "../../../../redux/slices/txsSlice";
+import { useDispatch } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
 //let
@@ -10,6 +11,9 @@ import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
+
+import IconButton from "@material-ui/core/IconButton";
+import CancelIcon from "@material-ui/icons/Cancel";
 
 import io from "socket.io-client";
 
@@ -77,7 +81,6 @@ function ConnectPop(props) {
     setExpanded(newExpanded ? panel : false);
   };
   ////
-  const [serverError, setServerError] = useState(false);
   const [helperText, setHelperText] = useState("");
   const [file2, setFile2] = useState();
 
@@ -99,7 +102,7 @@ function ConnectPop(props) {
       errorMassage();
       socket.close();
     });
-    console.log(serverError);
+
     socket.on("connect", () => {
       validServer(url);
       socket.close();
@@ -113,7 +116,7 @@ function ConnectPop(props) {
   const validServer = (url) => {
     setHelperText("");
     props.setServer(url);
-    console.log(url);
+    //console.log(url);
     props.setFetchStatus(true);
     props.closePopup();
   };
@@ -132,12 +135,7 @@ function ConnectPop(props) {
 
     props.setState((prevState) => ({ ...prevState, checkTx: true }));
 
-    //wholeCheck();
-
     props.closePopup();
-    //let files = e.target.files;
-    //let reader = new FileReader;
-    //
   };
 
   return (
@@ -148,6 +146,7 @@ function ConnectPop(props) {
             square
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
+            className="accordion_margin"
           >
             <AccordionSummary
               aria-controls="panel1d-content"
@@ -237,6 +236,15 @@ function ConnectPop(props) {
           </Accordion>
         </div>
       </div>
+
+      <IconButton
+        aria-label="delete"
+        className={classes.margin}
+        onClick={props.closePopup}
+        id="closss"
+      >
+        <CancelIcon fontSize="large" />
+      </IconButton>
     </div>
   );
 }
