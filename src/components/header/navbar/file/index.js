@@ -141,7 +141,7 @@ function File() {
         transports: ["websocket", "polling", "flashsocket"],
       });
       socket.on("connect_error", () => {
-        console.log("error");
+        //console.log("error");
         setFetchStatus(false);
         setFetchError(true);
         setServer("");
@@ -160,7 +160,7 @@ function File() {
           }
           if (lengthT < 5000) {
             socket.emit("messege");
-            console.log("emitiing");
+            //console.log("emitiing");
           }
         }, 1000);
 
@@ -170,7 +170,7 @@ function File() {
             once = true;
           }
           setResponse(data);
-          console.log(lengthT);
+          //console.log(lengthT);
         });
 
         socket.on("l3_txs", (l3Txs) => {

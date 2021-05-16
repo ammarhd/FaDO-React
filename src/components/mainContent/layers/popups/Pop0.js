@@ -56,7 +56,7 @@ function Pop0(props) {
     setGamma((prevCount) => gamma_final);
     document.getElementById("gNum").value = gamma_final;
 
-    console.log(Gamma);
+    //console.log(Gamma);
   };
   const gammaAdd = () => {
     setGammaValue(Gamma * 2);

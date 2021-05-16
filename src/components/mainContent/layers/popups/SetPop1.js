@@ -55,7 +55,7 @@ function SetPopup1(props) {
 
         socket.on("l3_txs", (l3Txs) => {
           update_l3txs_array(l3Txs);
-          console.log(l3Txs);
+          //console.log(l3Txs);
         });
       });
     }

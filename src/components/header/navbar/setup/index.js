@@ -59,7 +59,7 @@ function Setup() {
     }
 
     setAnchorEl(null);
-    console.log(theId);
+    //console.log(theId);
   };
 
   const togglePopup2 = () => {

@@ -47,6 +47,4 @@ export const export_config = async () => {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-
-  console.log(newObj);
 };

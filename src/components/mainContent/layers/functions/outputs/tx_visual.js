@@ -94,7 +94,7 @@ export const tx_visual = (transaction) => {
     single_feature[increment].appendChild(divs_visual2[i]);
 
     tx_visual_allParts.appendChild(single_feature[increment]);
-    console.log(increment);
+
     increment++;
   }
 

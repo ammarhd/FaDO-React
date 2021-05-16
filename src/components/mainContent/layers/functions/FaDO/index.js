@@ -128,7 +128,6 @@ export const fadoN = (normalVec) => {
   var vecMinusW = [];
   var v_t = [];
   var w_new = [];
-  console.log(w);
 
   for (let i = 0; i < y_vecN.length; i++) {
     vecMinusW.push(y_vecN[i] - w[i]);
@@ -191,7 +190,6 @@ export const fado = (transaction, vector) => {
     if (!status || expert_sys1_status) {
       //to send txs to the backend
       l1_txs(tx);
-      console.log("working");
       layer2count++;
       l2_output_demo();
 
@@ -216,11 +214,9 @@ export const fado = (transaction, vector) => {
 
 export const update_l3txs_array = (l3_txs) => {
   layer3tx = [...layer3tx, ...l3_txs];
-  console.log(layer3tx);
 };
 
 const l3_output_to_screen = () => {
-  console.log(layer3tx.length);
   var single_trx = layer3tx.shift();
   var l3tx_vec = tx2vec(single_trx);
   generateOutput3(single_trx, l3tx_vec);
